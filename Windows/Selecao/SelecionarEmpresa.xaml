@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EM3.Windows"
-        xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.Windows.SelecionarEmpresa"
+        xmlns:local="clr-namespace:EM3.Windows.Selecao"
+        xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.Windows.Selecao.SelecionarEmpresa"
         mc:Ignorable="d"
         Title="Empresas" Height="436.398" Width="886.259" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid>
@@ -20,8 +20,8 @@
                 <DataGridTextColumn Binding="{Binding Enderecos.Logradouro}" ClipboardContentBinding="{x:Null}" Header="Endereço resumido" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Components:ConfirmButton x:Name="btSelecionar" OnClick="Confirmar" SizeFont="14" Text="Selecionar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="96" Height="28"/>
-        <Components:NormalButton x:Name="btCancelar" OnClick="Fechar" SizeFont="14" Text="Cancelar" HorizontalAlignment="Right" Margin="0,0,110,10" VerticalAlignment="Bottom" Width="76" Height="28"/>
+        <Components:ConfirmButton x:Name="btSelecionar" OnClick="Confirmar" SizeFont="14" Text="Selecionar" HorizontalAlignment="Right" Margin="0,0,91,10" VerticalAlignment="Bottom" Width="96" Height="28"/>
+        <Components:NormalButton x:Name="btCancelar" OnClick="Fechar" SizeFont="14" Text="Cancelar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="76" Height="28"/>
 
     </Grid>
 </Window>

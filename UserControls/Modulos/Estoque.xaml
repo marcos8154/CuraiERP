@@ -10,7 +10,7 @@
         <TreeView x:Name="treeView" FontSize="18" Margin="0,32,0,0">
             <TreeViewItem Header="Cadastros">
                 <TreeViewItem x:Name="btUnidades" Header="Unidades" MouseDoubleClick="btUnidades_MouseDoubleClick" />
-                <TreeViewItem x:Name="btFornecedores" Header="Fornecedores" />
+                <TreeViewItem x:Name="btFornecedores" Header="Fornecedores" MouseDoubleClick="btFornecedores_MouseDoubleClick" />
                 <TreeViewItem x:Name="btArmazens" Header="Armazens" />
                 <TreeViewItem x:Name="btGrupos" Header="Grupos de produtos" />
                 <TreeViewItem x:Name="btCaracteristicas" Header="Características" />

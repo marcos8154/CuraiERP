@@ -12,8 +12,8 @@
 
         <DataGrid x:Name="dataGrid" Margin="10,101,10,10" MouseDoubleClick="dataGrid_MouseDoubleClick">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" Width="80" MinWidth="80" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Sigla" Width="200" MinWidth="200" Binding="{Binding Sigla}"/>
+                <DataGridTextColumn Header="Código" Width="Auto" MinWidth="80" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Sigla" Width="Auto" MinWidth="200" Binding="{Binding Sigla}"/>
                 <DataGridTextColumn Header="Descrição" Width="*" Binding="{Binding Descricao}" />
             </DataGrid.Columns>
         </DataGrid>

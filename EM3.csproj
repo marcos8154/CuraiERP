@@ -74,11 +74,21 @@
     </Compile>
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
+    <Compile Include="Controller\FornecedoresController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\UnidadesController.cs" />
     <Compile Include="Controller\UsuariosController.cs" />
     <Compile Include="Enums\StatusRetorno.cs" />
     <Compile Include="Interfaces\IModulo.cs" />
+    <Compile Include="UserControls\Estoque\Fornecedores\CFornecedores.xaml.cs">
+      <DependentUpon>CFornecedores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Fornecedores\FornecedoresContainer.xaml.cs">
+      <DependentUpon>FornecedoresContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Fornecedores\VFornecedores.xaml.cs">
+      <DependentUpon>VFornecedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Estoque\Unidades\CUnidades.xaml.cs">
       <DependentUpon>CUnidades.xaml</DependentUpon>
     </Compile>
@@ -164,8 +174,11 @@
     <Compile Include="Windows\Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SelecionarEmpresa.xaml.cs">
+    <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarUnidade.xaml.cs">
+      <DependentUpon>SelecionarUnidade.xaml</DependentUpon>
     </Compile>
     <Page Include="Components\Cabecalho.xaml">
       <SubType>Designer</SubType>
@@ -247,6 +260,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Estoque\Fornecedores\CFornecedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Fornecedores\FornecedoresContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Fornecedores\VFornecedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Estoque\Unidades\CUnidades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -279,7 +304,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\SelecionarEmpresa.xaml">
+    <Page Include="Windows\Selecao\SelecionarEmpresa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarUnidade.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

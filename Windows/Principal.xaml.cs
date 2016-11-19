@@ -1,5 +1,6 @@
 ﻿using EM3.Interfaces;
 using EM3.UserControls.Configuracoes;
+using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,11 @@ namespace EM3.Windows
                 return;
 
             tabControl.Items.Remove(tabControl.SelectedItem);
+        }
+
+        private void NormalButton_OnClick()
+        {
+            new SelecionarUnidade().ShowDialog();
         }
     }
 }

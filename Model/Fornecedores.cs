@@ -19,9 +19,7 @@ namespace EM3
         public int Loja_fornecedor { get; set; }
         public string Razao_social { get; set; }
         public string Nome_fantasia { get; set; }
-        public string Telefone1 { get; set; }
-        public string Inscr_municipal { get; set; }
-        public string Inscr_estadual { get; set; }
+        public string Telefone { get; set; }
         public string Fax { get; set; }
         public string Email { get; set; }
         public string Observacoes { get; set; }
@@ -33,5 +31,9 @@ namespace EM3
         public int Endereco_id { get; set; }
         public int Documento_id { get; set; }
         public int Banco_id { get; set; }
+        public string Data_cadastro { get; set; }
+        public Documentos Documentos { get; set; }
+        public Enderecos Enderecos { get; set; }
+
     }
 }

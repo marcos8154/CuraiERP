@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EM3.Windows
+namespace EM3.Windows.Selecao
 {
     /// <summary>
     /// Lógica interna para SelecionarEmpresa.xaml

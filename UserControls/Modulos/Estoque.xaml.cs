@@ -1,4 +1,5 @@
 ﻿using EM3.Interfaces;
+using EM3.UserControls.Estoque.FornecedoresModulo;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.Util;
 using EM3.Windows;
@@ -47,6 +48,12 @@ namespace EM3.UserControls.Modulos
         {
             UnidadesContainer uc = new UnidadesContainer();
             Navigation.AddTabItem(principal.tabControl, uc, "Unidades");
+        }
+
+        private void btFornecedores_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            FornecedoresContainer fc = new FornecedoresContainer();
+            Navigation.AddTabItem(principal.tabControl, fc, "Fornecedores");
         }
     }
 }

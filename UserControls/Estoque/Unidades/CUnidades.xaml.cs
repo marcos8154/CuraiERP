@@ -37,6 +37,8 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
             txCod.Text = Unidade.Id.ToString();
             txSigla.Text = Unidade.Sigla;
             txDescricao.Text = Unidade.Descricao;
+
+            cabecalho.Title = "Alterar unidade (" + Unidade.Descricao + ")";
         }
 
         private void btSalvarEContinuar_OnClick()
