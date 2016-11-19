@@ -1,0 +1,30 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EM3.Windows"
+        xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.Windows.Login"
+        mc:Ignorable="d"
+        Title="Autenticação" Height="600" Width="1023" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="White" HorizontalAlignment="Right" Width="1015">
+        <Border BorderBrush="Gray" Background="White" BorderThickness="3" Margin="585,74,72,0" Height="424" VerticalAlignment="Top">
+            <Grid Margin="17,22,16,16" Background="White">
+                <Label Content="Seja bem-vindo" Foreground="#FF726C6C" Margin="0,0,0,340" FontSize="20"/>
+
+
+                <Components:Input x:Name="txUsuario" KeyDown="txUsuario_KeyDown" Title="Usuário" Margin="0,124,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+                <Components:Input x:Name="txSenha" Title="Senha" Margin="0,189,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+                <Components:SearchBox  CallSearch="buscarEmpresa" x:Name="txCod_empresa" Title="Empresa" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="60" Width="94"/>
+                <Components:SimpleInput x:Name="txNomeEmpresa" Enabled="False" Margin="0,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.484,0.393" Height="33" HorizontalAlignment="Right" Width="222"/>
+                <Components:NormalButton SizeFont="14" x:Name="btEncerrar" OnClick="btSair_click" Text="Encerrar" HorizontalAlignment="Left" Margin="51,0,0,10" VerticalAlignment="Bottom" Width="123" RenderTransformOrigin="0.481,0.406" Height="36"/>
+                <Components:ConfirmButton SizeFont="14" x:Name="btLogin" Text="Login" OnClick="btLogin_click" HorizontalAlignment="Right" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="137" Height="36"/>
+                <Components:DatePicker x:Name="txData" Title="Data base" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Height="60" Width="174"/>
+                <Label x:Name="label" Content="Esqueceu a senha?" HorizontalAlignment="Right" Margin="0,249,0,0" VerticalAlignment="Top" Width="120" Foreground="#FF086DFF" Cursor="Hand" FontSize="13.333"/>
+
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

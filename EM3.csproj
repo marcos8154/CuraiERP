@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CBF6B33-8D06-442A-9CD3-BA6760801AD7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EM3</RootNamespace>
+    <AssemblyName>Curai</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\..\..\OneDrive\Doware\Projetos\ERP\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Components\Cabecalho.xaml.cs">
+      <DependentUpon>Cabecalho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MaskedInput.xaml.cs">
+      <DependentUpon>MaskedInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SimpleInput.xaml.cs">
+      <DependentUpon>SimpleInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\EmpresasController.cs" />
+    <Compile Include="Controller\EntityLoader.cs" />
+    <Compile Include="Controller\OperationResult.cs" />
+    <Compile Include="Controller\UnidadesController.cs" />
+    <Compile Include="Controller\UsuariosController.cs" />
+    <Compile Include="Enums\StatusRetorno.cs" />
+    <Compile Include="Interfaces\IModulo.cs" />
+    <Compile Include="UserControls\Estoque\Unidades\CUnidades.xaml.cs">
+      <DependentUpon>CUnidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Unidades\UnidadesContainer.xaml.cs">
+      <DependentUpon>UnidadesContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Unidades\VUnidades.xaml.cs">
+      <DependentUpon>VUnidades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Modulos\Estoque.xaml.cs">
+      <DependentUpon>Estoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Conversors.cs" />
+    <Compile Include="Util\DataGridExtensions.cs" />
+    <Compile Include="Model\Armazens.cs" />
+    <Compile Include="Model\Bancos.cs" />
+    <Compile Include="Model\Caixas.cs" />
+    <Compile Include="Model\Caracteristicas.cs" />
+    <Compile Include="Model\Cargos.cs" />
+    <Compile Include="Model\Cest.cs" />
+    <Compile Include="Model\Cfop.cs" />
+    <Compile Include="Model\Classes_imposto.cs" />
+    <Compile Include="Model\Clientes.cs" />
+    <Compile Include="Model\Contas_bancarias.cs" />
+    <Compile Include="Model\Contatos_fornecedores.cs" />
+    <Compile Include="Model\Documentos.cs" />
+    <Compile Include="Model\Empresa.cs" />
+    <Compile Include="Model\Enderecos.cs" />
+    <Compile Include="Model\Estoque.cs" />
+    <Compile Include="Model\Familias_produtos.cs" />
+    <Compile Include="Model\Formas_pagamento.cs" />
+    <Compile Include="Model\Fornecedores.cs" />
+    <Compile Include="Model\Fotos.cs" />
+    <Compile Include="Model\Funcionarios.cs" />
+    <Compile Include="Model\Grupos_clientes.cs" />
+    <Compile Include="Model\Grupos_produtos.cs" />
+    <Compile Include="Model\Icms_ufs.cs" />
+    <Compile Include="Model\Intervalos_turnos.cs" />
+    <Compile Include="Model\Itens_movimento.cs" />
+    <Compile Include="Model\Locais_estoque.cs" />
+    <Compile Include="Model\Lotes.cs" />
+    <Compile Include="Model\Lotes_produtos.cs" />
+    <Compile Include="Model\Movimentos.cs" />
+    <Compile Include="Model\Movimento_nfs.cs" />
+    <Compile Include="Model\Operacoes_classe_imposto.cs" />
+    <Compile Include="Model\Operadoras_cartao.cs" />
+    <Compile Include="Model\Parcelas.cs" />
+    <Compile Include="Model\Permissoes.cs" />
+    <Compile Include="Model\Plano_contas.cs" />
+    <Compile Include="Model\Precos.cs" />
+    <Compile Include="Model\Produtos.cs" />
+    <Compile Include="Model\Produtos_caractetisticas.cs" />
+    <Compile Include="Model\Produtos_clientes.cs" />
+    <Compile Include="Model\Produtos_fornecedores.cs" />
+    <Compile Include="Model\Produtos_locais.cs" />
+    <Compile Include="Model\Produtos_precos.cs" />
+    <Compile Include="Model\Servicos.cs" />
+    <Compile Include="Model\Telas.cs" />
+    <Compile Include="Model\Tipos_movimento.cs" />
+    <Compile Include="Model\Transportadoras.cs" />
+    <Compile Include="Model\Turnos.cs" />
+    <Compile Include="Model\Unidades.cs" />
+    <Compile Include="Model\Usuarios.cs" />
+    <Compile Include="UserControls\Configuracoes\Empresas\CEmpresas.xaml.cs">
+      <DependentUpon>CEmpresas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\Empresas\EmpresasContainer.xaml.cs">
+      <DependentUpon>EmpresasContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\Empresas\VEmpresas.xaml.cs">
+      <DependentUpon>VEmpresas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Navigation.cs" />
+    <Compile Include="Windows\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MsgAlerta.xaml.cs">
+      <DependentUpon>MsgAlerta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MsgSimNao.xaml.cs">
+      <DependentUpon>MsgSimNao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Principal.xaml.cs">
+      <DependentUpon>Principal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SelecionarEmpresa.xaml.cs">
+      <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Components\Cabecalho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ConfirmButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Input.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\MaskedInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\NormalButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\SearchBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\SimpleInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\ComboBox.xaml.cs">
+      <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ConfirmButton.xaml.cs">
+      <DependentUpon>ConfirmButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DatePicker.xaml.cs">
+      <DependentUpon>DatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Input.xaml.cs">
+      <DependentUpon>Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\NormalButton.xaml.cs">
+      <DependentUpon>NormalButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SearchBox.xaml.cs">
+      <DependentUpon>SearchBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Configuration.cs" />
+    <Compile Include="Controller\RequestHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\Configuracoes\Empresas\CEmpresas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\Empresas\EmpresasContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\Empresas\VEmpresas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Unidades\CUnidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Unidades\UnidadesContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Unidades\VUnidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Modulos\Estoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MsgAlerta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MsgSimNao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Principal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SelecionarEmpresa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\Faturamento\" />
+    <Folder Include="UserControls\Financeiro\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\doware.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancel.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="EM3.Components.Cabecalho"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EM3.Components"
+             mc:Ignorable="d" d:DesignWidth="1016" Background="#FFE4EEF7" Height="35">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                <GradientStop Color="#FFF9F7F7" Offset="0"/>
+                <GradientStop Color="#FFCFD2D8" Offset="0.567"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="lbTitulo" Content="Título da rotina" HorizontalAlignment="Left" Margin="3,1,0,1" Foreground="#FF383640" FontSize="18" Width="735" FontFamily="Yu Gothic UI" FontWeight="Bold"/>
+
+    </Grid>
+</UserControl>

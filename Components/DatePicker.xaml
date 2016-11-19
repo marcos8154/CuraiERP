@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="EM3.Components.DatePicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EM3.Components"
+             
+             mc:Ignorable="d" Height="60.068" Width="174.351">
+    <Grid>
+        <Border Padding="5" CornerRadius="2.5" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White" Margin="0,27,0,0">
+            <DatePicker FontSize="15" Name="txDate" Background="Transparent" BorderThickness="0" Margin="0,-4,-1,-4" Padding="0,4,0,0" Text=""/>
+        </Border>
+        <Label x:Name="lbTitle" Content="Label" VerticalAlignment="Top" Foreground="#FF646363" FontSize="13.333" Margin="-3,0,3,0"/>
+    </Grid>
+</UserControl>
