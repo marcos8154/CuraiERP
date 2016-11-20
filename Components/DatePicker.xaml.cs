@@ -20,6 +20,18 @@ namespace EM3.Components
     public partial class DatePicker : UserControl
     {
 
+        public int Index
+        {
+            get
+            {
+                return txDate.TabIndex;
+            }
+            set
+            {
+                txDate.TabIndex = value;
+            }
+        }
+
         public bool Enabled
         {
             get

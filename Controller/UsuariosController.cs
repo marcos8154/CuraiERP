@@ -25,10 +25,10 @@ namespace EM3.Controller
             if (rh.Result.status == (int)StatusRetorno.OPERACAO_OK)
             {
                 UsuarioAtual = EntityLoader<Usuarios>.Load(rh.Result) ?? new Usuarios();
-
+               
                 DataBase = data;
                 Empresa = empresa;
-                return true;
+                return LicenceController.Autorize(UsuarioAtual.Id);
             }
             else
             {
@@ -37,6 +37,11 @@ namespace EM3.Controller
                 new MsgAlerta(rh.Result.message);
             }
             return false;
+        }
+
+        public static Usuarios Find(int id)
+        {
+            return UsuarioAtual;
         }
 
         public static void Salvar(Usuarios usuario)

@@ -51,6 +51,18 @@ namespace EM3.Components
             }
         }
 
+        public CharacterCasing CharacterCasing
+        {
+            get
+            {
+                return txInput.CharacterCasing;
+            }
+            set
+            {
+                txInput.CharacterCasing = value;
+            }
+        }
+
         public int MaxLength
         {
             get
@@ -115,8 +127,6 @@ namespace EM3.Components
         {
             set
             {
-                if (value)
-                    txInput.HorizontalContentAlignment = HorizontalAlignment.Right;
                 isNumeric = value;
             }
             get

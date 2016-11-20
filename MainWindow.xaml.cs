@@ -50,6 +50,11 @@ namespace EM3
         {
             try
             {
+                if (!LicenceController.Connect())
+                {
+                    MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Servidor de licenças não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Environment.Exit(0);
+                }
                 Configuration.application = txApp.Text;
                 Configuration.server = txServidor.Text;
                 Configuration.port = int.Parse(txPorta.Text);

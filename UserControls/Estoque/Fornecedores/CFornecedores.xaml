@@ -4,12 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EM3.UserControls.Estoque.FornecedoresModulo"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoque.FornecedoresModulo.CFornecedores"
+             xmlns:Components="clr-namespace:EM3.Components" xmlns:Configuracoes="clr-namespace:EM3.UserControls.Configuracoes" x:Class="EM3.UserControls.Estoque.FornecedoresModulo.CFornecedores"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024" Background="White">
     <Grid>
 
         <Components:Cabecalho x:Name="txTitulo" Title="Novo fornecedor" VerticalAlignment="Top"/>
+        <Components:NormalButton x:Name="btCancelar" OnClick="btCancelar_OnClick" Text="Cancelar" FontSize="13" Margin="0,40,205,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="84" Height="38"/>
+        <Components:ConfirmButton Text="Salvar" x:Name="btSalvar" OnClick="btSalvar_OnClick" FontSize="13" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Height="38"/>
+        <Components:NormalButton  FontSize="13" OnClick="btSalvarEContinuar_OnClick" x:Name="btSalvarEContinuar" Text="Savar e continuar" HorizontalAlignment="Right" Margin="0,40,75,0" VerticalAlignment="Top" Height="38"/>
 
+        <!--  Inputs Formulario  -->
+        <Components:Input Index="0" Title="Código" x:Name="txCod" Enabled="False" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="72"/>
+        <Components:Input Index="1" Title="Loja" IsNumeric="True" MaxLength="3" HorizontalAlignment="Left" Margin="87,83,0,0" VerticalAlignment="Top" Height="56" Width="47"/>
+        <Components:Input Index="2" x:Name="txNome_fantasia" Title="Nome fantasia" Required="True" MaxLength="100" HorizontalAlignment="Left" Margin="139,83,0,0" VerticalAlignment="Top" Height="56" Width="202"/>
+        <Components:Input Index="3" Title="Razão social"  x:Name="txRazao_social" Required="True" Margin="346,83,421,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
+        <Components:MaskedInput Index="4" x:Name="txTelefone" Title="Telefone" Mask="(00) 0000-0000" HorizontalAlignment="Right" Margin="0,83,287,0" VerticalAlignment="Top" Height="56" Width="127"/>
+        <Components:Input Index="5" Title="Fax" IsNumeric="True" MaxLength="10" x:Name="txFax" HorizontalAlignment="Right" Margin="0,83,135,0" VerticalAlignment="Top" Height="56" Width="147"/>
+        <Components:ComboBox Index="6" x:Name="cbTipo_pessoa" Title="Tipo pessoa" Items="Jurídica;Física;" Required="True"  HorizontalAlignment="Right" Margin="0,83,10,0" VerticalAlignment="Top" Height="56" Width="120"/>
+        <Components:Input Index="7" Title="Email"  x:Name="txEmail" MaxLength="100" Margin="10,144,0,0" VerticalAlignment="Top" Height="56" Width="331" HorizontalAlignment="Left"/>
+        <Components:Input Index="8" Title="Website" MaxLength="100"  x:Name="txWebsite"  Margin="346,144,314,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
+        <Components:ComboBox Index="9" x:Name="cbAtivo" Title="Ativo" Items="SIM;NÃO;" Required="True"  HorizontalAlignment="Right" Margin="0,144,189,0" VerticalAlignment="Top" Height="56" Width="120"/>
+        <Components:DatePicker Index="10" Title="Última compra"  HorizontalAlignment="Right" Margin="0,144,10,0" VerticalAlignment="Top" Height="55" Width="174"/>
+        <Components:MaskedInput Index="11" x:Name="txCEP" Title="CEP" Mask="00,000-000" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Height="56" Width="116"/>
+        <Components:Input Index="12" Title="Logradouro" Required="True"  x:Name="txLogradouro" MaxLength="100"  Margin="131,205,0,0" VerticalAlignment="Top" Height="56" Width="331" HorizontalAlignment="Left"/>
+        <Components:Input Index="13" Title="Bairro" Required="True"  x:Name="txBairro" MaxLength="100"  Margin="467,205,0,0" VerticalAlignment="Top" Height="56" Width="243" HorizontalAlignment="Left"/>
+        <Components:Input Index="14" Title="Número" IsNumeric="True" MaxLength="5" HorizontalAlignment="Left" Margin="715,205,0,0" VerticalAlignment="Top" Height="56" Width="73"/>
+        <Components:Input Index="15" Title="UF" CharacterCasing="Upper"  Required="True" MaxLength="2" HorizontalAlignment="Left" Margin="793,205,0,0" VerticalAlignment="Top" Height="56" Width="73"/>
+        <Components:Input Index="16" Title="Complemento"  x:Name="txComplemento" MaxLength="100"  Margin="10,266,660,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
+        <Components:MaskedInput Index="17" x:Name="txCNPJ" Title="CNPJ" Mask="00,000,000/0000-00" HorizontalAlignment="Right" Margin="0,266,491,0" VerticalAlignment="Top" Height="56" Width="164"/>
+        <Components:MaskedInput Index="18" x:Name="txCPF" Title="CPF"  Mask="000,000,000-00" HorizontalAlignment="Right" Margin="0,266,322,0" VerticalAlignment="Top" Height="56" Width="164"/>
+        <Components:Input Index="19" Title="Inscr. Estadual" IsNumeric="True" MaxLength="18" HorizontalAlignment="Right" Margin="0,266,166,0" VerticalAlignment="Top" Height="56" Width="151"/>
+        <Components:Input Index="20" Title="Inscr. Municipal" IsNumeric="True" MaxLength="18" HorizontalAlignment="Right" Margin="0,266,10,0" VerticalAlignment="Top" Height="56" Width="151"/>
+
+        <DataGrid x:Name="dataGrid" Margin="10,362,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="80" Header="Filial" Binding="{Binding Filial, Mode=TwoWay}"/>
+                <DataGridTextColumn MinWidth="300" Header="Pessoa contato" Binding="{Binding Pessoa_contato, Mode=TwoWay}"/>
+                <DataGridTextColumn MinWidth="140" Header="Telefone" Binding="{Binding Telefone, Mode=TwoWay}"/>
+                <DataGridTextColumn MinWidth="200" Header="Email" Binding="{Binding Email, Mode=TwoWay}"/>
+                <DataGridTextColumn MinWidth="200" Header="Setor" Binding="{Binding Setor, Mode=TwoWay}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label" Content="Contatos do fornecedor" FontSize="15" Foreground="#FF515151" HorizontalAlignment="Left" Margin="8,332,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

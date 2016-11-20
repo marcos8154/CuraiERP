@@ -76,32 +76,32 @@ namespace EM3.Components
         public ConfirmButton()
         {
             InitializeComponent();
-            pressed.Visibility = Visibility.Hidden;
-            normal.Visibility = Visibility.Visible;
+            pressed.Visibility = Visibility.Visible;
+            normal.Visibility = Visibility.Hidden;
         }
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
-            pressed.Visibility = Visibility.Visible;
-            normal.Visibility = Visibility.Hidden;
+            pressed.Visibility = Visibility.Hidden;
+            normal.Visibility = Visibility.Visible;
         }
 
         private void UserControl_MouseLeave(object sender, MouseEventArgs e)
         {
-            pressed.Visibility = Visibility.Hidden;
-            normal.Visibility = Visibility.Visible;
+            pressed.Visibility = Visibility.Visible;
+            normal.Visibility = Visibility.Hidden;
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            pressed.Visibility = Visibility.Hidden;
-            normal.Visibility = Visibility.Visible;
+            pressed.Visibility = Visibility.Visible;
+            normal.Visibility = Visibility.Hidden;
         }
 
         private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            pressed.Visibility = Visibility.Visible;
-            normal.Visibility = Visibility.Hidden;
+            pressed.Visibility = Visibility.Hidden;
+            normal.Visibility = Visibility.Visible;
 
             if (OnClick != null) OnClick();
         }

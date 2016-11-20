@@ -10,24 +10,9 @@
 
     <Grid>
 
-        <Border Name="normal" BorderBrush="Gray" CornerRadius="2" BorderThickness="1">
-
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="#FFEAE2E2" Offset="0.567"/>
-                </LinearGradientBrush>
-            </Border.Background>
-            <Grid>
-                <Viewbox StretchDirection="DownOnly" Stretch="Uniform">
-                    <Label x:Name="lbTextNormal"  Margin="7,4" HorizontalContentAlignment="Center" Content="Button" Padding="5,2,5,0" Height="22"/>
-                </Viewbox>
-            </Grid>
-        </Border>
 
 
-
-        <Border Name="pressed" BorderBrush="Gray" CornerRadius="2" BorderThickness="1">
+        <Border Name="pressed" BorderBrush="Gray" CornerRadius="2.5" BorderThickness="1">
 
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
@@ -38,6 +23,20 @@
             <Grid>
                 <Viewbox StretchDirection="DownOnly" Stretch="Uniform">
                     <Label x:Name="lbTextPressed" Margin="7,4" HorizontalContentAlignment="Center" Content="Button" Padding="5,2,5,0" Height="22"/>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <Border x:Name="normal" BorderBrush="Gray" CornerRadius="2.5" BorderThickness="1">
+
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFEAE2E2" Offset="0.567"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Viewbox StretchDirection="DownOnly" Stretch="Uniform">
+                    <Label x:Name="lbTextNormal"  Margin="7,4" HorizontalContentAlignment="Center" Content="Button" Padding="5,2,5,0" Height="22"/>
                 </Viewbox>
             </Grid>
         </Border>

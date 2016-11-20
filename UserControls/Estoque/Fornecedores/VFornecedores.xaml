@@ -10,7 +10,7 @@
     <Grid>
         <Components:Cabecalho x:Name="cabecalho" Title="Fornecedores" VerticalAlignment="Top" />
         <Components:SearchBox CallSearch="txPesquisa_CallSearch" x:Name="txPesquisa"  Title="Pesquisar" IsNumeric="False" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="56" Width="266"/>
-        <Components:ConfirmButton x:Name="btNovo" Text="Novo"  HorizontalAlignment="Right" Margin="0,58,10,0" VerticalAlignment="Top" Width="68"/>
+        <Components:ConfirmButton OnClick="btNovo_OnClick" x:Name="btNovo" Text="Novo"  HorizontalAlignment="Right" Margin="0,58,10,0" VerticalAlignment="Top" Width="68"/>
         <Components:NormalButton x:Name="btAlterar" Text="Alterar" HorizontalAlignment="Right" Margin="0,58,83,0" VerticalAlignment="Top" Width="82"/>
         <Components:NormalButton x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,58,170,0" VerticalAlignment="Top" Width="84"/>
 

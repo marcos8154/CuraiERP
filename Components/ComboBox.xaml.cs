@@ -43,6 +43,15 @@ namespace EM3.Components
             }
         }
 
+        public bool Required
+        {
+            set
+            {
+                if (value)
+                    lbTitle.Content += " * ";
+            }
+        }
+
         public ComboBox()
         {
             InitializeComponent();

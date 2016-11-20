@@ -22,6 +22,7 @@ namespace EM3.UserControls.Estoque.FornecedoresModulo
     public partial class VFornecedores : UserControl
     {
         public FornecedoresContainer Container { get; private set; }
+        CFornecedores cadastro;
 
         public VFornecedores(FornecedoresContainer fc)
         {
@@ -44,6 +45,22 @@ namespace EM3.UserControls.Estoque.FornecedoresModulo
 
         private void txPesquisa_CallSearch()
         {
+            Pesquisar();
+        }
+
+        private void btNovo_OnClick()
+        {
+            cadastro = new CFornecedores();
+
+            Container.GridContainer.Children.Remove(this);
+            Container.GridContainer.Children.Add(cadastro);
+            cadastro.OnComplete += Cadastro_OnComplete;
+        }
+
+        private void Cadastro_OnComplete()
+        {
+            Container.GridContainer.Children.Remove(cadastro);
+            Container.GridContainer.Children.Add(this);
             Pesquisar();
         }
     }
