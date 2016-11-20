@@ -76,7 +76,7 @@ namespace EM3.UserControls.Estoque.FornecedoresModulo
 
                 if(cf.Setor.Length > 50)
                 {
-                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\Setor não pode possuir mais de 50 caracteres");
+                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nSetor não pode possuir mais de 50 caracteres");
                     return false;
                 }
             }
