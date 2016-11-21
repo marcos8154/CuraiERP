@@ -8,22 +8,21 @@
 
     x:Class="EM3.MainWindow"
         mc:Ignorable="d"
-        Title="NetLauncher | Application Connector  1.2.1511" Height="323.391" Width="259.729" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="NetLauncher | Application Connector  1.2.1511" Height="288.058" Width="315.229" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
 
     <Grid Margin="0,0,2,-1">
-        <Image x:Name="image" HorizontalAlignment="Right" Width="105" Source="Images/doware.png" Stretch="Fill" Height="45" VerticalAlignment="Top">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="Images/doware.png"/>
-            </Image.OpacityMask>
-        </Image>
-        <Label x:Name="label" Content="Servidor&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="28"/>
-        <TextBox x:Name="txServidor" Height="23" Margin="10,70,10,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Porta&#xA;" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Height="28"/>
-        <TextBox MaxLength="6" x:Name="txPorta" Height="23" Margin="10,129,10,0" TextWrapping="Wrap" Text="8080" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="Aplicação principal&#xA;" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Height="28"/>
-        <TextBox x:Name="txApp" Height="23" Margin="10,189,10,0" TextWrapping="Wrap" Text="em3" VerticalAlignment="Top"/>
-        <Button x:Name="btConectar" Content="Conectar" HorizontalAlignment="Right" Margin="0,244,12,0" VerticalAlignment="Top" Width="75" Height="28" Click="btConectar_Click"/>
-        <Button x:Name="btEncerrar" Content="Encerrar" HorizontalAlignment="Right" Margin="0,244,92,0" VerticalAlignment="Top" Width="75" Height="28" Click="btEncerrar_Click"/>
+        <Label x:Name="label" Content="Servidor&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Height="28"/>
+        <TextBox x:Name="txServidor" Height="23" Margin="10,42,10,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Porta&#xA;" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Height="28"/>
+        <TextBox MaxLength="6" x:Name="txPorta" Height="23" Margin="10,101,10,0" TextWrapping="Wrap" Text="8080" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="Aplicação principal&#xA;" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Height="28"/>
+        <TextBox x:Name="txApp" Height="23" Margin="10,161,10,0" TextWrapping="Wrap" Text="em3" VerticalAlignment="Top"/>
+        <Button x:Name="btConectar" Content="Conectar" HorizontalAlignment="Right" Margin="0,213,12,0" VerticalAlignment="Top" Width="75" Height="28" Click="btConectar_Click"/>
+        <Button x:Name="btEncerrar" Content="Encerrar" HorizontalAlignment="Right" Margin="0,213,92,0" VerticalAlignment="Top" Width="75" Height="28" Click="btEncerrar_Click"/>
+        <Label x:Name="label1" Content="Do" FontSize="24" HorizontalAlignment="Right" Margin="0,190,239,0" VerticalAlignment="Top" Foreground="#FF0D6CF5" FontFamily="Yu Gothic UI" FontWeight="Bold"/>
+        <Label x:Name="label1_Copy" Content="Ware" FontSize="24" HorizontalAlignment="Right" Margin="0,190,182,0" VerticalAlignment="Top" Foreground="#FFF5B60D" FontFamily="Yu Gothic UI" Width="67" FontWeight="Bold" RenderTransformOrigin="0.474,0.5"/>
+        <Label x:Name="label2" Content="NetLauncher" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top" Width="98" Foreground="#FF6E6E6E" FontSize="14.667"/>
+        <Grid HorizontalAlignment="Right" Height="1" Margin="0,225,177,0" VerticalAlignment="Top" Width="112" Background="#FF727272"/>
     </Grid>
 </Window>
