@@ -4,15 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EM3.UserControls.Estoque.FornecedoresModulo"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoque.FornecedoresModulo.VFornecedores"
+             xmlns:Components="clr-namespace:EM3.Components"
+             xmlns:dateConverter="clr-namespace:EM3.Util"
+             x:Class="EM3.UserControls.Estoque.FornecedoresModulo.VFornecedores"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024" Background="White" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <dateConverter:DateConverter x:Key="DateConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Components:Cabecalho x:Name="cabecalho" Title="Fornecedores" VerticalAlignment="Top" />
         <Components:SearchBox CallSearch="txPesquisa_CallSearch" x:Name="txPesquisa"  Title="Pesquisar" IsNumeric="False" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Height="56" Width="266"/>
-        <Components:ConfirmButton OnClick="btNovo_OnClick" x:Name="btNovo" Text="Novo"  HorizontalAlignment="Right" Margin="0,58,10,0" VerticalAlignment="Top" Width="68"/>
-        <Components:NormalButton x:Name="btAlterar" Text="Alterar" HorizontalAlignment="Right" Margin="0,58,83,0" VerticalAlignment="Top" Width="82"/>
-        <Components:NormalButton x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,58,170,0" VerticalAlignment="Top" Width="84"/>
+        <Components:ConfirmButton OnClick="btNovo_OnClick" x:Name="btNovo" Text="Novo"  HorizontalAlignment="Right" Margin="0,58,10,0" VerticalAlignment="Top" Width="68" SizeFont="13"/>
+        <Components:NormalButton x:Name="btAlterar" Text="Alterar" HorizontalAlignment="Right" Margin="0,58,83,0" VerticalAlignment="Top" Width="82" SizeFont="13"/>
+        <Components:NormalButton x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,58,170,0" VerticalAlignment="Top" Width="84" SizeFont="13"/>
 
         <DataGrid x:Name="dataGrid" Margin="10,96,10,10">
             <DataGrid.Columns>
@@ -27,7 +32,7 @@
                 <DataGridTextColumn Header="Email" MinWidth="90" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Fax" MinWidth="90" Binding="{Binding Fax}"/>
                 <DataGridTextColumn Header="Website" MinWidth="200" Binding="{Binding Website}"/>
-                <DataGridTextColumn Header="Data de cadastro" MinWidth="120" Binding="{Binding Data_cadastro}"/>
+                <DataGridTextColumn Header="Data de cadastro" MinWidth="120" Binding="{Binding Data_cadastro, Converter={StaticResource DateConverter}}"/>
             </DataGrid.Columns>
         </DataGrid>
 

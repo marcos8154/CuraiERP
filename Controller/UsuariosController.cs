@@ -44,6 +44,20 @@ namespace EM3.Controller
             return UsuarioAtual;
         }
 
+        public static bool ValidaPermissao(string tela_id, TipoPermissao permissao)
+        {
+            if (UsuarioAtual.Admin) return true;
+
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("tela", tela_id);
+            rh.AddParameter("usuario", UsuarioAtual.Id);
+            rh.AddParameter("tipo_permissao", (int)permissao);
+            rh.Send("usr-validperm");
+
+            int i = EntityLoader<int>.Load(rh.Result);
+            return (i == 1);
+        }
+
         public static void Salvar(Usuarios usuario)
         {
             RequestHelper rh = new RequestHelper();
@@ -51,8 +65,6 @@ namespace EM3.Controller
             rh.AddParameter("senha", usuario.Senha);
             rh.AddParameter("admin", usuario.Admin.ToString());
             rh.AddParameter("ativo", usuario.Ativo.ToString());
-
-
         }
     }
 }

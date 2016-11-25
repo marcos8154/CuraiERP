@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Principal" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
     <Grid>
-        <TabControl x:Name="tabControl" Margin="10">
+        <TabControl x:Name="tabControl" Margin="10,32,10,10">
 
 
             <TabControl.Resources>
@@ -69,6 +69,107 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
+        <Menu x:Name="menu"  FontSize="18"  Height="27" VerticalAlignment="Top">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECEAEA"/>
+                    <GradientStop Color="#FFCBC9C9" Offset="0.573"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem Header="Estoque">
+                <MenuItem Header="Atualizações">
+                    <MenuItem Header="Unidades" />
+                    <MenuItem Header="Características" />
+                    <MenuItem Header="Armazéns" />
+                    <MenuItem Header="Locais de estoque" />
+                    <MenuItem Header="Grupos de produtos" />
+                    <MenuItem Header="Produtos" />
+                    <MenuItem Header="Kit de produtos" />
+                    <MenuItem Header="Produtos x Características"/>
+                    <MenuItem Header="Produtos x Locais de estoque"/>
+                </MenuItem>
+
+                <MenuItem Header="Consultas"/>
+
+                <MenuItem Header="Movimentos">
+                    <MenuItem Header="Devolução para fornecedor"/>
+                    <MenuItem Header="Transferência de endereço" />
+                    <MenuItem Header="Saída para revendedor" />
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Compras">
+                <MenuItem Header="Atualizações">
+                    <MenuItem Header="Solicitação de compra"/>
+                    <MenuItem Header="Pedidos de compra"/>
+                    <MenuItem Header="Fornecedores"/>
+                    <MenuItem Header="Produtos x Fornecedor" />
+                    <MenuItem Header="Grupos de produtos x Fornecedor" />
+                </MenuItem>
+
+                <MenuItem Header="Movimentos">
+                    <MenuItem Header="Documento de entrada"/>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Financeiro">
+                <MenuItem Header="Atualizações">
+                    <MenuItem Header="Tipos de movimento" />
+                    <MenuItem Header="Classes de imposto" />
+                    <MenuItem Header="Formas de pagamento" />
+                    <MenuItem Header="Operadoras de cartão" />
+                    <MenuItem Header="Bancos" />
+                    <MenuItem Header="Contas bancárias" />
+                    <MenuItem Header="Caixas" />
+                    <MenuItem Header="Planos de conta" />
+                    <MenuItem Header="Vendedores" />
+                    <MenuItem Header="Tabelas de preço" />
+                </MenuItem>
+
+                <MenuItem Header="Consultas">
+
+                </MenuItem>
+
+                <MenuItem Header="Relatórios">
+
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Faturamento">
+                <MenuItem Header="Lançamento de movimentos (Genérico)"/>
+                <MenuItem Header="Pedidos de venda" />
+                <MenuItem Header="Venda rápida" />
+                <MenuItem Header="Contas a pagar" />
+                <MenuItem Header="Contas a receber" />
+
+                <MenuItem Header="Documento de saída">
+                    <MenuItem Header="Boleto"/>
+                    <MenuItem Header="NF-e"/>
+                    <MenuItem Header="NFC-e"/>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="RH">
+                <MenuItem Header="Atualizações">
+                    <MenuItem Header="Funcionários"/>
+                    <MenuItem Header="Cargos"/>
+                    <MenuItem Header="Turnos"/>
+                    <MenuItem Header="Benefícios"/>
+                    <MenuItem Header="Funcionários x Cargos"/>
+                    <MenuItem Header="Funcionários x Turnos"/>
+                    <MenuItem Header="Funcionários x Benefícios"/>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Miscelânea">
+                <MenuItem Header="Atualizações">
+                    <MenuItem Header="Empresa"/>
+                    <MenuItem Header="Usuários" x:Name="btUsuarios" Click="btUsuarios_Click"/>
+                    <MenuItem Header="Grupos de usuários" />
+                    <MenuItem Header="Grupos x Permissões"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
 
     </Grid>
 </Window>

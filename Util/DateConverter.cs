@@ -7,17 +7,17 @@ using System.Windows.Data;
 
 namespace EM3.Util
 {
-
-    public class Conversors : IValueConverter
+    public class DateConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
-                return value;
-            if (value.ToString().Equals("True"))
-                return "SIM";
-            else
-                return "NÃO";
+                return string.Empty;
+            if (string.IsNullOrEmpty(value.ToString()))
+                return string.Empty;
+
+
+            return DateTime.Parse(value.ToString()).ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

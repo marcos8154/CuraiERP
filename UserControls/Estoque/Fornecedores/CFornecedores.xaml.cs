@@ -58,26 +58,41 @@ namespace EM3.UserControls.Estoque.FornecedoresModulo
                 int linha = contatos.IndexOf(cf) + 1;
                 if (cf.Filial == 0 || cf.Filial > 9999)
                 {
-                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha+ "\nFilial não pode ser 0 ou maior que 9999");
+                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nFilial não pode ser 0 ou maior que 9999");
                     return false;
                 }
 
-                if(string.IsNullOrEmpty(cf.Pessoa_contato) || cf.Pessoa_contato.Length > 100)
+                if (string.IsNullOrEmpty(cf.Pessoa_contato))
                 {
                     new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nNome da pessoa não pode estar em branco ou possuir mais de 100 caracteres");
                     return false;
                 }
 
-                if(string.IsNullOrEmpty(cf.Telefone) || cf.Telefone.Length > 20)
+                if (cf.Pessoa_contato.Length > 100)
+                {
+                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nNome da pessoa não pode estar em branco ou possuir mais de 100 caracteres");
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(cf.Telefone))
                 {
                     new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nTelefone não pode estar em branco ou possuir mais de 20 caracteres");
                     return false;
                 }
 
-                if(cf.Setor.Length > 50)
+                if (cf.Telefone.Length > 20)
                 {
-                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nSetor não pode possuir mais de 50 caracteres");
+                    new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nTelefone não pode estar em branco ou possuir mais de 20 caracteres");
                     return false;
+                }
+
+                if (!string.IsNullOrEmpty(cf.Setor))
+                {
+                    if (cf.Setor.Length > 50)
+                    {
+                        new MsgAlerta("Erro de validação em contatos \n\nLinha: " + linha + "\nSetor não pode possuir mais de 50 caracteres");
+                        return false;
+                    }
                 }
             }
 

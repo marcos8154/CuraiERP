@@ -88,7 +88,17 @@
     <Compile Include="Controller\UnidadesController.cs" />
     <Compile Include="Controller\UsuariosController.cs" />
     <Compile Include="Enums\StatusRetorno.cs" />
+    <Compile Include="Enums\TipoPermissao.cs" />
     <Compile Include="Interfaces\IModulo.cs" />
+    <Compile Include="UserControls\Configuracoes\Usuarios\CUsuarios.xaml.cs">
+      <DependentUpon>CUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\Usuarios\UsuariosContainer.xaml.cs">
+      <DependentUpon>UsuariosContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml.cs">
+      <DependentUpon>VUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Estoque\Fornecedores\CFornecedores.xaml.cs">
       <DependentUpon>CFornecedores.xaml</DependentUpon>
     </Compile>
@@ -170,6 +180,7 @@
     <Compile Include="UserControls\Configuracoes\Empresas\VEmpresas.xaml.cs">
       <DependentUpon>VEmpresas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Util\DateConverter.cs" />
     <Compile Include="Util\Navigation.cs" />
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -269,6 +280,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Configuracoes\Usuarios\CUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\Usuarios\UsuariosContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Estoque\Fornecedores\CFornecedores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -354,6 +377,7 @@
     <Resource Include="Images\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Files\Tables\" />
     <Folder Include="UserControls\Faturamento\" />
     <Folder Include="UserControls\Financeiro\" />
   </ItemGroup>
@@ -365,6 +389,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Files\Commands\TelasInsert.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

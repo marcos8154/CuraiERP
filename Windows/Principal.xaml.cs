@@ -1,5 +1,7 @@
-﻿using EM3.Interfaces;
+﻿using EM3.Controller;
+using EM3.Interfaces;
 using EM3.UserControls.Configuracoes;
+using EM3.UserControls.Configuracoes.Usuarios;
 using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
@@ -59,6 +61,13 @@ namespace EM3.Windows
         private void NormalButton_OnClick()
         {
             new SelecionarUnidade().ShowDialog();
+        }
+
+        private void btUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            UsuariosContainer uc = new UsuariosContainer();
+            if (UsuariosController.ValidaPermissao(uc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Util.Navigation.AddTabItem(tabControl, uc, "Usuários");
         }
     }
 }

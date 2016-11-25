@@ -91,10 +91,11 @@ namespace EM3.UserControls.Configuracoes.Empresas
             empresa.Enderecos.Logradouro = txLogradouro.Text;
             empresa.Enderecos.Bairro = txBairro.Text;
             empresa.Enderecos.Municipio = txMunicipio.Text;
-            empresa.Enderecos.Numero = (int)txNumero.Value;
+            empresa.Enderecos.Numero = int.Parse(txNumero.Text);
             empresa.Enderecos.Pais = "Brasil";
             empresa.Enderecos.Uf = txUF.Text;
             empresa.Enderecos.Cep = txCep.Text;
+            empresa.Enderecos.Complemento = txCompl.Text;
 
             if (EmpresasController.Save(empresa))
             {

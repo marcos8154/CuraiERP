@@ -75,6 +75,7 @@ namespace EM3.Components
             }
         }
 
+
         public Visibility Visible
         {
             get
