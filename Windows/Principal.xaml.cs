@@ -1,7 +1,9 @@
 ﻿using EM3.Controller;
 using EM3.Interfaces;
 using EM3.UserControls.Configuracoes;
-using EM3.UserControls.Configuracoes.Usuarios;
+using EM3.UserControls.Configuracoes.CadastroUsuarios;
+using EM3.UserControls.Configuracoes.GruposUsuarios;
+using EM3.Util;
 using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
@@ -68,6 +70,13 @@ namespace EM3.Windows
             UsuariosContainer uc = new UsuariosContainer();
             if (UsuariosController.ValidaPermissao(uc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Util.Navigation.AddTabItem(tabControl, uc, "Usuários");
+        }
+
+        private void btGrupos_usuairos_Click(object sender, RoutedEventArgs e)
+        {
+            Grupos_usuariosContainer gc = new Grupos_usuariosContainer();
+            if (UsuariosController.ValidaPermissao(gc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, gc, "Grupos de usuários");
         }
     }
 }

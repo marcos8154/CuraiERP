@@ -172,7 +172,7 @@
                 <MenuItem Header="Atualizações">
                     <MenuItem Header="Empresa"/>
                     <MenuItem Header="Usuários" x:Name="btUsuarios" Click="btUsuarios_Click"/>
-                    <MenuItem Header="Grupos de usuários" />
+                    <MenuItem Header="Grupos de usuários" x:Name="btGrupos_usuairos" Click="btGrupos_usuairos_Click"/>
                     <MenuItem Header="Grupos x Permissões"/>
                 </MenuItem>
             </MenuItem>

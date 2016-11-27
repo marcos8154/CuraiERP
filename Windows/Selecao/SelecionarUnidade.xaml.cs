@@ -27,6 +27,8 @@ namespace EM3.Windows.Selecao
         public SelecionarUnidade()
         {
             InitializeComponent();
+
+            this.Topmost = true;
             Selecionado = new Unidades();
             Cadastro = new CUnidades();
             Pesquisar();

@@ -1,4 +1,5 @@
-﻿using EM3.Extensions;
+﻿using EM3.Controller;
+using EM3.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Configuracoes.Usuarios
+namespace EM3.UserControls.Configuracoes.CadastroUsuarios
 {
     /// <summary>
     /// Interação lógica para VUsuarios.xam
@@ -30,10 +31,37 @@ namespace EM3.UserControls.Configuracoes.Usuarios
             this.Container = container;
             dataGrid.AplicarPadroes();
         }
+        
+        private void Pesquisar()
+        {
+            List<Usuarios> usuarios = UsuariosController.Search(txPesquisa.Text);
+            dataGrid.ItemsSource = usuarios;
+        }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Cadastro = new CUsuarios();
+            Pesquisar();
+        }
+
+        private void txPesquisa_CallSearch()
+        {
+            Pesquisar();
+        }
+
+        private void btNovo_OnClick()
+        {
+            Cadastro = new CUsuarios();
+
+            Container.GridContainer.Children.Remove(this);
+            Container.GridContainer.Children.Add(Cadastro);
+            Cadastro.OnComplete += Cadastro_OnComplete;
+        }
+
+        private void Cadastro_OnComplete()
+        {
+            Container.GridContainer.Children.Remove(Cadastro);
+            Container.GridContainer.Children.Add(this);
         }
     }
 }

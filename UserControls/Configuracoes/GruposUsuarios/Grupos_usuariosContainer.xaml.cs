@@ -12,22 +12,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Configuracoes.CadastroUsuarios
+namespace EM3.UserControls.Configuracoes.GruposUsuarios
 {
     /// <summary>
-    /// Interação lógica para UsuariosContainer.xam
+    /// Interação lógica para Grupos_usuariosContainer.xam
     /// </summary>
-    public partial class UsuariosContainer : UserControl
+    public partial class Grupos_usuariosContainer : UserControl
     {
-        public string Tela_id = "42";
-        VUsuarios visualizacao;
-
-        public UsuariosContainer()
+        public string Tela_id = "43";
+        public Grupos_usuariosContainer()
         {
             InitializeComponent();
 
-            visualizacao = new VUsuarios(this);
-            GridContainer.Children.Add(visualizacao);
+            GridContainer.Children.Add(new VGrupos_usuarios(this));
         }
 
     }

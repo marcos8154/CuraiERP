@@ -25,6 +25,7 @@ namespace EM3.Windows.Selecao
         public SelecionarEmpresa()
         {
             InitializeComponent();
+            this.Topmost = true;
             this.Loaded += SelecionarEmpresa_Loaded;
         }
 

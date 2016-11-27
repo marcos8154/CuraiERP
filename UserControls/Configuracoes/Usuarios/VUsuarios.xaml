@@ -3,17 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EM3.UserControls.Configuracoes.Usuarios"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Configuracoes.Usuarios.VUsuarios"
+             xmlns:local="clr-namespace:EM3.UserControls.Configuracoes.CadastroUsuarios"
+             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Configuracoes.CadastroUsuarios.VUsuarios"
+             xmlns:boolConverter="clr-namespace:EM3.Util"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024" Background="White" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <boolConverter:Conversors x:Key="Conversors"/>
+    </UserControl.Resources>
     <Grid>
+        <Components:Cabecalho x:Name="cabecalho" Title="Usuários" VerticalAlignment="Top"/>
+        <Components:SearchBox x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Height="52" Width="313"/>
+        <Components:ConfirmButton Text="Novo" x:Name="btNovo" OnClick="btNovo_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,10,0" VerticalAlignment="Top" Width="65" Height="29"/>
+        <Components:NormalButton Text="Alterar" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,81,0" VerticalAlignment="Top" Width="74" Height="29"/>
+        <Components:NormalButton Text="Excluir" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,160,0" VerticalAlignment="Top" Width="80" Height="29"/>
+        <DataGrid  x:Name="dataGrid" Margin="10,98,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding Id}" MinWidth="80" Width="Auto"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" MinWidth="300" Width="Auto"/>
+                <DataGridTextColumn Header="Grupo" Binding="{Binding Grupos_usuarios.Nome}" MinWidth="300" Width="Auto"/>
+                <DataGridTextColumn Header="Ativo" Binding="{Binding Ativo, Converter={StaticResource Conversors}}" MinWidth="90" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <Components:SearchBox IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="56" Width="313"/>
-        <Components:ConfirmButton Text="Novo" FontSize="13" HorizontalAlignment="Right" Margin="0,34,10,0" VerticalAlignment="Top" Width="65"/>
-        <Components:NormalButton Text="Alterar" FontSize="13" HorizontalAlignment="Right" Margin="0,34,81,0" VerticalAlignment="Top" Width="74"/>
-        <Components:NormalButton Text="Excluir" FontSize="13" HorizontalAlignment="Right" Margin="0,34,161,0" VerticalAlignment="Top" Width="80"/>
-        <DataGrid  x:Name="dataGrid" Margin="10,71,10,10"/>
 
     </Grid>
 </UserControl>

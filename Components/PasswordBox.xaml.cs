@@ -20,7 +20,7 @@ namespace EM3.Components
     /// <summary>
     /// Interação lógica para Input.xam
     /// </summary>
-    public partial class Input : UserControl
+    public partial class PasswordBox : UserControl
     {
         public int Index
         {
@@ -51,18 +51,6 @@ namespace EM3.Components
             }
         }
 
-        public CharacterCasing CharacterCasing
-        {
-            get
-            {
-                return txInput.CharacterCasing;
-            }
-            set
-            {
-                txInput.CharacterCasing = value;
-            }
-        }
-
         public int MaxLength
         {
             get
@@ -88,18 +76,15 @@ namespace EM3.Components
             }
         }
 
-        public string Text
+        public string Password
         {
             get
             {
-                if (IsNumeric)
-                    if (string.IsNullOrEmpty(txInput.Text)) return "0";
-
-                return txInput.Text;
+                return txInput.Password;
             }
             set
             {
-                txInput.Text = value;
+                txInput.Password = value;
             }
         }
 
@@ -172,7 +157,7 @@ namespace EM3.Components
         public event OnLostFocusEvent InputLostFocus;
         public event OnGainFocusEvent InputGainFocus;
 
-        public Input()
+        public PasswordBox()
         {
             InitializeComponent();
 
@@ -192,15 +177,7 @@ namespace EM3.Components
 
         private void TxInput_LostFocus(object sender, RoutedEventArgs e)
         {
-
             if (InputLostFocus != null) InputLostFocus(sender, e);
-
-            if (isMoney)
-            {
-                string text = txInput.Text;
-                if (!string.IsNullOrEmpty(text))
-                    value = decimal.Parse(text);
-            }
         }
 
         public void SetFocused()
@@ -216,39 +193,6 @@ namespace EM3.Components
         private void TxInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (InputKeyDown != null) InputKeyDown(sender, e);
-        }
-
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            if (isNumeric)
-            {
-                Regex rgxNumbers = new Regex("[^0-9]+");
-                e.Handled = (rgxNumbers.IsMatch(e.Text));
-            }
-
-            if (isMoney)
-            {
-                Regex rgxNumbers = new Regex("[^0-9]+");
-                e.Handled = (rgxNumbers.IsMatch(e.Text) || (e.Text.Equals(",")));
-                if (e.Text.Equals(",") || e.Text.Equals("."))
-                {
-                    if (e.Text.Equals(",") && txInput.Text.Contains(","))
-                        return;
-
-                    if (e.Text.Equals(".") && txInput.Text.Contains(","))
-                        return;
-
-                    if (e.Text.Equals(".") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
-                        return;
-
-                    if (e.Text.Equals(",") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
-                        return;
-
-                    txInput.Text += e.Text;
-                    txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
-                    txInput.SelectionLength = 0;
-                }
-            }
         }
     }
 }

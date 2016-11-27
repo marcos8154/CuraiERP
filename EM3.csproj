@@ -77,12 +77,16 @@
     <Compile Include="Components\MaskedInput.xaml.cs">
       <DependentUpon>MaskedInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\PasswordBox.xaml.cs">
+      <DependentUpon>PasswordBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\SimpleInput.xaml.cs">
       <DependentUpon>SimpleInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
     <Compile Include="Controller\FornecedoresController.cs" />
+    <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\UnidadesController.cs" />
@@ -90,6 +94,68 @@
     <Compile Include="Enums\StatusRetorno.cs" />
     <Compile Include="Enums\TipoPermissao.cs" />
     <Compile Include="Interfaces\IModulo.cs" />
+    <Compile Include="Model\Armazens.cs" />
+    <Compile Include="Model\Bancos.cs" />
+    <Compile Include="Model\Bloqueios_clientes.cs" />
+    <Compile Include="Model\Caixas.cs" />
+    <Compile Include="Model\Caracteristicas.cs" />
+    <Compile Include="Model\Cargos.cs" />
+    <Compile Include="Model\Cest.cs" />
+    <Compile Include="Model\Cfop.cs" />
+    <Compile Include="Model\Classes_imposto.cs" />
+    <Compile Include="Model\Clientes.cs" />
+    <Compile Include="Model\Contas_bancarias.cs" />
+    <Compile Include="Model\Contatos_fornecedores.cs" />
+    <Compile Include="Model\Documentos.cs" />
+    <Compile Include="Model\Empresa.cs" />
+    <Compile Include="Model\Enderecos.cs" />
+    <Compile Include="Model\Estoque.cs" />
+    <Compile Include="Model\Familias_produtos.cs" />
+    <Compile Include="Model\Formas_pagamento.cs" />
+    <Compile Include="Model\Fornecedores.cs" />
+    <Compile Include="Model\Fotos.cs" />
+    <Compile Include="Model\Funcionarios.cs" />
+    <Compile Include="Model\Grupos_clientes.cs" />
+    <Compile Include="Model\Grupos_produtos.cs" />
+    <Compile Include="Model\Grupos_usuarios.cs" />
+    <Compile Include="Model\Icms_ufs.cs" />
+    <Compile Include="Model\Intervalos_turnos.cs" />
+    <Compile Include="Model\Itens_movimento.cs" />
+    <Compile Include="Model\Locais_estoque.cs" />
+    <Compile Include="Model\Lotes.cs" />
+    <Compile Include="Model\Lotes_produtos.cs" />
+    <Compile Include="Model\Movimentos.cs" />
+    <Compile Include="Model\Movimento_nfs.cs" />
+    <Compile Include="Model\Operacoes_classe_imposto.cs" />
+    <Compile Include="Model\Operadoras_cartao.cs" />
+    <Compile Include="Model\Parcelas.cs" />
+    <Compile Include="Model\Permissoes.cs" />
+    <Compile Include="Model\Plano_contas.cs" />
+    <Compile Include="Model\Precos.cs" />
+    <Compile Include="Model\Produtos.cs" />
+    <Compile Include="Model\Produtos_caractetisticas.cs" />
+    <Compile Include="Model\Produtos_clientes.cs" />
+    <Compile Include="Model\Produtos_fornecedores.cs" />
+    <Compile Include="Model\Produtos_precos.cs" />
+    <Compile Include="Model\Regras_acrescimo.cs" />
+    <Compile Include="Model\Regras_desconto.cs" />
+    <Compile Include="Model\Servicos.cs" />
+    <Compile Include="Model\Telas.cs" />
+    <Compile Include="Model\Tipos_movimento.cs" />
+    <Compile Include="Model\Transportadoras.cs" />
+    <Compile Include="Model\Turnos.cs" />
+    <Compile Include="Model\Unidades.cs" />
+    <Compile Include="Model\Usuarios.cs" />
+    <Compile Include="Model\Usuarios_grupos.cs" />
+    <Compile Include="UserControls\Configuracoes\GruposUsuarios\CGrupos_usuarios.xaml.cs">
+      <DependentUpon>CGrupos_usuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\GruposUsuarios\Grupos_usuariosContainer.xaml.cs">
+      <DependentUpon>Grupos_usuariosContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Configuracoes\GruposUsuarios\VGrupos_usuarios.xaml.cs">
+      <DependentUpon>VGrupos_usuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Configuracoes\Usuarios\CUsuarios.xaml.cs">
       <DependentUpon>CUsuarios.xaml</DependentUpon>
     </Compile>
@@ -148,6 +214,9 @@
     <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml.cs">
+      <DependentUpon>SelecionarGrupoUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarUnidade.xaml.cs">
       <DependentUpon>SelecionarUnidade.xaml</DependentUpon>
     </Compile>
@@ -178,6 +247,10 @@
     <Page Include="Components\NormalButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\SearchBox.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -228,6 +301,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Configuracoes\Empresas\VEmpresas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\GruposUsuarios\CGrupos_usuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\GruposUsuarios\Grupos_usuariosContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Configuracoes\GruposUsuarios\VGrupos_usuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,6 +376,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarUnidade.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -329,7 +418,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\Tables\" />
-    <Folder Include="Model\" />
     <Folder Include="UserControls\Faturamento\" />
     <Folder Include="UserControls\Financeiro\" />
   </ItemGroup>

@@ -66,6 +66,16 @@ namespace EM3.Controller
             rh.AddParameter("admin", usuario.Admin.ToString());
             rh.AddParameter("ativo", usuario.Ativo.ToString());
         }
+
+        public static List<Usuarios> Search(string query)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("query", query);
+            rh.Send("usr-search");
+
+            List<Usuarios> result = EntityLoader<List<Usuarios>>.Load(rh.Result);
+            return result;
+        }
     }
 }
 
