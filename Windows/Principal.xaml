@@ -122,8 +122,9 @@
                     <MenuItem Header="Contas bancárias" />
                     <MenuItem Header="Caixas" />
                     <MenuItem Header="Planos de conta" />
-                    <MenuItem Header="Vendedores" />
                     <MenuItem Header="Tabelas de preço" />
+                    <MenuItem Header="Regras de desconto" />
+                    <MenuItem Header="Regras de acréscimo" />
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
@@ -136,9 +137,15 @@
             </MenuItem>
 
             <MenuItem Header="Faturamento">
+                <MenuItem Header="Caixa">
+                    <MenuItem Header="Abrir"/>
+                    <MenuItem Header="Fechar"/>
+                    <MenuItem Header="Retirada"/>
+                    <MenuItem Header="Entrada" />
+                </MenuItem>
                 <MenuItem Header="Lançamento de movimentos (Genérico)"/>
                 <MenuItem Header="Pedidos de venda" />
-                <MenuItem Header="Venda rápida" />
+                <MenuItem Header="Venda direta" />
                 <MenuItem Header="Contas a pagar" />
                 <MenuItem Header="Contas a receber" />
 

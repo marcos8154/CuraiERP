@@ -122,55 +122,6 @@
     </Compile>
     <Compile Include="Util\Conversors.cs" />
     <Compile Include="Util\DataGridExtensions.cs" />
-    <Compile Include="Model\Armazens.cs" />
-    <Compile Include="Model\Bancos.cs" />
-    <Compile Include="Model\Caixas.cs" />
-    <Compile Include="Model\Caracteristicas.cs" />
-    <Compile Include="Model\Cargos.cs" />
-    <Compile Include="Model\Cest.cs" />
-    <Compile Include="Model\Cfop.cs" />
-    <Compile Include="Model\Classes_imposto.cs" />
-    <Compile Include="Model\Clientes.cs" />
-    <Compile Include="Model\Contas_bancarias.cs" />
-    <Compile Include="Model\Contatos_fornecedores.cs" />
-    <Compile Include="Model\Documentos.cs" />
-    <Compile Include="Model\Empresa.cs" />
-    <Compile Include="Model\Enderecos.cs" />
-    <Compile Include="Model\Estoque.cs" />
-    <Compile Include="Model\Familias_produtos.cs" />
-    <Compile Include="Model\Formas_pagamento.cs" />
-    <Compile Include="Model\Fornecedores.cs" />
-    <Compile Include="Model\Fotos.cs" />
-    <Compile Include="Model\Funcionarios.cs" />
-    <Compile Include="Model\Grupos_clientes.cs" />
-    <Compile Include="Model\Grupos_produtos.cs" />
-    <Compile Include="Model\Icms_ufs.cs" />
-    <Compile Include="Model\Intervalos_turnos.cs" />
-    <Compile Include="Model\Itens_movimento.cs" />
-    <Compile Include="Model\Locais_estoque.cs" />
-    <Compile Include="Model\Lotes.cs" />
-    <Compile Include="Model\Lotes_produtos.cs" />
-    <Compile Include="Model\Movimentos.cs" />
-    <Compile Include="Model\Movimento_nfs.cs" />
-    <Compile Include="Model\Operacoes_classe_imposto.cs" />
-    <Compile Include="Model\Operadoras_cartao.cs" />
-    <Compile Include="Model\Parcelas.cs" />
-    <Compile Include="Model\Permissoes.cs" />
-    <Compile Include="Model\Plano_contas.cs" />
-    <Compile Include="Model\Precos.cs" />
-    <Compile Include="Model\Produtos.cs" />
-    <Compile Include="Model\Produtos_caractetisticas.cs" />
-    <Compile Include="Model\Produtos_clientes.cs" />
-    <Compile Include="Model\Produtos_fornecedores.cs" />
-    <Compile Include="Model\Produtos_locais.cs" />
-    <Compile Include="Model\Produtos_precos.cs" />
-    <Compile Include="Model\Servicos.cs" />
-    <Compile Include="Model\Telas.cs" />
-    <Compile Include="Model\Tipos_movimento.cs" />
-    <Compile Include="Model\Transportadoras.cs" />
-    <Compile Include="Model\Turnos.cs" />
-    <Compile Include="Model\Unidades.cs" />
-    <Compile Include="Model\Usuarios.cs" />
     <Compile Include="UserControls\Configuracoes\Empresas\CEmpresas.xaml.cs">
       <DependentUpon>CEmpresas.xaml</DependentUpon>
     </Compile>
@@ -378,6 +329,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\Tables\" />
+    <Folder Include="Model\" />
     <Folder Include="UserControls\Faturamento\" />
     <Folder Include="UserControls\Financeiro\" />
   </ItemGroup>
