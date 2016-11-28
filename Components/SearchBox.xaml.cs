@@ -78,20 +78,28 @@ namespace EM3.Components
             set
             {
                 lbTitle.Content = value;
+                if (Required)
+                    lbTitle.Content += " * ";
             }
         }
+
+        private bool required = false;
 
         public bool Required
         {
             set
             {
+                required = value;
                 if (value)
                     lbTitle.Content += " * ";
+            }
+            get
+            {
+                return this.required;
             }
         }
 
         private bool isNumeric = false;
-        private bool isMoney = false;
 
         public bool IsNumeric
         {
@@ -161,7 +169,7 @@ namespace EM3.Components
             }
             else
             {
-                if(e.Key == Key.Enter)
+                if (e.Key == Key.Enter)
                     if (CallSearch != null) CallSearch();
             }
         }
@@ -177,11 +185,13 @@ namespace EM3.Components
 
         private void txInput_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (isMoney)
+            if (IsNumeric)
             {
                 string text = txInput.Text;
                 if (!string.IsNullOrEmpty(text))
                     value = int.Parse(text);
+                else
+                    value = 0;
             }
         }
 

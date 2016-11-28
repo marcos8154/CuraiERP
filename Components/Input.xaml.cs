@@ -75,7 +75,6 @@ namespace EM3.Components
             }
         }
 
-
         public Visibility Visible
         {
             get
@@ -112,15 +111,25 @@ namespace EM3.Components
             set
             {
                 lbTitle.Content = value;
+
+                if (Required)
+                    lbTitle.Content += " * ";
             }
         }
+
+        private bool required = false;
 
         public bool Required
         {
             set
             {
+                required = value;
                 if (value)
                     lbTitle.Content += " * ";
+            }
+            get
+            {
+                return this.required;
             }
         }
 

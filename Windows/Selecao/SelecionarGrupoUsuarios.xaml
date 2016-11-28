@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
       Loaded="Window_Loaded"
-        Title="SelecionarGrupoUsuarios" Height="479.898" Width="686.759" Background="White">
+        Title="Selecionar grupo de usuários" Height="479.898" Width="686.759" Background="White">
     <Grid x:Name="GridContainer">
 
         <Grid x:Name="GridListagem">

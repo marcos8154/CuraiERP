@@ -1,4 +1,5 @@
-﻿using EM3.Windows.Selecao;
+﻿using EM3.Controller;
+using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
         public delegate void Complete();
         public event Complete OnComplete;
 
+        Usuarios Usuario = new Usuarios();
+        bool isUpdateMode = false;
+
         public CUsuarios()
         {
             InitializeComponent();
@@ -35,9 +39,36 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
 
         private void Salvar(bool close)
         {
+            if (Usuario == null) Usuario = new Usuarios();
+            Usuario.Id = int.Parse(txCodigo.Text);
+            Usuario.Nome = txNome.Text;
+            Usuario.Senha = txSenha.Password;
+            Usuario.Admin = (cbAdmin.SelectedIndex == 0);
+            Usuario.Ativo = (cbAtivo.SelectedIndex == 0);
+            Usuario.Grupo_usuarios_id = txCod_grupo.Value;
 
-            if (close)
-                Close();
+            Usuarios result = UsuariosController.Save(Usuario);
+
+            if (result != null)
+            {
+                if (close)
+                    Close();
+                else
+                    LimparCampos();
+
+                if (isUpdateMode)
+                    LicenceController.UpdateUser(result);
+                else
+                    LicenceController.RegisterUser(result);
+                isUpdateMode = false;
+            }
+        }
+
+        private void LimparCampos()
+        {
+            txCodigo.Text = "0";
+            txNome.Text = string.Empty;
+            txSenha.Password = string.Empty;
         }
 
         private void Close()
@@ -61,6 +92,20 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
             sgu.ShowDialog();
 
             txCod_grupo.Value = sgu.Selecionado.Id;
+        }
+
+        public void Load(int id)
+        {
+            Usuario = UsuariosController.Find(id);
+
+            txCodigo.Text = Usuario.Id.ToString();
+            txNome.Text = Usuario.Nome;
+            txSenha.Password = Usuario.Senha;
+            cbAdmin.SelectedIndex = (Usuario.Admin ? 0 : 1);
+            cbAtivo.SelectedIndex = (Usuario.Ativo ? 0 : 1);
+            txCod_grupo.Value = Usuario.Grupo_usuarios_id;
+
+            isUpdateMode = true;
         }
     }
 }

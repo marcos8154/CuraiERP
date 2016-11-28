@@ -121,9 +121,11 @@
     <Compile Include="Model\Icms_ufs.cs" />
     <Compile Include="Model\Intervalos_turnos.cs" />
     <Compile Include="Model\Itens_movimento.cs" />
+    <Compile Include="Model\Itens_pagamento.cs" />
     <Compile Include="Model\Locais_estoque.cs" />
     <Compile Include="Model\Lotes.cs" />
     <Compile Include="Model\Lotes_produtos.cs" />
+    <Compile Include="Model\Movimentacoes_caixas.cs" />
     <Compile Include="Model\Movimentos.cs" />
     <Compile Include="Model\Movimento_nfs.cs" />
     <Compile Include="Model\Operacoes_classe_imposto.cs" />

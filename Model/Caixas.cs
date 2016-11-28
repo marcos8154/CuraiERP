@@ -17,8 +17,8 @@ namespace EM3
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Data_abertura { get; set; }
-        public string Data_fechamento { get; set; }
-        public int Usuario_id { get; set; }
+        public bool Ativo { get; set; }
+        public int Empresa_id { get; set; }
+        public Empresa empresa { get; set; }
     }
 }

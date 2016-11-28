@@ -20,7 +20,7 @@ namespace EM3
         public string Senha { get; set; }
         public bool Admin { get; set; }
         public bool Ativo { get; set; }
-        public int Grupos_usuarios_id { get; set; }
+        public int Grupo_usuarios_id { get; set; }
         public Grupos_usuarios Grupos_usuarios { get; set; }
     }
 }

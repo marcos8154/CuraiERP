@@ -16,9 +16,11 @@
         <Components:NormalButton x:Name="btCancelar" OnClick="btCancelar_OnClick" Text="Cancelar" HorizontalAlignment="Right" Margin="0,40,217,0" VerticalAlignment="Top" SizeFont="13" Height="38" Width="88"/>
 
         <Components:Input x:Name="txCodigo" Title="Código" Enabled="False" IsNumeric="True" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="88"/>
-        <Components:Input x:Name="txNome" Required="True" Title="Nome" MaxLength="50"  HorizontalAlignment="Left" Margin="103,83,0,0" VerticalAlignment="Top" Height="56" Width="381"/>
-        <Components:PasswordBox MaxLength="20" x:Name="txSenha" Title="Senha" HorizontalAlignment="Left" Margin="489,83,0,0" VerticalAlignment="Top" Height="56" Width="254"/>
-        <Components:SearchBox x:Name="txCod_grupo" Required="True" CallSearch="txCod_grupo_CallSearch" Title="Grupo" IsNumeric="True" HorizontalAlignment="Left" Margin="748,83,0,0" VerticalAlignment="Top" Height="56" Width="94"/>
+        <Components:Input x:Name="txNome" Required="True" Title="Nome" MaxLength="50"  HorizontalAlignment="Left" Margin="103,83,0,0" VerticalAlignment="Top" Height="56" Width="244"/>
+        <Components:PasswordBox MaxLength="20" x:Name="txSenha" Title="Senha" HorizontalAlignment="Left" Margin="352,83,0,0" VerticalAlignment="Top" Height="56" Width="171"/>
+        <Components:SearchBox x:Name="txCod_grupo" Required="True" CallSearch="txCod_grupo_CallSearch" Title="Grupo" IsNumeric="True" HorizontalAlignment="Left" Margin="706,83,0,0" VerticalAlignment="Top" Height="56" Width="94"/>
+        <Components:ComboBox x:Name="cbAdmin" Items="SIM; NÃO;" Title="Administrador" Required="True" HorizontalAlignment="Left" Margin="528,83,0,0" VerticalAlignment="Top" Height="56" Width="112"/>
+        <Components:ComboBox x:Name="cbAtivo" Items="SIM; NÃO;" Title="Ativo" Required="True" HorizontalAlignment="Left" Margin="645,83,0,0" VerticalAlignment="Top" Height="56" Width="56"/>
 
     </Grid>
 </UserControl>

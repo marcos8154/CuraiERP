@@ -31,7 +31,6 @@ namespace EM3.Controller
             rh.AddParameter("enderecos.numero", emp.Enderecos.Numero);
             rh.AddParameter("enderecos.pais", emp.Enderecos.Pais);
             rh.AddParameter("enderecos.complemento", emp.Enderecos.Complemento);
-
             rh.Send("emp-save");
 
             return rh.HasSuccess;

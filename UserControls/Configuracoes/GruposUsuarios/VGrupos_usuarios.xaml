@@ -1,0 +1,26 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EM3.UserControls.Configuracoes.GruposUsuarios"
+             xmlns:Components="clr-namespace:EM3.Components" xmlns:CadastroUsuarios="clr-namespace:EM3.UserControls.Configuracoes.CadastroUsuarios" x:Class="EM3.UserControls.Configuracoes.GruposUsuarios.VGrupos_usuarios"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1024" Background="White" Loaded="UserControl_Loaded">
+    <Grid>
+
+        <Components:Cabecalho x:Name="cabecalho" Title="Grupos de usuários" VerticalAlignment="Top"/>
+
+        <Components:SearchBox x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch"  IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Height="52" Width="313"/>
+        <Components:ConfirmButton Text="Novo" x:Name="btNovo" OnClick="btNovo_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,10,0" VerticalAlignment="Top" Width="65" Height="29"/>
+        <Components:NormalButton Text="Alterar" x:Name="btAlterar" OnClick="btAlterar_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,81,0" VerticalAlignment="Top" Width="74" Height="29"/>
+        <Components:NormalButton Text="Excluir" x:Name="btExcluir" OnClick="btExcluir_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,160,0" VerticalAlignment="Top" Width="80" Height="29"/>
+
+        <DataGrid MouseDoubleClick="dataGrid_MouseDoubleClick" x:Name="dataGrid" Margin="10,96,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Código" Binding="{Binding Id}" MinWidth="90" Width="Auto"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" MinWidth="200" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

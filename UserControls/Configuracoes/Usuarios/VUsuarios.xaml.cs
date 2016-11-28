@@ -1,5 +1,6 @@
 ﻿using EM3.Controller;
 using EM3.Extensions;
+using EM3.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
             this.Container = container;
             dataGrid.AplicarPadroes();
         }
-        
+
         private void Pesquisar()
         {
             List<Usuarios> usuarios = UsuariosController.Search(txPesquisa.Text);
@@ -51,6 +52,14 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
 
         private void btNovo_OnClick()
         {
+            if (!LicenceController.AuthorizeAdd())
+            {
+                new MsgAlerta(@"O limite de usuários ativos foi excedido no plano atualmente contratado. 
+Para adicionar novos usuários, desative ao menos 1 (um) usuário, ou acione o setor comercial da Doware para 
+solicitar uma expansão de limite.");
+                return;
+            }
+
             Cadastro = new CUsuarios();
 
             Container.GridContainer.Children.Remove(this);
@@ -62,6 +71,48 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
         {
             Container.GridContainer.Children.Remove(Cadastro);
             Container.GridContainer.Children.Add(this);
+        }
+
+        private void Alterar()
+        {
+            Usuarios usuario = (Usuarios)dataGrid.SelectedItem;
+
+            if (usuario == null)
+                return;
+            if (usuario.Id == 0)
+                return;
+
+            Cadastro = new CUsuarios();
+            Cadastro.Load(usuario.Id);
+            Container.GridContainer.Children.Remove(this);
+            Container.GridContainer.Children.Add(Cadastro);
+            Cadastro.OnComplete += Cadastro_OnComplete;
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Alterar();
+        }
+
+        private void btAlterar_OnClick()
+        {
+            Alterar();
+        }
+
+        private void btExcluir_OnClick()
+        {
+            Usuarios usuario = (Usuarios)dataGrid.SelectedItem;
+
+            if (usuario == null)
+                return;
+            if (usuario.Id == 0)
+                return;
+            
+            if (!new MsgSimNao("Confirma exclusão do usuário '" + usuario.Nome + "'? Esta ação não pode ser revertida!").Result)
+                return;
+
+            if (UsuariosController.Delete(usuario.Id))
+                Pesquisar();
         }
     }
 }
