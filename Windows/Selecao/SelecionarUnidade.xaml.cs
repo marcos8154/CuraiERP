@@ -43,6 +43,9 @@ namespace EM3.Windows.Selecao
 
         private void btNovo_OnClick()
         {
+            if (UsuariosController.ValidaPermissao("1", Enums.TipoPermissao.INSERIR))
+                return;
+
             GridListagem.Visibility = Visibility.Hidden;
             GridContainer.Children.Add(Cadastro);
 
@@ -65,10 +68,8 @@ namespace EM3.Windows.Selecao
         {
             Unidades unidade = (Unidades)dataGrid.SelectedItem;
 
-            if (unidade == null)
-                return;
-            if (unidade.Id == 0)
-                return;
+            if (unidade == null)  return;
+            if (unidade.Id == 0) return;
 
             Selecionado = unidade;
             Close();

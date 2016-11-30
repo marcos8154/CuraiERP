@@ -19,5 +19,6 @@ namespace EM3
         public int Produto_id { get; set; }
         public int Local_estoque_id { get; set; }
         public decimal Quant { get; set; }
+        public bool Local_padrao { get; set; }
     }
 }

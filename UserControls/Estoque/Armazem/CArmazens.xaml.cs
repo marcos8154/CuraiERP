@@ -86,6 +86,13 @@ namespace EM3.UserControls.Estoque.Armazem
         internal void Load(int id)
         {
             Armazem = ArmazensController.Find(id);
+
+            txCodigo.Text = Armazem.Id.ToString();
+            txNome.Text = Armazem.Nome;
+            cbTipo.SelectedIndex = Armazem.Tipo_armazem;
+            txCod_empresa.Text = Armazem.Empresa_id.ToString();
+
+            cabecalho.Title = "Alterar armazém (" + Armazem.Nome + ")";
         }
     }
 }

@@ -96,6 +96,7 @@
     <Compile Include="Controller\FornecedoresController.cs" />
     <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
+    <Compile Include="Controller\Locais_estoqueController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\PermissoesController.cs" />
     <Compile Include="Controller\TelasController.cs" />
@@ -207,6 +208,15 @@
     <Compile Include="UserControls\Estoque\Fornecedores\VFornecedores.xaml.cs">
       <DependentUpon>VFornecedores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Estoque\LocaisEstoque\CLocaisEstoque.xaml.cs">
+      <DependentUpon>CLocaisEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\LocaisEstoque\LocaisEstoqueContainer.xaml.cs">
+      <DependentUpon>LocaisEstoqueContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\LocaisEstoque\VLocaisEstoque.xaml.cs">
+      <DependentUpon>VLocaisEstoque.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Estoque\Unidades\CUnidades.xaml.cs">
       <DependentUpon>CUnidades.xaml</DependentUpon>
     </Compile>
@@ -244,6 +254,9 @@
     </Compile>
     <Compile Include="Windows\Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarArmazem.xaml.cs">
+      <DependentUpon>SelecionarArmazem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
@@ -409,6 +422,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Estoque\LocaisEstoque\CLocaisEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\LocaisEstoque\LocaisEstoqueContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\LocaisEstoque\VLocaisEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Estoque\Unidades\CUnidades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -438,6 +463,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Principal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarArmazem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

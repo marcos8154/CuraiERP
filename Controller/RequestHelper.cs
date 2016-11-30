@@ -52,7 +52,7 @@ namespace EM3.Controller
                     stream.Write(b, 0, b.Length);
                     stream.Close();
                 }
-                
+
                 WebResponse response = request.GetResponse();
                 Stream data = response.GetResponseStream();
                 StreamReader reader = new StreamReader(data);
@@ -78,17 +78,24 @@ namespace EM3.Controller
             if (paramValue == null)
                 paramValue = string.Empty;
 
-            if(paramValue.ToString().Contains("%"))
+            if (paramValue.ToString().Contains("%"))
             {
                 isHandled = true;
-                new  MsgAlerta("Caracteres inválidos encontrados (" + paramName + " = %)" );
+                new MsgAlerta("Caracteres inválidos encontrados (" + paramName + " = %)");
                 Result = new OperationResult() { status = 100, message = string.Empty, entity = new object() };
                 return;
             }
             if (!string.IsNullOrEmpty(parameters))
                 parameters += "&";
 
-            parameters += paramName + "=" + paramValue.ToString().Replace("&", "%26");
+            double doubleValue = 0;
+
+            if (double.TryParse(paramValue.ToString(), out doubleValue))
+            {
+                parameters += paramName + "=" + paramValue.ToString().Replace(",", ".");
+            }
+            else
+                parameters += paramName + "=" + paramValue.ToString().Replace("&", "%26");
         }
     }
 }

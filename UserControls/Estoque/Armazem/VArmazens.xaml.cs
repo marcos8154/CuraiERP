@@ -57,7 +57,7 @@ namespace EM3.UserControls.Estoque.Armazem
 
         private void Pesquisar()
         {
-            List<Armazens> list = ArmazensController.Search(txPesquisa.Text);
+            List<Armazens> list = ArmazensController.Search(0 ,txPesquisa.Text);
             dataGrid.ItemsSource = list;
         }
 
@@ -102,6 +102,11 @@ namespace EM3.UserControls.Estoque.Armazem
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Pesquisar();
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Alterar();
         }
     }
 }

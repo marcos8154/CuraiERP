@@ -22,6 +22,6 @@ namespace EM3
         public double Comprimento { get; set; }
         public string Unidade_compr { get; set; }
         public int Armazem_id { get; set; }
-        public Armazens Armazem { get; set; }
+        public Armazens Armazens { get; set; }
     }
 }

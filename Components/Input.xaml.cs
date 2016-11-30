@@ -30,6 +30,7 @@ namespace EM3.Components
             }
             set
             {
+                this.TabIndex = 9999;
                 txInput.TabIndex = value;
             }
         }
@@ -164,11 +165,33 @@ namespace EM3.Components
 
         private decimal value;
 
-        public decimal Value
+        public decimal GetDecimal
         {
             get
             {
-                return value;
+                string value = string.Format("{0:0,0.00}", txInput.Text);
+
+                string[] t = value.Split('.');
+                if (t.Length <= 2 && !txInput.Text.Contains(","))
+                    value = value.Replace(".", ",");
+
+                decimal d = decimal.Parse(value);
+                return d;
+            }
+        }
+
+        public double GetDouble
+        {
+            get
+            {
+                string value = string.Format("{0:0,0.00}", txInput.Text);
+
+                string[] t = value.Split('.');
+                if (t.Length <= 2 && !txInput.Text.Contains(","))
+                    value = value.Replace(".", ",");
+
+                double d = double.Parse(value);
+                return d;
             }
         }
 
@@ -246,6 +269,13 @@ namespace EM3.Components
 
                     if (e.Text.Equals(".") && txInput.Text.Contains(","))
                         return;
+
+                 /*   if (e.Text.Equals(".") && txInput.Text.Contains("."))
+                        return; */
+
+                    if (e.Text.Equals(",") && txInput.Text.Contains(","))
+                        return;
+                       
 
                     if (e.Text.Equals(".") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
                         return;

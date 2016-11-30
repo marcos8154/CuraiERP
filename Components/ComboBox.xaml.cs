@@ -27,6 +27,7 @@ namespace EM3.Components
             }
             set
             {
+                this.TabIndex = 9999;
                 combobox.TabIndex = value;
             }
         }

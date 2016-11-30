@@ -52,7 +52,9 @@ namespace EM3.Controller
             rh.AddParameter("id", id.ToString());
             rh.Send("emp-find");
 
-            return EntityLoader<Empresa>.Load(rh.Result) ??new Empresa();
+            if (rh.HasSuccess)
+                return EntityLoader<Empresa>.Load(rh.Result);
+            return new Empresa();
         }
     }
 }

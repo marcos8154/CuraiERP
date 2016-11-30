@@ -13,7 +13,7 @@
 
         <Grid x:Name="GridListagem">
             <Components:SearchBox x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" Height="56" Width="262"/>
-            <Components:NormalButton x:Name="btNovo" OnClick="btNovo_OnClick" Text="Incluir" FontSize="13"  HorizontalAlignment="Right" Margin="0,27,10,0" Width="90" Height="30" VerticalAlignment="Top"/>
+            <Components:NormalButton x:Name="btNovo" OnClick="btNovo_OnClick" Text="Novo" FontSize="13"  HorizontalAlignment="Right" Margin="0,27,10,0" Width="90" Height="30" VerticalAlignment="Top"/>
 
             <Components:NormalButton OnClick="btCancelar_OnClick" x:Name="btCancelar" Text="Cancelar" FontSize="13"  HorizontalAlignment="Right" Margin="0,0,10,10" Height="31" VerticalAlignment="Bottom"/>
             <Components:ConfirmButton x:Name="btSelecionar" OnClick="btSelecionar_OnClick" SizeFont="13" Text="Selecionar" HorizontalAlignment="Right" Margin="0,0,88,10" VerticalAlignment="Bottom" Width="96" Height="31"/>

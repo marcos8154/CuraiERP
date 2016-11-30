@@ -29,8 +29,11 @@ namespace EM3.Windows
             txData.Value = DateTime.Now;
             this.Closed += Login_Closed;
 
+            Empresa e = EmpresasController.Find(Configuration.standard_company);
+            txCod_empresa.Text = e.Id.ToString();
+            txNomeEmpresa.Text = e.Razao_social;
+
             txUsuario.Text = "Admin";
-         //   btLogin_click();
         }
 
         private void Login_Closed(object sender, EventArgs e)
@@ -45,6 +48,19 @@ namespace EM3.Windows
 
         private void btLogin_click()
         {
+            Efetuar();
+        }
+
+        private void Efetuar()
+        {
+            /*
+            if(txCod_empresa.Value == 0)
+            {
+                new MsgAlerta("Informe a empresa");
+                return;
+            }
+            */
+
             Principal p = new Principal();
             if (UsuariosController.EfetuaLogin(txUsuario.Text, txSenha.Text, txData.Value, txCod_empresa.Value))
             {
@@ -65,6 +81,12 @@ namespace EM3.Windows
             se.ShowDialog();
             txCod_empresa.Value = se.Selecionado.Id;
             txNomeEmpresa.Text = se.Selecionado.Nome_fantasia;
+        }
+
+        private void txSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Efetuar();
         }
     }
 }

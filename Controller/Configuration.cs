@@ -10,9 +10,9 @@ namespace EM3.Controller
     {
         public static string application = "em3";
         public static string server = "localhost";
-
         public static int port = 8080;
-               
+        public static int standard_company = 0;
+       
         public static string GetApplication
         {
             get
@@ -53,6 +53,13 @@ namespace EM3.Controller
                         application = line.Replace("default_application=", "");
                         continue;
                     }
+
+                    if(line.StartsWith("standard_company"))
+                    {
+                        standard_company = int.Parse(line.Replace("standard_company=", ""));
+                        continue;
+                    }
+
                     if (line.StartsWith("licenceserver_port"))
                     {
                         LicenceController.port = int.Parse(line.Replace("licenceserver_port=", ""));

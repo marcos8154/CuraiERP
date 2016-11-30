@@ -7,14 +7,15 @@ namespace EM3.Controller
 {
     public class ArmazensController
     {
-        public static List<Armazens> Search(string searchTerm = "")
+        public static List<Armazens> Search(int empresa_id, string searchTerm = "")
         {
             List<Armazens> result = new List<Armazens>();
 
             RequestHelper rh = new RequestHelper();
             rh.AddParameter("query", searchTerm);
+            rh.AddParameter("empresa_id", empresa_id);
             rh.Send("armz-search");
-
+           
             if (rh.HasSuccess)
                 result = EntityLoader<List<Armazens>>.Load(rh.Result);
             return result;
@@ -34,12 +35,22 @@ namespace EM3.Controller
 
         internal static bool Delete(int id)
         {
-            throw new NotImplementedException();
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("id", id);
+            rh.Send("armz-rem");
+
+            return (rh.HasSuccess);
         }
 
         internal static Armazens Find(int id)
         {
-            throw new NotImplementedException();
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("id", id);
+            rh.Send("armz-get");
+
+            if (rh.HasSuccess)
+                return EntityLoader<Armazens>.Load(rh.Result);
+            return new Armazens();
         }
     }
 }
