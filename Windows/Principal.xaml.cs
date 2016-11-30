@@ -4,6 +4,7 @@ using EM3.UserControls.Configuracoes;
 using EM3.UserControls.Configuracoes.CadastroUsuarios;
 using EM3.UserControls.Configuracoes.GruposUsrXPermissoes;
 using EM3.UserControls.Configuracoes.GruposUsuarios;
+using EM3.UserControls.Estoque.Armazem;
 using EM3.UserControls.Estoque.Caracteristica;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.Util;
@@ -98,6 +99,13 @@ namespace EM3.Windows
             CaracteristicasContainer cc = new CaracteristicasContainer();
             if (UsuariosController.ValidaPermissao(cc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, cc, "Características");
+        }
+
+        private void btArmazens_Click(object sender, RoutedEventArgs e)
+        {
+            ArmazemContainer ac = new ArmazemContainer();
+            if (UsuariosController.ValidaPermissao(ac.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, ac, "Gestão de armazéns");
         }
     }
 }

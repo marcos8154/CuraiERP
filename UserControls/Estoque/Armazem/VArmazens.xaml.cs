@@ -15,22 +15,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.Caracteristica
+namespace EM3.UserControls.Estoque.Armazem
 {
     /// <summary>
-    /// Interação lógica para VCaracteristicas.xam
+    /// Interação lógica para VArmazens.xam
     /// </summary>
-    public partial class VCaracteristicas : UserControl
+    public partial class VArmazens : UserControl
     {
-        private CCaracteristicas cadastro = new CCaracteristicas();
-        private CaracteristicasContainer Container;
+        private ArmazemContainer Container;
+        private CArmazens cadastro = new CArmazens();
 
-        public VCaracteristicas(CaracteristicasContainer container)
+        public VArmazens(ArmazemContainer ac)
         {
             InitializeComponent();
-
-            this.Container = container;
+            this.Container = ac;
             dataGrid.AplicarPadroes();
+        }
+
+        private void txPesquisa_CallSearch()
+        {
+            Pesquisar();
         }
 
         private void btNovo_OnClick()
@@ -38,7 +42,7 @@ namespace EM3.UserControls.Estoque.Caracteristica
             if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.INSERIR))
                 return;
 
-            cadastro = new CCaracteristicas();
+            cadastro = new CArmazens();
             Container.GridContainer.Children.Remove(this);
             Container.GridContainer.Children.Add(cadastro);
             cadastro.OnComplete += Cadastro_OnComplete;
@@ -53,8 +57,24 @@ namespace EM3.UserControls.Estoque.Caracteristica
 
         private void Pesquisar()
         {
-            List<Caracteristicas> list = CaracteristicasController.Search(txPesquisa.Text);
+            List<Armazens> list = ArmazensController.Search(txPesquisa.Text);
             dataGrid.ItemsSource = list;
+        }
+
+        private void btExcluir_OnClick()
+        {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.EXCLUIR))
+                return;
+
+            Armazens armz = (Armazens)dataGrid.SelectedItem;
+            if (armz == null) return;
+            if (armz.Id == 0) return;
+
+            if (!(new MsgSimNao("Confirma exclusão do armazém '" + armz.Nome + "'? Esta ação não poderá ser desfeita.").Result))
+                return;
+
+            if (ArmazensController.Delete(armz.Id))
+                Pesquisar();
         }
 
         private void btAlterar_OnClick()
@@ -67,48 +87,21 @@ namespace EM3.UserControls.Estoque.Caracteristica
             if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.ATUALIZAR))
                 return;
 
-            Caracteristicas caract = (Caracteristicas)dataGrid.SelectedItem;
+            Armazens armz = (Armazens)dataGrid.SelectedItem;
 
-            if (caract == null) return;
-            if (caract.Id == 0) return;
+            if (armz == null) return;
+            if (armz.Id == 0) return;
 
-            cadastro = new CCaracteristicas();
-            cadastro.Load(caract.Id);
-
+            cadastro = new CArmazens();
+            cadastro.Load(armz.Id);
             Container.GridContainer.Children.Remove(this);
             Container.GridContainer.Children.Add(cadastro);
             cadastro.OnComplete += Cadastro_OnComplete;
         }
 
-        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Alterar();
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Pesquisar();
-        }
-
-        private void txPesquisa_CallSearch()
-        {
-            Pesquisar();
-        }
-
-        private void btExcluir_OnClick()
-        {
-            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.EXCLUIR)) return;
-
-            Caracteristicas c = (Caracteristicas)dataGrid.SelectedItem;
-
-            if (c == null) return;
-            if (c.Id == 0) return;
-
-            if (!(new MsgSimNao("Confirma exclusão da característica '" + c.Atributo + ": " + c.Valor + "'? Esta ação não poderá ser revertida.").Result))
-                return;
-
-            if (CaracteristicasController.Delete(c.Id))
-                Pesquisar();
         }
     }
 }

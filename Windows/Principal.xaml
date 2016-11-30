@@ -81,7 +81,7 @@
                 <MenuItem Header="Atualizações">
                     <MenuItem Header="Unidades" x:Name="btUnidades" Click="btUnidades_Click" />
                     <MenuItem Header="Características" x:Name="btCaracteristicas" Click="btCaracteristicas_Click" />
-                    <MenuItem Header="Armazéns" />
+                    <MenuItem Header="Armazéns" x:Name="btArmazens" Click="btArmazens_Click" />
                     <MenuItem Header="Locais de estoque" />
                     <MenuItem Header="Grupos de produtos" />
                     <MenuItem Header="Produtos" />

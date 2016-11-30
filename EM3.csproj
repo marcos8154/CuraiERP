@@ -89,6 +89,7 @@
     <Compile Include="Components\SimpleInput.xaml.cs">
       <DependentUpon>SimpleInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ArmazensController.cs" />
     <Compile Include="Controller\CaracteristicasController.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
@@ -179,6 +180,15 @@
     <Compile Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml.cs">
       <DependentUpon>VUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Estoque\Armazem\ArmazemContainer.xaml.cs">
+      <DependentUpon>ArmazemContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Armazem\CArmazens.xaml.cs">
+      <DependentUpon>CArmazens.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Armazem\VArmazens.xaml.cs">
+      <DependentUpon>VArmazens.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Estoque\Caracteristica\CaracteristicasContainer.xaml.cs">
       <DependentUpon>CaracteristicasContainer.xaml</DependentUpon>
     </Compile>
@@ -222,6 +232,7 @@
     </Compile>
     <Compile Include="Util\DateConverter.cs" />
     <Compile Include="Util\Navigation.cs" />
+    <Compile Include="Util\TipoArmazemConversor.cs" />
     <Compile Include="Windows\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -359,6 +370,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Armazem\ArmazemContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Armazem\CArmazens.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Armazem\VArmazens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

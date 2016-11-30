@@ -18,12 +18,7 @@ namespace EM3
         public int Id { get; set; }
         public string Nome { get; set; }
         public int Tipo_armazem { get; set; }
-        public bool Armazem_padrao { get; set; }
-        public decimal Largura { get; set; }
-        public string Unidade_largura { get; set; }
-        public decimal Altura { get; set; }
-        public string Unidade_altura { get; set; }
-        public decimal Comprimento { get; set; }
-        public string Unidade_compr { get; set; }
+        public int Empresa_id { get; set; }
+        public Empresa Empresa { get; set; }
     }
 }

@@ -28,6 +28,25 @@ namespace EM3.UserControls.Estoque.Caracteristica
         public CCaracteristicas()
         {
             InitializeComponent();
+
+            cbAtributos.AddItem("Cor");
+            cbAtributos.AddItem("Tamanho");
+            cbAtributos.AddItem("Sabor");
+            cbAtributos.AddItem("Comprimento");
+            cbAtributos.AddItem("Largura");
+            cbAtributos.AddItem("Estampa");
+            cbAtributos.AddItem("Polegada");
+            cbAtributos.AddItem("Diâmetro");
+            cbAtributos.AddItem("Altura");
+            cbAtributos.AddItem("Formato");
+            cbAtributos.AddItem("Amperagem");
+            cbAtributos.AddItem("Voltagem");
+            cbAtributos.AddItem("Material");
+            cbAtributos.AddItem("Capacidade");
+            cbAtributos.AddItem("RPM");
+            cbAtributos.AddItem("Peso");
+
+            cbAtributos.SelectedIndex = 0;
         }
 
         private void btSalvar_OnClick()
@@ -81,28 +100,8 @@ namespace EM3.UserControls.Estoque.Caracteristica
             txCodigo.Text = Caracteristica.Id.ToString();
             cbAtributos.Text = Caracteristica.Atributo;
             txValor.Text = Caracteristica.Valor;
-        }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            cbAtributos.AddItem("Cor");
-            cbAtributos.AddItem("Tamanho");
-            cbAtributos.AddItem("Sabor");
-            cbAtributos.AddItem("Comprimento");
-            cbAtributos.AddItem("Largura");
-            cbAtributos.AddItem("Estampa");
-            cbAtributos.AddItem("Polegada");
-            cbAtributos.AddItem("Diâmetro");
-            cbAtributos.AddItem("Altura");
-            cbAtributos.AddItem("Formato");
-            cbAtributos.AddItem("Amperagem");
-            cbAtributos.AddItem("Voltagem");
-            cbAtributos.AddItem("Material");
-            cbAtributos.AddItem("Capacidade");
-            cbAtributos.AddItem("RPM");
-            cbAtributos.AddItem("Peso");
-
-            cbAtributos.SelectedIndex = 0;
+            cabecalho.Title = "Alterar característica (" + Caracteristica.Atributo + ")";
         }
     }
 }
