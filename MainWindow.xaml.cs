@@ -29,16 +29,23 @@ namespace EM3
 
             this.Closed += MainWindow_Closed;
 
+            if(Configuration.LoadFromLocalSettings())
+            {
+                this.Hide();
+                if (!LicenceController.Connect())
+                {
+                    MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Licence Server não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                Login login = new Login();
+                login.ShowDialog();
+            }
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
-        }
-
-        private void Button_OnClick()
-        {
-            // MessageBox.Show("Foi");
         }
 
         private void btEncerrar_Click(object sender, RoutedEventArgs e)
@@ -50,23 +57,30 @@ namespace EM3
         {
             try
             {
-                this.Hide();
-                if (!LicenceController.Connect())
-                {
-                    MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Licence Server não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
-                    System.Environment.Exit(0);
-                }
-                Configuration.application = txApp.Text;
-                Configuration.server = txServidor.Text;
-                Configuration.port = int.Parse(txPorta.Text);
-
-                Login login = new Login();
-                login.ShowDialog();
+                Startup();
             }
             catch (Exception ex)
             {
 
             }
+        }
+
+        private void Startup()
+        {
+            this.Hide();
+            if (!LicenceController.Connect())
+            {
+                MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Licence Server não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Environment.Exit(0);
+            }
+
+            LicenceController.server = txServidor.Text;
+            Configuration.application = txApp.Text;
+            Configuration.server = txServidor.Text;
+            Configuration.port = int.Parse(txPorta.Text);
+
+            Login login = new Login();
+            login.ShowDialog();
         }
     }
 }

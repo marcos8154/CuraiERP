@@ -65,6 +65,8 @@ namespace EM3.Components
             }
             set
             {
+                if (IsNumeric)
+                    this.value = int.Parse(value);
                 txInput.Text = value;
             }
         }

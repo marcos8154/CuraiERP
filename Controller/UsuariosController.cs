@@ -73,7 +73,11 @@ namespace EM3.Controller
             rh.Send("usr-validperm");
 
             int i = EntityLoader<int>.Load(rh.Result);
-            return (i == 1);
+            if (i == 1)
+                return true;
+            else
+                new MsgAlerta("Usuário sem privilégios suficientes para realizar operação.");
+            return false;
         }
 
         public static Usuarios Save(Usuarios usuario)
@@ -99,7 +103,7 @@ namespace EM3.Controller
             rh.AddParameter("id", id);
             rh.Send("usr-rem");
 
-            if(rh.HasSuccess)
+            if (rh.HasSuccess)
             {
                 LicenceController.RemoveUser(id);
                 return true;

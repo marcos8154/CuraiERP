@@ -9,22 +9,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.UnidadesModulo
+namespace EM3.Windows
 {
     /// <summary>
-    /// Interação lógica para UnidadesContainer.xam
+    /// Lógica interna para WaitWindow.xaml
     /// </summary>
-    public partial class UnidadesContainer : UserControl
+    public partial class WaitWindow : Window
     {
-        public string Tela_id = "1";
-
-        public UnidadesContainer()
+        public WaitWindow()
         {
             InitializeComponent();
-            GridContainer.Children.Add(new VUnidades(this));
+            this.Topmost = true;
         }
     }
 }

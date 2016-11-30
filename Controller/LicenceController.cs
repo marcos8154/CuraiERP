@@ -13,10 +13,13 @@ namespace EM3.Controller
 {
     public class LicenceController
     {
+        public static string server = "localhost";
+        public static int port = 14449;
+
         public static bool Connect()
         {
             DBXConnection conn = new DBXConnection();
-            conn.Configure("localhost", 14449, string.Empty, "LICENCEDB");
+            conn.Configure(server, port, string.Empty, "LICENCEDB");
 
             return ClientService.CONNECTED;
         }

@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1480379753_vector_66_09.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DBXConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,15 +83,21 @@
     <Compile Include="Components\PasswordBox.xaml.cs">
       <DependentUpon>PasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\SimpleInput.xaml.cs">
       <DependentUpon>SimpleInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\CaracteristicasController.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
     <Compile Include="Controller\FornecedoresController.cs" />
     <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
+    <Compile Include="Controller\PermissoesController.cs" />
+    <Compile Include="Controller\TelasController.cs" />
     <Compile Include="Controller\UnidadesController.cs" />
     <Compile Include="Controller\UsuariosController.cs" />
     <Compile Include="Enums\StatusRetorno.cs" />
@@ -149,6 +158,9 @@
     <Compile Include="Model\Unidades.cs" />
     <Compile Include="Model\Usuarios.cs" />
     <Compile Include="Model\Usuarios_grupos.cs" />
+    <Compile Include="UserControls\Configuracoes\GruposUsrXPermissoes\GruposUsuariosXPermissoes.xaml.cs">
+      <DependentUpon>GruposUsuariosXPermissoes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Configuracoes\GruposUsuarios\CGrupos_usuarios.xaml.cs">
       <DependentUpon>CGrupos_usuarios.xaml</DependentUpon>
     </Compile>
@@ -166,6 +178,15 @@
     </Compile>
     <Compile Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml.cs">
       <DependentUpon>VUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Caracteristica\CaracteristicasContainer.xaml.cs">
+      <DependentUpon>CaracteristicasContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Caracteristica\CCaracteristicas.xaml.cs">
+      <DependentUpon>CCaracteristicas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Caracteristica\VCaracteristicas.xaml.cs">
+      <DependentUpon>VCaracteristicas.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Estoque\Fornecedores\CFornecedores.xaml.cs">
       <DependentUpon>CFornecedores.xaml</DependentUpon>
@@ -222,6 +243,9 @@
     <Compile Include="Windows\Selecao\SelecionarUnidade.xaml.cs">
       <DependentUpon>SelecionarUnidade.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\Cabecalho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +275,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Components\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -306,6 +334,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Configuracoes\GruposUsrXPermissoes\GruposUsuariosXPermissoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Configuracoes\GruposUsuarios\CGrupos_usuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -327,6 +359,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Configuracoes\Usuarios\VUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Caracteristica\CaracteristicasContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Caracteristica\CCaracteristicas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Caracteristica\VCaracteristicas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,6 +430,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\WaitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -405,6 +453,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Files\ConfigFiles\NetLauncher.dwconf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -433,6 +484,7 @@
     <Resource Include="Image1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="1480379753_vector_66_09.ico" />
     <Content Include="Files\Commands\TelasInsert.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

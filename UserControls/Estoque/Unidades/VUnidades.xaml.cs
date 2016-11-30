@@ -51,6 +51,9 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
 
         private void btNovo_OnClick()
         {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.INSERIR))
+                return;
+
             Cadastro = new CUnidades();
             Container.GridContainer.Children.Remove(this);
             Container.GridContainer.Children.Add(Cadastro);
@@ -66,6 +69,9 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
 
         private void Alterar()
         {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.ATUALIZAR))
+                return;
+
             Unidades unidade = (Unidades)dataGrid.SelectedItem;
 
             if (unidade == null)
@@ -92,6 +98,9 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
 
         private void btExcluir_OnClick()
         {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.EXCLUIR))
+                return;
+
             Unidades unidade = (Unidades)dataGrid.SelectedItem;
 
             if (unidade == null)

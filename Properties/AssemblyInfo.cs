@@ -7,13 +7,13 @@ using System.Windows;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("Test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Curae ERP Série V")]
+[assembly: AssemblyDescription("Software de gestão para o segmento do varejo")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Test")]
+[assembly: AssemblyCompany("Doware")]
+[assembly: AssemblyProduct("Curae ERP")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("DoWare")]
 [assembly: AssemblyCulture("")]
 
 // Definir ComVisible como false torna invisíveis os tipos neste assembly
@@ -51,5 +51,5 @@ using System.Windows;
 // É possível especificar todos os valores ou usar como padrão os Números da Versão e da Revisão 
 // utilizando o "*" como mostrado abaixo:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]

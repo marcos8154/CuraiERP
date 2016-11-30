@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EM3.Windows"
+        xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.Windows.WaitWindow"
+        mc:Ignorable="d"
+        WindowStyle="None"
+     WindowStartupLocation="CenterScreen"
+        Title="WaitWindow" Height="150" Width="379">
+    <Grid>
+        <TextBlock  Text="Titulo" x:Name="txTitulo"  TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF343434" FontSize="16" Height="25" VerticalAlignment="Top" Margin="0,45,0,0"/>
+
+        <Components:ProgressBar x:Name="Progresso" Width="345" Height="15" Margin="10,80,10,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

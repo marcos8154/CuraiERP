@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EM3.Enums;
 
 namespace EM3.UserControls.Configuracoes
 {
@@ -20,6 +21,7 @@ namespace EM3.UserControls.Configuracoes
     /// </summary>
     public partial class EmpresasContainer : UserControl
     {
+        public string Tela_id = "41";
         VEmpresas visualizacao;
 
         public EmpresasContainer()

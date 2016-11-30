@@ -87,6 +87,18 @@ namespace EM3.Components
             }
         }
 
+        public string Text
+        {
+            set
+            {
+                combobox.Text = value;
+            }
+            get
+            {
+                return combobox.Text;
+            }
+        }
+
         public void SetItemsSource(System.Collections.IEnumerable item)
         {
             combobox.ItemsSource = item;

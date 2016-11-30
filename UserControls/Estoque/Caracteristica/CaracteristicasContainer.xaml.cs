@@ -12,19 +12,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.UnidadesModulo
+namespace EM3.UserControls.Estoque.Caracteristica
 {
     /// <summary>
-    /// Interação lógica para UnidadesContainer.xam
+    /// Interação lógica para CaracteristicasContainer.xam
     /// </summary>
-    public partial class UnidadesContainer : UserControl
+    public partial class CaracteristicasContainer : UserControl
     {
-        public string Tela_id = "1";
+        public string Tela_id = "2";
 
-        public UnidadesContainer()
+        public CaracteristicasContainer()
         {
             InitializeComponent();
-            GridContainer.Children.Add(new VUnidades(this));
+
+            GridContainer.Children.Add(new VCaracteristicas(this));
         }
     }
 }

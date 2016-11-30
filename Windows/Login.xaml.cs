@@ -28,6 +28,9 @@ namespace EM3.Windows
             txUsuario.SetFocused();
             txData.Value = DateTime.Now;
             this.Closed += Login_Closed;
+
+            txUsuario.Text = "Admin";
+         //   btLogin_click();
         }
 
         private void Login_Closed(object sender, EventArgs e)

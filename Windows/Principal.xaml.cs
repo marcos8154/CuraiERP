@@ -2,7 +2,10 @@
 using EM3.Interfaces;
 using EM3.UserControls.Configuracoes;
 using EM3.UserControls.Configuracoes.CadastroUsuarios;
+using EM3.UserControls.Configuracoes.GruposUsrXPermissoes;
 using EM3.UserControls.Configuracoes.GruposUsuarios;
+using EM3.UserControls.Estoque.Caracteristica;
+using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.Util;
 using EM3.Windows.Selecao;
 using System;
@@ -28,22 +31,12 @@ namespace EM3.Windows
         public Principal()
         {
             InitializeComponent();
-
-            IModulo estoque = new UserControls.Modulos.Estoque();
-            estoque.Inject(this);
+            progresso.Maximum = 10;
         }
 
         private void btn_OnClick()
         {
-            EmpresasContainer emps = new EmpresasContainer();
-
-            TabItem item = new TabItem();
-            item.Header = "Empresas";
-            item.Content = emps;
-
-            emps.Height = item.Height;
-            emps.Width = item.Width;
-            tabControl.Items.Add(item);
+            progresso.Incresses(1);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -77,6 +70,34 @@ namespace EM3.Windows
             Grupos_usuariosContainer gc = new Grupos_usuariosContainer();
             if (UsuariosController.ValidaPermissao(gc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, gc, "Grupos de usuários");
+        }
+
+        private void btGruposXPermissoes_Click(object sender, RoutedEventArgs e)
+        {
+            GruposUsuariosXPermissoes guxp = new GruposUsuariosXPermissoes();
+            if (UsuariosController.ValidaPermissao(guxp.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, guxp, "Grupos de usuários X Permissões");
+        }
+
+        private void btEmpresa_Click(object sender, RoutedEventArgs e)
+        {
+            EmpresasContainer ec = new EmpresasContainer();
+            if (UsuariosController.ValidaPermissao(ec.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, ec, "Empresas");
+        }
+
+        private void btUnidades_Click(object sender, RoutedEventArgs e)
+        {
+            UnidadesContainer uc = new UnidadesContainer();
+            if (UsuariosController.ValidaPermissao(uc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, uc, "Unidades");
+        }
+
+        private void btCaracteristicas_Click(object sender, RoutedEventArgs e)
+        {
+            CaracteristicasContainer cc = new CaracteristicasContainer();
+            if (UsuariosController.ValidaPermissao(cc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, cc, "Características");
         }
     }
 }

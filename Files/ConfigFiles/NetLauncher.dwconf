@@ -1,0 +1,14 @@
+﻿*-------------------------------------------------*
+|   Doware  NetLauncher auto config file          |
+*-------------------------------------------------*
+
+<------------   APPLICATION SERVER   ----------->
+
+appserver=192.168.0.14
+appserver_port=8080
+default_application=em3
+
+<------------     LICENCE SERVER     ----------->
+
+licenceserver=192.168.0.14
+licenceserver_port=14449

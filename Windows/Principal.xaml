@@ -60,6 +60,7 @@
                     <Components:ConfirmButton x:Name="btn" OnClick="btn_OnClick" HorizontalAlignment="Left" Margin="485,192,0,0" VerticalAlignment="Top"/>
                     <Grid x:Name="GridModulos" HorizontalAlignment="Left" Margin="10,10,0,10" Width="364"/>
                     <Components:NormalButton OnClick="NormalButton_OnClick" HorizontalAlignment="Left" Margin="602,156,0,0" VerticalAlignment="Top"/>
+                    <Components:ProgressBar x:Name="progresso" HorizontalAlignment="Left" Height="15" Margin="432,326,0,0" VerticalAlignment="Top" Width="495"/>
 
                 </Grid>
             </TabItem>
@@ -78,8 +79,8 @@
             </Menu.Background>
             <MenuItem Header="Estoque">
                 <MenuItem Header="Atualizações">
-                    <MenuItem Header="Unidades" />
-                    <MenuItem Header="Características" />
+                    <MenuItem Header="Unidades" x:Name="btUnidades" Click="btUnidades_Click" />
+                    <MenuItem Header="Características" x:Name="btCaracteristicas" Click="btCaracteristicas_Click" />
                     <MenuItem Header="Armazéns" />
                     <MenuItem Header="Locais de estoque" />
                     <MenuItem Header="Grupos de produtos" />
@@ -170,10 +171,10 @@
 
             <MenuItem Header="Miscelânea">
                 <MenuItem Header="Atualizações">
-                    <MenuItem Header="Empresa"/>
+                    <MenuItem Header="Empresa" x:Name="btEmpresa" Click="btEmpresa_Click"/>
                     <MenuItem Header="Usuários" x:Name="btUsuarios" Click="btUsuarios_Click"/>
                     <MenuItem Header="Grupos de usuários" x:Name="btGrupos_usuairos" Click="btGrupos_usuairos_Click"/>
-                    <MenuItem Header="Grupos x Permissões"/>
+                    <MenuItem Header="Grupos x Permissões" x:Name="btGruposXPermissoes" Click="btGruposXPermissoes_Click" />
                 </MenuItem>
             </MenuItem>
         </Menu>
