@@ -28,8 +28,8 @@ namespace EM3
             InitializeComponent();
 
             this.Closed += MainWindow_Closed;
-
-            if(Configuration.LoadFromLocalSettings())
+            if (!Directory.Exists(@"C:\Temp\")) Directory.CreateDirectory(@"C:\Temp\");
+            if (Configuration.LoadFromLocalSettings())
             {
                 this.Hide();
                 if (!LicenceController.Connect())

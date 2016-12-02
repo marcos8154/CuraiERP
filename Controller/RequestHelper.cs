@@ -27,7 +27,8 @@ namespace EM3.Controller
                 {
                     if (isHandled)
                         return false;
-                    new MsgAlerta(Result.message);
+                    if (!string.IsNullOrEmpty(Result.message))
+                        new MsgAlerta(Result.message);
                 }
                 return false;
             }

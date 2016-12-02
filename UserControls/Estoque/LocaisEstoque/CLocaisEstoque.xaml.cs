@@ -57,7 +57,15 @@ namespace EM3.UserControls.Estoque.LocaisEstoque
 
         private void btSalvar_OnClick()
         {
-            Salvar(true);
+            try
+            {
+                Salvar(true);
+            }
+            catch (Exception ex)
+            {
+               // if (ex.Message.StartsWith("A cadeia"))
+                    //new MsgAlerta("Ocorreu um problema durante a conversão numérica em um dos campos. Verifique os valores numéricos e tente novamente.");
+            }
         }
 
         private void btSalvarEContinuar_OnClick()

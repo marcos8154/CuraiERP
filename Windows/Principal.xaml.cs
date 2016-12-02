@@ -6,6 +6,7 @@ using EM3.UserControls.Configuracoes.GruposUsrXPermissoes;
 using EM3.UserControls.Configuracoes.GruposUsuarios;
 using EM3.UserControls.Estoque.Armazem;
 using EM3.UserControls.Estoque.Caracteristica;
+using EM3.UserControls.Estoque.GruposProdutos;
 using EM3.UserControls.Estoque.LocaisEstoque;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.Util;
@@ -38,7 +39,7 @@ namespace EM3.Windows
 
         private void btn_OnClick()
         {
-            progresso.Incresses(1);
+            FotoController.GetFile("teste", 2);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -114,6 +115,13 @@ namespace EM3.Windows
             LocaisEstoqueContainer lec = new LocaisEstoqueContainer();
             if (UsuariosController.ValidaPermissao(lec.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, lec, "Locais de estoque");
+        }
+
+        private void btGrupos_produtos_Click(object sender, RoutedEventArgs e)
+        {
+            Grupos_produtoContainer gpc = new Grupos_produtoContainer();
+            if (UsuariosController.ValidaPermissao(gpc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, gpc, "Grupos de produtos");
         }
     }
 }

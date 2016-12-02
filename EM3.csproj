@@ -94,6 +94,8 @@
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
     <Compile Include="Controller\FornecedoresController.cs" />
+    <Compile Include="Controller\FotoController.cs" />
+    <Compile Include="Controller\Grupos_produtosController.cs" />
     <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
     <Compile Include="Controller\Locais_estoqueController.cs" />
@@ -207,6 +209,15 @@
     </Compile>
     <Compile Include="UserControls\Estoque\Fornecedores\VFornecedores.xaml.cs">
       <DependentUpon>VFornecedores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\GruposProdutos\CGrupos_produtos.xaml.cs">
+      <DependentUpon>CGrupos_produtos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\GruposProdutos\Grupos_produtoContainer.xaml.cs">
+      <DependentUpon>Grupos_produtoContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\GruposProdutos\VGrupos_produtos.xaml.cs">
+      <DependentUpon>VGrupos_produtos.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Estoque\LocaisEstoque\CLocaisEstoque.xaml.cs">
       <DependentUpon>CLocaisEstoque.xaml</DependentUpon>
@@ -419,6 +430,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Estoque\Fornecedores\VFornecedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\GruposProdutos\CGrupos_produtos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\GruposProdutos\Grupos_produtoContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\GruposProdutos\VGrupos_produtos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -169,14 +169,22 @@ namespace EM3.Components
         {
             get
             {
-                string value = string.Format("{0:0,0.00}", txInput.Text);
+                try
+                {
+                    string value = string.Format("{0:0,0.00}", txInput.Text);
 
-                string[] t = value.Split('.');
-                if (t.Length <= 2 && !txInput.Text.Contains(","))
-                    value = value.Replace(".", ",");
+                    string[] t = value.Split('.');
+                    if (t.Length <= 2 && !txInput.Text.Contains(","))
+                        value = value.Replace(".", ",");
 
-                decimal d = decimal.Parse(value);
-                return d;
+                    decimal d = decimal.Parse(value);
+                    return d;
+                }
+                catch (Exception ex)
+                {
+                    new MsgAlerta("Ocorreu um problema durante a conversão numérica em um dos campos. Verifique os valores numéricos e tente novamente.");
+                }
+                return 0;
             }
         }
 
@@ -184,14 +192,22 @@ namespace EM3.Components
         {
             get
             {
-                string value = string.Format("{0:0,0.00}", txInput.Text);
+                try
+                {
+                    string value = string.Format("{0:0,0.00}", txInput.Text);
 
-                string[] t = value.Split('.');
-                if (t.Length <= 2 && !txInput.Text.Contains(","))
-                    value = value.Replace(".", ",");
+                    string[] t = value.Split('.');
+                    if (t.Length <= 2 && !txInput.Text.Contains(","))
+                        value = value.Replace(".", ",");
 
-                double d = double.Parse(value);
-                return d;
+                    double d = double.Parse(value);
+                    return d;
+                }
+                catch (Exception ex)
+                {
+                    new MsgAlerta("Ocorreu um problema durante a conversão numérica em um dos campos. Verifique os valores numéricos e tente novamente.");
+                }
+                return 0;
             }
         }
 
@@ -224,14 +240,21 @@ namespace EM3.Components
 
         private void TxInput_LostFocus(object sender, RoutedEventArgs e)
         {
-
-            if (InputLostFocus != null) InputLostFocus(sender, e);
-
-            if (isMoney)
+            try
             {
-                string text = txInput.Text;
-                if (!string.IsNullOrEmpty(text))
-                    value = decimal.Parse(text);
+
+                if (InputLostFocus != null) InputLostFocus(sender, e);
+
+                if (isMoney)
+                {
+                    string text = txInput.Text;
+                    if (!string.IsNullOrEmpty(text))
+                        value = decimal.Parse(text);
+                }
+            }
+            catch (Exception ex)
+            {
+                new MsgAlerta("Ocorreu um problema durante a conversão numérica em um dos campos. Verifique os valores numéricos e tente novamente.");
             }
         }
 
@@ -252,42 +275,50 @@ namespace EM3.Components
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            if (isNumeric)
+            try
             {
-                Regex rgxNumbers = new Regex("[^0-9]+");
-                e.Handled = (rgxNumbers.IsMatch(e.Text));
-            }
-
-            if (isMoney)
-            {
-                Regex rgxNumbers = new Regex("[^0-9]+");
-                e.Handled = (rgxNumbers.IsMatch(e.Text) || (e.Text.Equals(",")));
-                if (e.Text.Equals(",") || e.Text.Equals("."))
+                if (isNumeric)
                 {
-                    if (e.Text.Equals(",") && txInput.Text.Contains(","))
-                        return;
-
-                    if (e.Text.Equals(".") && txInput.Text.Contains(","))
-                        return;
-
-                 /*   if (e.Text.Equals(".") && txInput.Text.Contains("."))
-                        return; */
-
-                    if (e.Text.Equals(",") && txInput.Text.Contains(","))
-                        return;
-                       
-
-                    if (e.Text.Equals(".") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
-                        return;
-
-                    if (e.Text.Equals(",") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
-                        return;
-
-                    txInput.Text += e.Text;
-                    txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
-                    txInput.SelectionLength = 0;
+                    Regex rgxNumbers = new Regex("[^0-9]+");
+                    e.Handled = (rgxNumbers.IsMatch(e.Text));
                 }
+
+                if (isMoney)
+                {
+                    Regex rgxNumbers = new Regex("[^0-9]+");
+                    e.Handled = (rgxNumbers.IsMatch(e.Text) || (e.Text.Equals(",")));
+                    if (e.Text.Equals(",") || e.Text.Equals("."))
+                    {
+                        if (e.Text.Equals(",") && txInput.Text.Contains(","))
+                            return;
+
+                        if (e.Text.Equals(".") && txInput.Text.Contains(","))
+                            return;
+
+                        /*   if (e.Text.Equals(".") && txInput.Text.Contains("."))
+                               return; */
+
+                        if (e.Text.Equals(",") && txInput.Text.Contains(","))
+                            return;
+
+
+                        if (e.Text.Equals(".") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
+                            return;
+
+                        if (e.Text.Equals(",") && (txInput.Text.Last().Equals('.') || txInput.Text.Last().Equals(',')))
+                            return;
+
+                        txInput.Text += e.Text;
+                        txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
+                        txInput.SelectionLength = 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
 }
+
