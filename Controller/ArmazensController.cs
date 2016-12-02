@@ -9,16 +9,12 @@ namespace EM3.Controller
     {
         public static List<Armazens> Search(int empresa_id, string searchTerm = "")
         {
-            List<Armazens> result = new List<Armazens>();
-
             RequestHelper rh = new RequestHelper();
             rh.AddParameter("query", searchTerm);
             rh.AddParameter("empresa_id", empresa_id);
             rh.Send("armz-search");
-           
-            if (rh.HasSuccess)
-                result = EntityLoader<List<Armazens>>.Load(rh.Result);
-            return result;
+
+            return EntityLoader<List<Armazens>>.Load(rh.Result);
         }
 
         internal static bool Save(Armazens armazem)

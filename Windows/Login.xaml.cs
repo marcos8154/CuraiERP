@@ -29,9 +29,12 @@ namespace EM3.Windows
             txData.Value = DateTime.Now;
             this.Closed += Login_Closed;
 
-            Empresa e = EmpresasController.Find(Configuration.standard_company);
-            txCod_empresa.Text = e.Id.ToString();
-            txNomeEmpresa.Text = e.Razao_social;
+            if (Configuration.standard_company > 0)
+            {
+                Empresa e = EmpresasController.Find(Configuration.standard_company);
+                txCod_empresa.Text = e.Id.ToString();
+                txNomeEmpresa.Text = e.Razao_social;
+            }
 
             txUsuario.Text = "Admin";
         }
@@ -62,7 +65,7 @@ namespace EM3.Windows
             */
 
             Principal p = new Principal();
-            if (UsuariosController.EfetuaLogin(txUsuario.Text, txSenha.Text, txData.Value, txCod_empresa.Value))
+            if (UsuariosController.EfetuaLogin(txUsuario.Text, txSenha.Password, txData.Value, txCod_empresa.Value))
             {
                 this.Hide();
                 p.ShowDialog();

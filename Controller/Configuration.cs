@@ -10,7 +10,7 @@ namespace EM3.Controller
     {
         public static string application = "em3";
         public static string server = "localhost";
-        public static int port = 8080;
+        public static int port = 8081;
         public static int standard_company = 0;
        
         public static string GetApplication
