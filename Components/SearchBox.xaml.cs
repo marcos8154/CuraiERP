@@ -117,6 +117,18 @@ namespace EM3.Components
             }
         }
 
+        public CharacterCasing CharacterCasing
+        {
+            get
+            {
+                return txInput.CharacterCasing;
+            }
+            set
+            {
+                txInput.CharacterCasing = value;
+            }
+        }
+
         private int value;
 
         public int Value
@@ -148,6 +160,7 @@ namespace EM3.Components
             txInput.KeyDown += TxInput_KeyDown;
             txInput.KeyUp += TxInput_KeyUp;
             this.IsNumeric = true;
+            CharacterCasing = CharacterCasing.Upper;
         }
 
         public void SetFocused()

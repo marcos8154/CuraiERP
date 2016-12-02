@@ -12,7 +12,7 @@
     <Grid x:Name="GridContainer">
 
         <Grid x:Name="GridListagem">
-            <Components:SearchBox x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Margin="10,0,0,0"/>
+            <Components:SearchBox CharacterCasing="Normal" x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="270" Margin="10,0,0,0"/>
 
             <DataGrid MouseDoubleClick="dataGrid_MouseDoubleClick" x:Name="dataGrid" Margin="10,61,10,43">
                 <DataGrid.Columns>

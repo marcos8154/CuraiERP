@@ -230,6 +230,7 @@ namespace EM3.Components
             txInput.LostFocus += TxInput_LostFocus;
             txInput.GotFocus += TxInput_GotFocus;
             Enabled = true;
+            CharacterCasing = CharacterCasing.Upper;
         }
 
         private void TxInput_GotFocus(object sender, RoutedEventArgs e)

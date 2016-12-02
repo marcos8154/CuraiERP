@@ -13,7 +13,7 @@
                 <Label Content="Seja bem-vindo" Foreground="#FF726C6C" Margin="0,0,0,340" FontSize="20"/>
 
 
-                <Components:Input x:Name="txUsuario" KeyDown="txUsuario_KeyDown" Title="Usuário" Margin="0,124,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+                <Components:Input CharacterCasing="Normal" x:Name="txUsuario" KeyDown="txUsuario_KeyDown" Title="Usuário" Margin="0,124,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
                 <Components:Input x:Name="txSenha" KeyDown="txSenha_KeyDown" Title="Senha" Margin="0,189,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
                 <Components:SearchBox  CallSearch="buscarEmpresa" x:Name="txCod_empresa" Title="Empresa" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="60" Width="94"/>
                 <Components:SimpleInput x:Name="txNomeEmpresa" Enabled="False" Margin="0,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.484,0.393" Height="33" HorizontalAlignment="Right" Width="222"/>

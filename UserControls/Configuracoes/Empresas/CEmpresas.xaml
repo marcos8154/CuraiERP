@@ -15,27 +15,24 @@
         <Components:NormalButton FontSize="13" x:Name="btContinuar" OnClick="btContinuar_OnClick" Text="Salvar e continuar" HorizontalAlignment="Right" Margin="0,46,79,0" VerticalAlignment="Top" Width="132" Height="38"/>
 
         <Components:Input Index="1" x:Name="txCod" Enabled="False" Title="Código" IsNumeric="True"  HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="60" Width="79"/>
-        <Components:Input Index="2" MaxLength="100" x:Name="txNome_fantasia" Title="Nome fantasia" HorizontalAlignment="Left" Margin="94,89,0,0" VerticalAlignment="Top" Height="60" Width="268"/>
-        <Components:Input Index="3" MaxLength="100" x:Name="txRazao_social" Title="Razão social" Margin="367,89,397,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+        <Components:Input Index="2" MaxLength="100" x:Name="txNome_fantasia" Title="Nome fantasia" HorizontalAlignment="Left" Margin="94,89,0,0" VerticalAlignment="Top" Height="60" Width="268" CharacterCasing="Normal"/>
+        <Components:Input Index="3" MaxLength="100" x:Name="txRazao_social" Title="Razão social" Margin="367,89,397,0" VerticalAlignment="Top" Height="60" Width="Auto" CharacterCasing="Normal"/>
         <Components:Input Index="4" MaxLength="20" x:Name="txCNPJ" Title="CNPJ" IsNumeric="True" HorizontalAlignment="Right" Margin="0,89,198,0" VerticalAlignment="Top" Height="60" Width="194"/>
         <Components:ComboBox Items="1 - " Index="5" Title="Regime tributário" x:Name="cbCRT" HorizontalAlignment="Right" Margin="0,89,10,0" VerticalAlignment="Top" Width="183" Height="60"/>
         <Components:MaskedInput Index="6" Mask="(00) 0000-0000" Title="Telefone 1" x:Name="txTel1" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Height="60" Width="141"/>
         <Components:MaskedInput Mask="(00) 0000-0000" Index="7" MaxLength="15" x:Name="txTel2" Title="Telefone 2" Margin="156,158,0,0" VerticalAlignment="Top" Height="60" Width="141" HorizontalAlignment="Left"/>
         <Components:MaskedInput Mask="(00) 00000-0000" Index="8" MaxLength="15" x:Name="txCel" Title="Celular" Margin="302,158,0,0" VerticalAlignment="Top" Height="60" Width="141" HorizontalAlignment="Left"/>
-        <Components:Input Index="9" MaxLength="100" x:Name="txEmail" Title="Email" Margin="448,158,0,0" VerticalAlignment="Top" Height="60" Width="223" HorizontalAlignment="Left"/>
+        <Components:Input Index="9" MaxLength="100" x:Name="txEmail" Title="Email" Margin="448,158,0,0" VerticalAlignment="Top" Height="60" Width="223" HorizontalAlignment="Left" CharacterCasing="Normal"/>
 
         <Components:ComboBox Index="10" Items=" SIM; NÃO;" Title="Empresa ativa" x:Name="cbAtivo" HorizontalAlignment="Left" Margin="676,158,0,0" VerticalAlignment="Top" Width="120" Height="60"/>
-        <Components:Input Index="11" MaxLength="100" x:Name="txResponsavel" Title="Responsavel" Margin="801,158,10,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+        <Components:Input Index="11" MaxLength="100" x:Name="txResponsavel" Title="Responsavel" Margin="801,158,10,0" VerticalAlignment="Top" Height="60" Width="Auto" CharacterCasing="Normal"/>
         <Components:MaskedInput Mask="00,000-000" Index="12" MaxLength="15" x:Name="txCep" Title="CEP" Margin="10,230,0,0" VerticalAlignment="Top" Height="60" Width="110" HorizontalAlignment="Left"/>
-        <Components:Input Index="13" MaxLength="100" x:Name="txLogradouro" Title="Logradouro" HorizontalAlignment="Left" Margin="125,230,0,0" VerticalAlignment="Top" Height="53" Width="268"/>
-        <Components:Input Index="14" MaxLength="100" x:Name="txBairro" Title="Bairro" HorizontalAlignment="Left" Margin="398,230,0,0" VerticalAlignment="Top" Height="53" Width="229"/>
-        <Components:Input Index="15" MaxLength="100" x:Name="txMunicipio" Title="Município" Margin="632,230,101,0" VerticalAlignment="Top" Height="53" Width="Auto"/>
+        <Components:Input Index="13" MaxLength="100" x:Name="txLogradouro" Title="Logradouro" HorizontalAlignment="Left" Margin="125,230,0,0" VerticalAlignment="Top" Height="53" Width="268" CharacterCasing="Normal"/>
+        <Components:Input Index="14" MaxLength="100" x:Name="txBairro" Title="Bairro" HorizontalAlignment="Left" Margin="398,230,0,0" VerticalAlignment="Top" Height="53" Width="229" CharacterCasing="Normal"/>
+        <Components:Input Index="15" MaxLength="100" x:Name="txMunicipio" Title="Município" Margin="632,230,101,0" VerticalAlignment="Top" Height="53" Width="Auto" CharacterCasing="Normal"/>
         <Components:Input Index="16" MaxLength="5" x:Name="txNumero" Title="Número" IsNumeric="True" Margin="0,230,10,0" VerticalAlignment="Top" Height="56" Width="86" HorizontalAlignment="Right"/>
-        <Components:Input Index="18" MaxLength="100" x:Name="txCompl" Title="Complemento" Margin="94,304,10,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+        <Components:Input Index="18" MaxLength="100" x:Name="txCompl" Title="Complemento" Margin="94,304,10,0" VerticalAlignment="Top" Height="60" Width="Auto" CharacterCasing="Normal"/>
         <Components:Input Index="17" MaxLength="2" x:Name="txUF" Title="UF" Margin="10,304,0,0" VerticalAlignment="Top" Height="53" Width="79" HorizontalAlignment="Left"/>
-
-
-
 
     </Grid>
 </UserControl>

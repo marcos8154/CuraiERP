@@ -9,7 +9,7 @@
         Title="Empresas" Height="436.398" Width="886.259" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid>
 
-        <Components:SearchBox CallSearch="buscar" x:Name="txPesquisa" Title="Pesquisar" IsNumeric="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="343"/>
+        <Components:SearchBox CharacterCasing="Normal" CallSearch="buscar" x:Name="txPesquisa" Title="Pesquisar" IsNumeric="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="60" Width="343"/>
         <DataGrid ItemsSource="{Binding}" x:Name="dataGrid" Margin="10,75,10,43" MouseDoubleClick="dataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Código" MinWidth="80" Width="*"/>

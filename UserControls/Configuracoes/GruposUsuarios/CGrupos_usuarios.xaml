@@ -14,7 +14,7 @@
         <Components:NormalButton x:Name="btSalvarEContinuar" OnClick="btSalvarEContinuar_OnClick" Text="Salvar e continuar" HorizontalAlignment="Right" Margin="0,40,90,0" VerticalAlignment="Top" SizeFont="13" Height="38" Width="127"/>
         <Components:NormalButton x:Name="btCancelar" OnClick="btCancelar_OnClick" Text="Cancelar"  HorizontalAlignment="Right" Margin="0,40,222,0" VerticalAlignment="Top" SizeFont="13" Height="38" Width="89"/>
         <Components:Input IsNumeric="True" Enabled="False" Title="Código" x:Name="txCodigo" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="84"/>
-        <Components:Input x:Name="txNome" Required="True" Title="Nome" MaxLength="100" HorizontalAlignment="Left" Margin="99,83,0,0" VerticalAlignment="Top" Height="56" Width="443"/>
+        <Components:Input CharacterCasing="Normal" x:Name="txNome" Required="True" Title="Nome" MaxLength="100" HorizontalAlignment="Left" Margin="99,83,0,0" VerticalAlignment="Top" Height="56" Width="443"/>
 
     </Grid>
 </UserControl>

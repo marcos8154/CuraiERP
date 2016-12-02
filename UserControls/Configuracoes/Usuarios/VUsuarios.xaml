@@ -13,7 +13,7 @@
     </UserControl.Resources>
     <Grid>
         <Components:Cabecalho x:Name="cabecalho" Title="Usuários" VerticalAlignment="Top"/>
-        <Components:SearchBox x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Height="52" Width="313"/>
+        <Components:SearchBox CharacterCasing="Normal"  x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" IsNumeric="False" Title="Pesquisar" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Height="52" Width="313"/>
         <Components:ConfirmButton Text="Novo" x:Name="btNovo" OnClick="btNovo_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,10,0" VerticalAlignment="Top" Width="65" Height="29"/>
         <Components:NormalButton Text="Alterar" SizeFont="13" x:Name="btAlterar" OnClick="btAlterar_OnClick" HorizontalAlignment="Right" Margin="0,64,81,0" VerticalAlignment="Top" Width="74" Height="29"/>
         <Components:NormalButton Text="Excluir" x:Name="btExcluir" OnClick="btExcluir_OnClick" SizeFont="13" HorizontalAlignment="Right" Margin="0,64,160,0" VerticalAlignment="Top" Width="80" Height="29"/>

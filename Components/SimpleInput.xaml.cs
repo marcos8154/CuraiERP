@@ -106,6 +106,18 @@ namespace EM3.Components
             }
         }
 
+        public CharacterCasing CharacterCasing
+        {
+            get
+            {
+                return txInput.CharacterCasing;
+            }
+            set
+            {
+                txInput.CharacterCasing = value;
+            }
+        }
+
         private decimal value;
 
         public decimal Value
@@ -135,6 +147,7 @@ namespace EM3.Components
             txInput.LostFocus += TxInput_LostFocus;
             txInput.GotFocus += TxInput_GotFocus;
             Enabled = true;
+            CharacterCasing = CharacterCasing.Upper;
         }
 
         private void TxInput_GotFocus(object sender, RoutedEventArgs e)
