@@ -50,14 +50,18 @@ namespace EM3.UserControls.Configuracoes.GruposUsrXPermissoes
 
             if (sg.Selecionado.Id > 0)
             {
+                /*  PermissoesView -> Classe adapter criada para
+                 *  servir de ItemsSource para o DataGrid
+                 */
                 List<PermissaoView> listPermissoes = new List<PermissaoView>();
-
                 List<Telas> telas = TelasController.ListAll();
                 List<Permissoes> permssoes = PermissoesController.ListByGrupo(sg.Selecionado.Id);
 
                 foreach (Telas tela in telas)
                 {
-                    Permissoes permissao = permssoes.FirstOrDefault(e => e.Grupo_usuarios_id == sg.Selecionado.Id && e.Telas_id.Equals(tela.Id)) ?? new Permissoes();
+                    Permissoes permissao = permssoes.FirstOrDefault
+                        (e => e.Grupo_usuarios_id == sg.Selecionado.Id &&
+                         e.Telas_id.Equals(tela.Id)) ?? new Permissoes();
 
                     PermissaoView permissaoView = new PermissaoView();
                     permissaoView.Id = int.Parse(tela.Id);
@@ -65,7 +69,7 @@ namespace EM3.UserControls.Configuracoes.GruposUsrXPermissoes
                     permissaoView.Acesso = permissao.Acesso;
                     permissaoView.Inserir = permissao.Inserir;
                     permissaoView.Atualizar = permissao.Atualizar;
-                    permissaoView.Excluir = permissaoView.Excluir;
+                    permissaoView.Excluir = permissao.Excluir;
 
                     listPermissoes.Add(permissaoView);
                 }
@@ -83,7 +87,7 @@ namespace EM3.UserControls.Configuracoes.GruposUsrXPermissoes
         {
             try
             {
-                if (dataGrid.Items.Count == 0)return;
+                if (dataGrid.Items.Count == 0) return;
 
                 btSalvar.Enabled = false;
                 Salvar();
