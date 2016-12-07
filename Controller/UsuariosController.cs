@@ -121,6 +121,11 @@ namespace EM3.Controller
             List<Usuarios> result = EntityLoader<List<Usuarios>>.Load(rh.Result);
             return result;
         }
+
+        internal static bool ValidaPermissao(object tela_id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

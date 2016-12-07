@@ -9,6 +9,7 @@ using EM3.UserControls.Estoque.Caracteristica;
 using EM3.UserControls.Estoque.GruposProdutos;
 using EM3.UserControls.Estoque.LocaisEstoque;
 using EM3.UserControls.Estoque.UnidadesModulo;
+using EM3.UserControls.Financeiro.TiposMovimento;
 using EM3.Util;
 using EM3.Windows.Selecao;
 using System;
@@ -122,6 +123,13 @@ namespace EM3.Windows
             Grupos_produtoContainer gpc = new Grupos_produtoContainer();
             if (UsuariosController.ValidaPermissao(gpc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, gpc, "Grupos de produtos");
+        }
+
+        private void btTipos_mov_Click(object sender, RoutedEventArgs e)
+        {
+            TmvContainer tmvc = new TmvContainer();
+            if (UsuariosController.ValidaPermissao(tmvc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, tmvc, "Tipos de movimento");
         }
     }
 }

@@ -115,7 +115,7 @@
 
             <MenuItem Header="Financeiro">
                 <MenuItem Header="Atualizações">
-                    <MenuItem Header="Tipos de movimento" />
+                    <MenuItem Header="Tipos de movimento" x:Name="btTipos_mov" Click="btTipos_mov_Click"/>
                     <MenuItem Header="Classes de imposto" />
                     <MenuItem Header="Formas de pagamento" />
                     <MenuItem Header="Operadoras de cartão" />

@@ -237,6 +237,12 @@
     <Compile Include="UserControls\Estoque\Unidades\VUnidades.xaml.cs">
       <DependentUpon>VUnidades.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\TiposMovimento\TmvContainer.xaml.cs">
+      <DependentUpon>TmvContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\TiposMovimento\VTmv.xaml.cs">
+      <DependentUpon>VTmv.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Modulos\Estoque.xaml.cs">
       <DependentUpon>Estoque.xaml</DependentUpon>
     </Compile>
@@ -469,6 +475,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\TiposMovimento\TmvContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\TiposMovimento\VTmv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Modulos\Estoque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -547,7 +561,7 @@
   <ItemGroup>
     <Folder Include="Files\Tables\" />
     <Folder Include="UserControls\Faturamento\" />
-    <Folder Include="UserControls\Financeiro\" />
+    <Folder Include="UserControls\Financeiro\ClasseImposto\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\doware.png" />
