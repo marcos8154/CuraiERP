@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EM3.UserControls.Financeiro.TiposMovimento"
+             xmlns:Conversors="clr-namespace:EM3.Util"
              xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Financeiro.TiposMovimento.VTmv"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1024" Background="White">
+             d:DesignHeight="600" d:DesignWidth="1024" Background="White" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <Conversors:MovTmvConversor x:Key="Tipo_movimentacao"/>
+        <Conversors:Conversors x:Key="Boolean_conversor"/>
+    </UserControl.Resources>
     <Grid>
 
         <Components:Cabecalho x:Name="cabecalho" Title="Tipos de movimento" VerticalAlignment="Top"/>
@@ -16,17 +22,18 @@
         <Components:NormalButton FontSize="14" x:Name="btAlterar" OnClick="btAlterar_OnClick" Text="Alterar" HorizontalAlignment="Right" Margin="0,60,89,0" VerticalAlignment="Top" Height="32" Width="77"/>
         <Components:NormalButton FontSize="14" OnClick="btExcluir_OnClick" x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,60,171,0" VerticalAlignment="Top" Height="32" Width="77"/>
 
-        <DataGrid x:Name="dataGrid" Margin="10,97,10,10">
+        <DataGrid x:Name="dataGrid" MouseDoubleClick="dataGrid_MouseDoubleClick" Margin="10,97,10,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Código" MinWidth="80" Width="Auto"/>
-                <DataGridTextColumn Header="Descrição" MinWidth="300" Width="Auto"/>
-                <DataGridTextColumn Header="Movimentação financeiro" MinWidth="250" Width="Auto"/>
-                <DataGridTextColumn Header="Movimentação estoque" MinWidth="250" Width="Auto"/>
-                <DataGridTextColumn Header="Gera comissão" MinWidth="130" Width="Auto"/>
-                <DataGridTextColumn Header="Gera NF-e" MinWidth="120" Width="Auto"/>
-                <DataGridTextColumn Header="Gera NFC-e" MinWidth="120" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Código" MinWidth="80" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Descricao}" Header="Descrição" MinWidth="300" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Movimentacao_financeiro, Converter={StaticResource Tipo_movimentacao}}" Header="Movimentação financeiro" MinWidth="250" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Movimentacao_estoque, Converter={StaticResource Tipo_movimentacao}}" Header="Movimentação estoque" MinWidth="250" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Gera_comissao, Converter={StaticResource Boolean_conversor}}" Header="Gera comissão" MinWidth="130" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Gera_nfe, Converter={StaticResource Boolean_conversor}}" Header="Gera NF-e" MinWidth="120" Width="Auto"/>
+                <DataGridTextColumn Binding="{Binding Gera_nfce, Converter={StaticResource Boolean_conversor}}" Header="Gera NFC-e" MinWidth="120" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Components:ComboBox x:Name="cbExibir" Title="Exibir" HorizontalAlignment="Left" Margin="292,36,0,0" VerticalAlignment="Top" Height="56" Width="188"/>
 
     </Grid>
 </UserControl>

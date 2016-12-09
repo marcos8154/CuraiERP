@@ -22,6 +22,12 @@ namespace EM3.Controller
             rh.AddParameter("senha", senha);
             rh.Send("usr-login");
 
+            if (rh.Result.message.Equals("no_tables"))
+            {
+                Configuration.Setup();
+                return false;// EfetuaLogin(nome, senha, data, empresa);
+            }
+
             if (rh.Result.status == (int)StatusRetorno.OPERACAO_OK)
             {
                 UsuarioAtual = EntityLoader<Usuarios>.Load(rh.Result) ?? new Usuarios();

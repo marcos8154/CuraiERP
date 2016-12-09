@@ -64,7 +64,7 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
         {
             Container.GridContainer.Children.Remove(Cadastro);
             Container.GridContainer.Children.Add(this);
-            Pesquisar();
+            dataGrid.Items.Refresh();
         }
 
         private void Alterar()

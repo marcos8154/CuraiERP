@@ -77,7 +77,7 @@ namespace EM3.Components
                 {
                     if (string.IsNullOrWhiteSpace(str))
                         continue;
-                    combobox.Items.Add(str);
+                    combobox.Items.Add(str.TrimStart());
                 }
 
                 if (combobox.Items.Count > 0)
@@ -102,7 +102,10 @@ namespace EM3.Components
 
         public void SetItemsSource(System.Collections.IEnumerable item)
         {
+            combobox.DisplayMemberPath = "Value";
+            combobox.SelectedValuePath = "Key";
             combobox.ItemsSource = item;
+            combobox.SelectedItem = combobox.Items[0];
         }
 
         public System.Collections.IEnumerable GetItemsSource()
@@ -142,6 +145,5 @@ namespace EM3.Components
                 return combobox.SelectedValue;
             }
         }
-
     }
 }

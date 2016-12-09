@@ -45,7 +45,7 @@ namespace EM3.UserControls.Configuracoes.GruposUsuarios
         {
             Container.GridContainer.Children.Remove(cadastro);
             Container.GridContainer.Children.Add(this);
-            Pesquisar();
+            dataGrid.Items.Refresh();
         }
 
         private void Pesquisar()

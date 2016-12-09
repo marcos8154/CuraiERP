@@ -125,7 +125,6 @@ namespace EM3.UserControls.Configuracoes.GruposUsrXPermissoes
                         permissao.Excluir = pv.Excluir;
 
                         if (PermissoesController.Add(permissao))
-
                             ww.Dispatcher.Invoke(new Action<WaitWindow>(w => ww.Progresso.Incresses(1)), ww);
                     }
 

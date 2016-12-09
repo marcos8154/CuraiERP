@@ -48,7 +48,7 @@ namespace EM3.UserControls.Estoque.Caracteristica
         {
             Container.GridContainer.Children.Remove(cadastro);
             Container.GridContainer.Children.Add(this);
-            Pesquisar();
+            dataGrid.Items.Refresh();
         }
 
         private void Pesquisar()

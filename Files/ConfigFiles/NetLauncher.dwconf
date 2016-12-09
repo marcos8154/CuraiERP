@@ -4,12 +4,12 @@
 
 <------------   APPLICATION SERVER   ----------->
 
-appserver=localhost
+appserver=192.168.0.14
 appserver_port=8081
 default_application=em3
 #standard_company=1
 
 <------------     LICENCE SERVER     ----------->
 
-licenceserver=localhost
+licenceserver=192.168.0.14
 licenceserver_port=14449

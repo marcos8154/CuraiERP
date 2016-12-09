@@ -1,0 +1,28 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EM3.UserControls.Financeiro.TiposMovimento"
+             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Financeiro.TiposMovimento.CTmv"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1024" Background="White">
+    <Grid>
+
+        <Components:Cabecalho Title="Novo tipo de movimento" x:Name="cabecalho" VerticalAlignment="Top"/>
+
+        <Components:NormalButton x:Name="btCancelar" OnClick="btCancelar_OnClick" Text="Cancelar" FontSize="13" Margin="0,40,205,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="84" Height="38"/>
+        <Components:ConfirmButton Text="Salvar" x:Name="btSalvar" OnClick="btSalvar_OnClick" FontSize="13" HorizontalAlignment="Right" Margin="0,40,10,0" VerticalAlignment="Top" Height="38"/>
+        <Components:NormalButton  FontSize="13" OnClick="btSalvarEContinuar_OnClick" x:Name="btSalvarEContinuar" Text="Savar e continuar" HorizontalAlignment="Right" Margin="0,40,75,0" VerticalAlignment="Top" Height="38"/>
+
+        <Components:Input x:Name="txCod" Title="Código" Enabled="False" IsNumeric="True" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="85"/>
+        <Components:Input x:Name="txDescricao" Title="Descrição" Margin="100,83,565,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
+        <Components:ComboBox x:Name="cbMov_estoque" Title="Movimentação de estoque" Items="Entrada; Saída; Nenhum" HorizontalAlignment="Right" Margin="0,83,335,0" VerticalAlignment="Top" Height="56" Width="225"/>
+        <Components:ComboBox x:Name="cbMov_financeiro" Title="Movimentação financeira" Items="Entrada; Saída; Nenhum" HorizontalAlignment="Right" Margin="0,83,105,0" VerticalAlignment="Top" Height="56" Width="225"/>
+        <Components:ComboBox x:Name="cbInativo" Title="Inativo" Items="Não; Sim" HorizontalAlignment="Right" Margin="0,83,10,0" VerticalAlignment="Top" Height="56" Width="90"/>
+        <Components:ComboBox x:Name="cbGeraNfe" Title="Gera NF-e" Items="Não; Sim" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="56" Width="90"/>
+        <Components:ComboBox x:Name="cbGeraNFCe" Title="Gera NFC-e" Items="Não; Sim" HorizontalAlignment="Left" Margin="105,144,0,0" VerticalAlignment="Top" Height="56" Width="90"/>
+        <Components:ComboBox x:Name="cbGeraComissao" Title="Gera comissão" Items="Não; Sim" HorizontalAlignment="Left" Margin="200,144,0,0" VerticalAlignment="Top" Height="56" Width="100"/>
+
+    </Grid>
+</UserControl>

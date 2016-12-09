@@ -61,7 +61,7 @@ namespace EM3.UserControls.Estoque.FornecedoresModulo
         {
             Container.GridContainer.Children.Remove(cadastro);
             Container.GridContainer.Children.Add(this);
-            Pesquisar();
+            dataGrid.Items.Refresh();
         }
     }
 }

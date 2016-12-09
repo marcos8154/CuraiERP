@@ -53,7 +53,14 @@ namespace EM3.Controller
             rh.Send("emp-find");
 
             if (rh.HasSuccess)
+            {
+                if(rh.Result.message.Equals("no_tables"))
+                {
+                    Configuration.Setup();
+                    Find(id);
+                }
                 return EntityLoader<Empresa>.Load(rh.Result);
+            }
             return new Empresa();
         }
     }

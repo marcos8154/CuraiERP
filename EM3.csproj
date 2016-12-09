@@ -102,6 +102,7 @@
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\PermissoesController.cs" />
     <Compile Include="Controller\TelasController.cs" />
+    <Compile Include="Controller\Tipos_movimentoController.cs" />
     <Compile Include="Controller\UnidadesController.cs" />
     <Compile Include="Controller\UsuariosController.cs" />
     <Compile Include="Enums\StatusRetorno.cs" />
@@ -237,6 +238,9 @@
     <Compile Include="UserControls\Estoque\Unidades\VUnidades.xaml.cs">
       <DependentUpon>VUnidades.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml.cs">
+      <DependentUpon>CTmv.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Financeiro\TiposMovimento\TmvContainer.xaml.cs">
       <DependentUpon>TmvContainer.xaml</DependentUpon>
     </Compile>
@@ -258,6 +262,7 @@
       <DependentUpon>VEmpresas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util\DateConverter.cs" />
+    <Compile Include="Util\MovTmvConversor.cs" />
     <Compile Include="Util\Navigation.cs" />
     <Compile Include="Util\TipoArmazemConversor.cs" />
     <Compile Include="Windows\Login.xaml.cs">
@@ -475,6 +480,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Financeiro\TiposMovimento\TmvContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -559,9 +568,10 @@
     <Resource Include="Images\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Files\Tables\" />
+    <Folder Include="Abstracts\" />
     <Folder Include="UserControls\Faturamento\" />
     <Folder Include="UserControls\Financeiro\ClasseImposto\" />
+    <Folder Include="Windows\Setup\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\doware.png" />
@@ -573,6 +583,12 @@
     <Resource Include="Image1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Files\Tables\MySQL.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\Tables\SQLServer.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="1480379753_vector_66_09.ico" />
     <Content Include="Files\Commands\TelasInsert.sql" />
   </ItemGroup>
