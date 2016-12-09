@@ -15,8 +15,8 @@ namespace EM3
 {
     public class Cfop 
     {
-        public int Id { get; set; }
-        public int Codigo_fiscal { get; set; }
+        public string Id { get; set; }
         public string Descricao { get; set; }
+        public string Aplicacao { get; set; }
     }
 }

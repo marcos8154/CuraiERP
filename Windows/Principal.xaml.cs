@@ -9,6 +9,7 @@ using EM3.UserControls.Estoque.Caracteristica;
 using EM3.UserControls.Estoque.GruposProdutos;
 using EM3.UserControls.Estoque.LocaisEstoque;
 using EM3.UserControls.Estoque.UnidadesModulo;
+using EM3.UserControls.Financeiro.ClasseImposto;
 using EM3.UserControls.Financeiro.TiposMovimento;
 using EM3.Util;
 using EM3.Windows.Selecao;
@@ -40,7 +41,7 @@ namespace EM3.Windows
 
         private void btn_OnClick()
         {
-            FotoController.GetFile("teste", 2);
+            Commons.exceldata(@"C:\Temp\160314_Tabela_CFOP.xlsx");
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -130,6 +131,13 @@ namespace EM3.Windows
             TmvContainer tmvc = new TmvContainer();
             if (UsuariosController.ValidaPermissao(tmvc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, tmvc, "Tipos de movimento");
+        }
+
+        private void btClasses_imp_Click(object sender, RoutedEventArgs e)
+        {
+            CLImpContainer climpc = new CLImpContainer();
+            if (UsuariosController.ValidaPermissao(climpc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, climpc, "Classes de imposto");
         }
     }
 }

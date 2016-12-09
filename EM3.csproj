@@ -18,7 +18,7 @@
     </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -38,6 +38,42 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>1480379753_vector_66_09.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DBXConnector, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -89,8 +125,13 @@
     <Compile Include="Components\SimpleInput.xaml.cs">
       <DependentUpon>SimpleInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\VerticalSeparator.xaml.cs">
+      <DependentUpon>VerticalSeparator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\ArmazensController.cs" />
     <Compile Include="Controller\CaracteristicasController.cs" />
+    <Compile Include="Controller\Classes_impostoController.cs" />
+    <Compile Include="Controller\Commons.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
     <Compile Include="Controller\FornecedoresController.cs" />
@@ -238,6 +279,15 @@
     <Compile Include="UserControls\Estoque\Unidades\VUnidades.xaml.cs">
       <DependentUpon>VUnidades.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\ClasseImposto\CCImp.xaml.cs">
+      <DependentUpon>CCImp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\ClasseImposto\CLImpContainer.xaml.cs">
+      <DependentUpon>CLImpContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\ClasseImposto\VClasses_imp.xaml.cs">
+      <DependentUpon>VClasses_imp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml.cs">
       <DependentUpon>CTmv.xaml</DependentUpon>
     </Compile>
@@ -333,6 +383,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Components\SimpleInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\VerticalSeparator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -480,6 +534,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\ClasseImposto\CCImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\ClasseImposto\CLImpContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\ClasseImposto\VClasses_imp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -570,7 +636,6 @@
   <ItemGroup>
     <Folder Include="Abstracts\" />
     <Folder Include="UserControls\Faturamento\" />
-    <Folder Include="UserControls\Financeiro\ClasseImposto\" />
     <Folder Include="Windows\Setup\" />
   </ItemGroup>
   <ItemGroup>

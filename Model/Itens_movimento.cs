@@ -43,7 +43,7 @@ namespace EM3
         public decimal Valor_outros { get; set; }
         public decimal Valor_total { get; set; }
         public int Funcionario_id { get; set; }
-        public int Cfop_id { get; set; }
+        public string Cfop_id { get; set; }
         public int Movimento_id { get; set; }
     }
 }

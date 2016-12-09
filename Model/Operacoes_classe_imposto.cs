@@ -30,6 +30,6 @@ namespace EM3
         public decimal Perc_credito_icms { get; set; }
         public int Classe_imposto_id { get; set; }
         public int Tipos_movimento_id { get; set; }
-        public int Cfop_id { get; set; }
+        public string Cfop_id { get; set; }
     }
 }
