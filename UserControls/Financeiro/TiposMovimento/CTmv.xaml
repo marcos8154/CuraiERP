@@ -16,7 +16,7 @@
         <Components:NormalButton  FontSize="13" OnClick="btSalvarEContinuar_OnClick" x:Name="btSalvarEContinuar" Text="Savar e continuar" HorizontalAlignment="Right" Margin="0,40,75,0" VerticalAlignment="Top" Height="38"/>
 
         <Components:Input x:Name="txCod" Title="Código" Enabled="False" IsNumeric="True" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="85"/>
-        <Components:Input x:Name="txDescricao" MaxLength="100" Required="True" Title="Descrição" Margin="100,83,565,0" VerticalAlignment="Top" Height="56" Width="Auto" Loaded="txDescricao_Loaded"/>
+        <Components:Input x:Name="txDescricao" MaxLength="100" Required="True" Title="Descrição" Margin="100,83,565,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
         <Components:ComboBox x:Name="cbMov_estoque" Title="Movimentação de estoque" Items="Entrada; Saída; Nenhum" HorizontalAlignment="Right" Margin="0,83,335,0" VerticalAlignment="Top" Height="56" Width="225"/>
         <Components:ComboBox x:Name="cbMov_financeiro" Title="Movimentação financeira" Items="Entrada; Saída; Nenhum" HorizontalAlignment="Right" Margin="0,83,105,0" VerticalAlignment="Top" Height="56" Width="225"/>
         <Components:ComboBox x:Name="cbInativo" Title="Inativo" Items="Não; Sim" HorizontalAlignment="Right" Margin="0,83,10,0" VerticalAlignment="Top" Height="56" Width="90"/>

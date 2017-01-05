@@ -22,6 +22,19 @@ namespace EM3.Controller
             rh.AddParameter("email", emp.Email);
             rh.AddParameter("responsavel", emp.Responsavel);
             rh.AddParameter("ativo", emp.Ativo);
+            rh.AddParameter("tipo", emp.Tipo);
+            rh.AddParameter("tipo_ie", emp.Tipo_ie);
+            rh.AddParameter("inscr_estadual", emp.Inscr_estadual);
+            rh.AddParameter("inscr_municipal", emp.Inscr_municipal);
+            rh.AddParameter("optante_simples", emp.Optante_simples);
+            rh.AddParameter("nfe_cert_serie", emp.Nfe_cert_serie);
+            rh.AddParameter("nfe_serie", emp.Nfe_serie);
+            rh.AddParameter("nfe_modelo", emp.Nfe_modelo);
+            rh.AddParameter("nfe_ambiente", emp.Nfe_ambiente);
+            rh.AddParameter("nfce_serie", emp.Nfce_serie);
+            rh.AddParameter("nfce_modelo", emp.Nfce_modelo);
+            rh.AddParameter("nfce_ambiente", emp.Nfce_ambiente);
+            rh.AddParameter("nfce_token", emp.Nfce_token);
             rh.AddParameter("enderecos.id", emp.Enderecos.Id);
             rh.AddParameter("enderecos.logradouro", emp.Enderecos.Logradouro);
             rh.AddParameter("enderecos.cep", emp.Enderecos.Cep);
@@ -34,6 +47,37 @@ namespace EM3.Controller
             rh.Send("emp-save");
 
             return rh.HasSuccess;
+        }
+
+        public static void CriarEmpresaTeste()
+        {
+            Empresa e = new Empresa();
+
+            e.Razao_social = "Empresa Teste";
+            e.Nome_fantasia = "Empresa teste";
+            e.Cnpj = "00.000.000/0000-00";
+            e.Crt = 1;
+            e.Ativo = false;
+            e.Enderecos = new Enderecos()
+            {
+                Logradouro = "Rua 0",
+                Bairro = "Bairro 0",
+                Cep = "00.000-000",
+                Complemento = "",
+                Municipio = "Rio de Janeiro",
+                Numero = 100,
+                Pais = "Brasil",
+                Uf = "RJ"
+            };
+
+            e.Tipo = 0;
+            e.Responsavel = "Responsável";
+            e.Telefone1 = "0000-0000";
+            e.Telefone2 = "0000-0000";
+            e.Celular = "00000-0000";
+            e.Optante_simples = true;
+
+            Save(e);
         }
 
         public static List<Empresa> Search(string term)

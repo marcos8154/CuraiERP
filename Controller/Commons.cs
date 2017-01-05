@@ -22,6 +22,17 @@ namespace EM3.Controller
             }
         }
 
+        public static string GetDB_Type
+        {
+            get
+            {
+                RequestHelper rh = new RequestHelper();
+                rh.Send("getdb_type");
+
+                return rh.Result.message;
+            }
+        }
+
         public static DataTable exceldata(string filePath)
         {
             string _conectionstring;

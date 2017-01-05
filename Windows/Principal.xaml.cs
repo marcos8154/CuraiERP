@@ -37,6 +37,11 @@ namespace EM3.Windows
         {
             InitializeComponent();
             progresso.Maximum = 10;
+
+            lbData.Content = UsuariosController.DataBase.ToShortDateString();
+            lbDB_type.Content = "Curae / " + Commons.GetDB_Type;
+            lbNome_usuario.Content = UsuariosController.UsuarioAtual.Nome;
+            lbNome_empresa.Content = EmpresasController.Find(UsuariosController.Empresa_atual_id).Nome_fantasia;
         }
 
         private void btn_OnClick()

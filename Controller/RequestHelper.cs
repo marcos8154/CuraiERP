@@ -92,9 +92,7 @@ namespace EM3.Controller
             double doubleValue = 0;
 
             if (double.TryParse(paramValue.ToString(), out doubleValue))
-            {
                 parameters += paramName + "=" + paramValue.ToString().Replace(",", ".");
-            }
             else
                 parameters += paramName + "=" + paramValue.ToString().Replace("&", "%26");
         }

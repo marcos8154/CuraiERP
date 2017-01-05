@@ -58,9 +58,13 @@ namespace EM3.UserControls.Estoque.GruposProdutos
 
         private void Cadastro_OnComplete()
         {
-            Container.GridContainer.Children.Remove(cadastro);
-            Container.GridContainer.Children.Add(this);
-            dataGrid.Items.Refresh();
+            try
+            {
+                Container.GridContainer.Children.Remove(cadastro);
+                Container.GridContainer.Children.Add(this);
+                dataGrid.Items.Refresh();
+            }
+            catch { }
         }
 
         private void btAlterar_OnClick()

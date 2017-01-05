@@ -1,5 +1,6 @@
 ﻿using EM3.Controller;
 using EM3.Extensions;
+using EM3.UserControls.Financeiro.Operacoes_classeImp;
 using EM3.Windows;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace EM3.UserControls.Financeiro.ClasseImposto
     {
         CLImpContainer container;
         CCImp cadastro;
+        Op_classeImpContainer vOperacoes_container;
+
         public VClasses_imp(CLImpContainer c)
         {
             InitializeComponent();
@@ -56,9 +59,13 @@ namespace EM3.UserControls.Financeiro.ClasseImposto
 
         private void Cadastro_OnComplete()
         {
-            container.GridContainer.Children.Add(this);
-            container.GridContainer.Children.Remove(cadastro);
-            dataGrid.Items.Refresh();
+            try
+            {
+                container.GridContainer.Children.Add(this);
+                container.GridContainer.Children.Remove(cadastro);
+                dataGrid.Items.Refresh();
+            }
+            catch { }
         }
 
         private void btExcluir_OnClick()
@@ -106,6 +113,24 @@ namespace EM3.UserControls.Financeiro.ClasseImposto
         private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Alterar();
+        }
+
+        private void btOperacoes_OnClick()
+        {
+            Classes_imposto cl_imp = (Classes_imposto)dataGrid.SelectedItem;
+            if (cl_imp == null) return;
+            if (cl_imp.Id == 0) return;
+
+            vOperacoes_container = new Op_classeImpContainer(cl_imp.Id, container.Tela_id);
+            container.GridContainer.Children.Add(vOperacoes_container);
+            container.GridContainer.Children.Remove(this);
+            vOperacoes_container.OnBack += VOperacoes_OnBack;
+        }
+
+        private void VOperacoes_OnBack()
+        {
+            container.GridContainer.Children.Add(this);
+            container.GridContainer.Children.Remove(vOperacoes_container);
         }
     }
 }

@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:EM3.Windows"
         xmlns:Components="clr-namespace:EM3.Components" xmlns:Menus="clr-namespace:EM3.UserControls.Modulos" x:Class="EM3.Windows.Principal"
         mc:Ignorable="d"
-        Title="Principal" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
+        Title="Curae ERP" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
     <Grid>
-        <TabControl x:Name="tabControl" Margin="0,27,0,0">
-
-
+        <TabControl x:Name="tabControl" Margin="0,27,0,19">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -53,10 +51,8 @@
                 </Style>
             </TabControl.Resources>
 
-
-
             <TabItem Header="Início">
-                <Grid Background="White" Margin="0,-1,0,0">
+                <Grid Background="White" Margin="0,-1,0,5">
                     <Components:ConfirmButton x:Name="btn" OnClick="btn_OnClick" HorizontalAlignment="Left" Margin="485,192,0,0" VerticalAlignment="Top"/>
                     <Grid x:Name="GridModulos" HorizontalAlignment="Left" Margin="10,10,0,10" Width="364"/>
                     <Components:NormalButton OnClick="NormalButton_OnClick" HorizontalAlignment="Left" Margin="602,156,0,0" VerticalAlignment="Top"/>
@@ -65,7 +61,6 @@
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
-
 
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -178,6 +173,24 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+
+        <Grid Height="24" VerticalAlignment="Bottom">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFECEAEA"/>
+                    <GradientStop Color="#FFCBC9C9" Offset="0.573"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label x:Name="label" Cursor="Hand" Foreground="#FF2B2BFF" Content="Trocar usuário" FontSize="13" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Margin="0,0,6,0"/>
+            <Label x:Name="lbData" Content="10/10/2016" FontSize="13" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Margin="0,0,212,0" Width="75"/>
+            <Label x:Name="label1" Content="|" HorizontalAlignment="Right" Margin="0,-1,93,0" VerticalAlignment="Top" Width="14"/>
+            <Label x:Name="lbDB_type" Content="db_type" FontSize="13" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Margin="0,0,301,0" Width="120"/>
+            <Label x:Name="label1_Copy" Content="|" HorizontalAlignment="Right" Margin="0,-1,287,-1" VerticalAlignment="Top" Width="14"/>
+            <Label x:Name="label1_Copy1" Content="|" HorizontalAlignment="Right" Margin="0,-2,197,0" VerticalAlignment="Top" Width="14"/>
+            <Label x:Name="lbNome_usuario" Content="nome_usuario" FontSize="13" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Margin="0,0,107,0" Width="90"/>
+            <Label x:Name="label1_Copy2" Content="|" HorizontalAlignment="Right" Margin="0,-2,421,0" VerticalAlignment="Top" Width="14"/>
+            <Label x:Name="lbNome_empresa" HorizontalContentAlignment="Right" Content="empresa" FontSize="13" Padding="3" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Margin="0,0,435,0" Width="146"/>
+        </Grid>
 
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EM3.Components"
              mc:Ignorable="d" Height="56.068" MaxHeight="56.068" Width="93.635">
     <Grid>
-        <Border Padding="5" CornerRadius="3" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White" Margin="0,27,0,0">
+        <Border x:Name="border" Padding="5" CornerRadius="3" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White" Margin="0,27,0,0">
             <Grid Margin="0,-2" >
                 <TextBox Text="0" PreviewTextInput="NumberValidationTextBox" FontSize="13" Name="txInput" Background="Transparent" BorderThickness="0" Padding="0,4,0,0" LostFocus="txInput_LostFocus" RenderTransformOrigin="-3.883,0.553" Margin="0,-1,28,1"/>
                 <Image x:Name="img" Source="../Images/search.png" Cursor="Hand" MouseUp="img_MouseUp" HorizontalAlignment="Right" Width="19" Margin="0,2,2,3" Stretch="Fill"/>

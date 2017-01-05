@@ -51,9 +51,13 @@ namespace EM3.UserControls.Financeiro.TiposMovimento
 
         private void Cadastro_OnComplete()
         {
-            container.GridContainer.Children.Remove(cadastro);
-            container.GridContainer.Children.Add(this);
-            dataGrid.Items.Refresh();
+            try
+            {
+                container.GridContainer.Children.Remove(cadastro);
+                container.GridContainer.Children.Add(this);
+                dataGrid.Items.Refresh();
+            }
+            catch { }
         }
 
         private void btExcluir_OnClick()

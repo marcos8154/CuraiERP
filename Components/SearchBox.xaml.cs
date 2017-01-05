@@ -37,11 +37,18 @@ namespace EM3.Components
         {
             get
             {
-                return txInput.IsEnabled;
+                return this.IsEnabled;
             }
             set
             {
-                txInput.IsEnabled = value;
+                if (value)
+                    txInput.Background = Brushes.White;
+                else
+                {
+                    txInput.Background = Brushes.WhiteSmoke;
+                    border.Background = Brushes.WhiteSmoke;
+                }
+                this.IsEnabled = value;
             }
         }
 

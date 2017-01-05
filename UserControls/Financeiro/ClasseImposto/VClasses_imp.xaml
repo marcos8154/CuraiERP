@@ -15,7 +15,7 @@
         <Components:ConfirmButton FontSize="14" OnClick="btNovo_OnClick" x:Name="btNovo" Text="Novo" HorizontalAlignment="Right" Margin="0,60,10,0" VerticalAlignment="Top" Height="32" Width="74"/>
         <Components:NormalButton FontSize="14" x:Name="btAlterar" OnClick="btAlterar_OnClick" Text="Alterar" HorizontalAlignment="Right" Margin="0,60,89,0" VerticalAlignment="Top" Height="32" Width="77"/>
         <Components:NormalButton FontSize="14" OnClick="btExcluir_OnClick" x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,60,171,0" VerticalAlignment="Top" Height="32" Width="77"/>
-        <Components:NormalButton x:Name="btOperacoes" Text="Operações" HorizontalAlignment="Right" FontSize="14" Margin="0,60,274,0" VerticalAlignment="Top" Width="105"/>
+        <Components:NormalButton x:Name="btOperacoes" Text="Operações" OnClick="btOperacoes_OnClick" HorizontalAlignment="Right" FontSize="14" Margin="0,60,274,0" VerticalAlignment="Top" Width="105"/>
 
         <DataGrid x:Name="dataGrid" MouseDoubleClick="dataGrid_MouseDoubleClick" Margin="10,97,10,10">
             <DataGrid.Columns>

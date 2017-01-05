@@ -15,6 +15,7 @@ namespace EM3.Controller
         public static string server = "localhost";
         public static int port = 8081;
         public static int standard_company = 0;
+        public static int nav_mode = 0; //0 = Tabs; 1 = Windows;
 
         public static string GetApplication
         {
@@ -38,6 +39,12 @@ namespace EM3.Controller
 
                 while ((line = reader.ReadLine()) != null)
                 {
+                    if(line.StartsWith("interface"))
+                    {
+                        string value = line.Replace("interface=", "");
+                        nav_mode = (value.Equals("windows") ? 1 : 0);
+                        continue;
+                    }
 
                     if (line.StartsWith("appserver_port"))
                     {
@@ -135,6 +142,7 @@ namespace EM3.Controller
                     }
                 }
                 ww.Dispatcher.Invoke(new Action<WaitWindow>(w => ww.Close()), ww);
+                EmpresasController.CriarEmpresaTeste();
             }).Start();
         }
 

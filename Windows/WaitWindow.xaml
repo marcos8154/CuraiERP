@@ -8,10 +8,10 @@
         mc:Ignorable="d"
         WindowStyle="None"
      WindowStartupLocation="CenterScreen"
-        Title="WaitWindow" Height="150" Width="379">
+        Title="WaitWindow" Height="150" Width="399">
     <Grid>
         <TextBlock  Text="Criando tabela" x:Name="txTitulo"  TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF343434" FontSize="16" Height="25" VerticalAlignment="Top" Margin="0,23,0,0"/>
-        <TextBlock  Text="tipos_movimento" x:Name="txSubTitulo"  TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF343434" FontSize="16" Height="25" VerticalAlignment="Top" Margin="0,48,0,0"/>
+        <TextBlock  Text="" x:Name="txSubTitulo"  TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF343434" FontSize="16" Height="25" VerticalAlignment="Top" Margin="0,48,0,0"/>
         <Components:ProgressBar x:Name="Progresso" Width="345" Height="15" Margin="13,73,13,0" VerticalAlignment="Top"/>
        
 

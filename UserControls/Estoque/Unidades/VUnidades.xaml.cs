@@ -62,9 +62,13 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
 
         private void Cadastro_OnComplete()
         {
-            Container.GridContainer.Children.Remove(Cadastro);
-            Container.GridContainer.Children.Add(this);
-            dataGrid.Items.Refresh();
+            try
+            {
+                Container.GridContainer.Children.Remove(Cadastro);
+                Container.GridContainer.Children.Add(this);
+                dataGrid.Items.Refresh();
+            }
+            catch { }
         }
 
         private void Alterar()

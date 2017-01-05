@@ -27,6 +27,18 @@ namespace EM3
         public string Responsavel { get; set; }
         public bool Ativo { get; set; }
         public int Tipo { get; set; }
+        public int Tipo_ie { get; set; }
+        public string Inscr_estadual { get; set; }
+        public string Inscr_municipal { get; set; }
+        public bool Optante_simples { get; set; }
+        public string Nfe_cert_serie { get; set; }
+        public int Nfe_serie { get; set; }
+        public int Nfe_modelo { get; set; }
+        public int Nfe_ambiente { get; set; }
+        public int Nfce_serie { get; set; }
+        public int Nfce_modelo { get; set; }
+        public int Nfce_ambiente { get; set; }
+        public string Nfce_token { get; set; }
         public int Endereco_id { get; set; }
         public Enderecos Enderecos { get; set; }
         public int Foto_id { get; set; }

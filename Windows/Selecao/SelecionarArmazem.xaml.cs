@@ -38,7 +38,7 @@ namespace EM3.Windows.Selecao
 
         private void Pesquisar()
         {
-            List<Armazens> list = ArmazensController.Search(UsuariosController.Empresa, txPesquisa.Text);
+            List<Armazens> list = ArmazensController.Search(UsuariosController.Empresa_atual_id, txPesquisa.Text);
             dataGrid.ItemsSource = list;
         }
 

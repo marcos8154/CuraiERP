@@ -63,10 +63,10 @@ namespace EM3.Windows
                 return;
             }
             */
-
-            Principal p = new Principal();
+            
             if (UsuariosController.EfetuaLogin(txUsuario.Text, txSenha.Password, txData.Value, txCod_empresa.Value))
             {
+                Principal p = new Principal();
                 this.Hide();
                 p.ShowDialog();
             }

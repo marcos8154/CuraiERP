@@ -35,7 +35,7 @@ namespace EM3
                 if (!LicenceController.Connect())
                 {
                     MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Licence Server não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    System.Environment.Exit(0);
                 }
 
                 Login login = new Login();

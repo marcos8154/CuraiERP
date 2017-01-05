@@ -130,6 +130,7 @@
     </Compile>
     <Compile Include="Controller\ArmazensController.cs" />
     <Compile Include="Controller\CaracteristicasController.cs" />
+    <Compile Include="Controller\CfopController.cs" />
     <Compile Include="Controller\Classes_impostoController.cs" />
     <Compile Include="Controller\Commons.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
@@ -288,6 +289,15 @@
     <Compile Include="UserControls\Financeiro\ClasseImposto\VClasses_imp.xaml.cs">
       <DependentUpon>VClasses_imp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml.cs">
+      <DependentUpon>COp_classeImp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Operacoes_classeImp\Op_classeImpContainer.xaml.cs">
+      <DependentUpon>Op_classeImpContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Operacoes_classeImp\VOp_classeImp.xaml.cs">
+      <DependentUpon>VOp_classeImp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml.cs">
       <DependentUpon>CTmv.xaml</DependentUpon>
     </Compile>
@@ -330,11 +340,17 @@
     <Compile Include="Windows\Selecao\SelecionarArmazem.xaml.cs">
       <DependentUpon>SelecionarArmazem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarCFOP.xaml.cs">
+      <DependentUpon>SelecionarCFOP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml.cs">
       <DependentUpon>SelecionarGrupoUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarTmv.xaml.cs">
+      <DependentUpon>SelecionarTmv.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarUnidade.xaml.cs">
       <DependentUpon>SelecionarUnidade.xaml</DependentUpon>
@@ -546,6 +562,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Operacoes_classeImp\Op_classeImpContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Operacoes_classeImp\VOp_classeImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -582,11 +610,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarCFOP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarEmpresa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarTmv.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EM3.Components"
-             mc:Ignorable="d" d:DesignWidth="1016" Background="#FFE4EEF7" Height="35">
+             mc:Ignorable="d" d:DesignWidth="1024" Background="#FFE4EEF7" Height="35">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
@@ -12,7 +12,8 @@
                 <GradientStop Color="#FFCFD2D8" Offset="0.567"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label x:Name="lbTitulo" Content="Título da rotina" HorizontalAlignment="Left" Margin="3,1,0,1" Foreground="#FF383640" FontSize="18" Width="735" FontFamily="Yu Gothic UI" FontWeight="Bold"/>
+        <Label x:Name="lbTitulo" Content="Título da rotina" HorizontalAlignment="Left" Margin="3,1,0,1" Foreground="#FF383640" FontSize="18" Width="477" FontFamily="Yu Gothic UI" FontWeight="Bold"/>
+        <Label x:Name="lbSistema" Content="Curae ERP - Série Varejo - 1.10 Build 161219" HorizontalAlignment="Right" Margin="0,1" Foreground="#FF383640" FontSize="16" Width="300" FontWeight="Bold" FontFamily="Segoe UI Light"/>
 
     </Grid>
 </UserControl>

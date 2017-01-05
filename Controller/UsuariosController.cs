@@ -13,7 +13,7 @@ namespace EM3.Controller
 
         public static DateTime DataBase { get; set; }
 
-        public static int Empresa { get; set; }
+        public static int Empresa_atual_id { get; set; }
 
         public static bool EfetuaLogin(string nome, string senha, DateTime data, int empresa)
         {
@@ -31,9 +31,9 @@ namespace EM3.Controller
             if (rh.Result.status == (int)StatusRetorno.OPERACAO_OK)
             {
                 UsuarioAtual = EntityLoader<Usuarios>.Load(rh.Result) ?? new Usuarios();
-
                 DataBase = data;
-                Empresa = empresa;
+                Empresa_atual_id = empresa;
+
                 return LicenceController.Authorize(UsuarioAtual.Id);
             }
             else
@@ -105,6 +105,12 @@ namespace EM3.Controller
 
         public static bool Delete(int id)
         {
+            if(UsuarioAtual.Id == id)
+            {
+                new MsgAlerta("Não é possível excluir um usuário sendo o mesmo usuário atual.");
+                return false;
+            }
+
             RequestHelper rh = new RequestHelper();
             rh.AddParameter("id", id);
             rh.Send("usr-rem");

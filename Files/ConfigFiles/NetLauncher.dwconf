@@ -1,15 +1,22 @@
 ﻿*-------------------------------------------------*
 |   Doware  NetLauncher auto config file          |
 *-------------------------------------------------*
+<------------   USER PREFERENCES     ----------->
+
+* Indica a interface de navegação pelo sistema
+* Para usar abas, informe "tabs"
+* Para usar o padrão convercional de janelas, informe "windows"
+
+interface=tabs
 
 <------------   APPLICATION SERVER   ----------->
 
-appserver=192.168.0.14
+appserver=localhost
 appserver_port=8081
 default_application=em3
-#standard_company=1
+standard_company=1
 
 <------------     LICENCE SERVER     ----------->
 
-licenceserver=192.168.0.14
+licenceserver=localhost
 licenceserver_port=14449
