@@ -10,6 +10,8 @@ using EM3.UserControls.Estoque.GruposProdutos;
 using EM3.UserControls.Estoque.LocaisEstoque;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.UserControls.Financeiro.ClasseImposto;
+using EM3.UserControls.Financeiro.Condicoes_pag;
+using EM3.UserControls.Financeiro.Operadora_cartao;
 using EM3.UserControls.Financeiro.TiposMovimento;
 using EM3.Util;
 using EM3.Windows.Selecao;
@@ -46,7 +48,6 @@ namespace EM3.Windows
 
         private void btn_OnClick()
         {
-            Commons.exceldata(@"C:\Temp\160314_Tabela_CFOP.xlsx");
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -143,6 +144,20 @@ namespace EM3.Windows
             CLImpContainer climpc = new CLImpContainer();
             if (UsuariosController.ValidaPermissao(climpc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, climpc, "Classes de imposto");
+        }
+
+        private void btCondicoesPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            Condicoes_pagContainer cpc = new Condicoes_pagContainer();
+            if (UsuariosController.ValidaPermissao(cpc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, cpc, "Condições de pagamento");
+        }
+
+        private void btOperadoras_cartao_Click(object sender, RoutedEventArgs e)
+        {
+            Operadora_cartaoContainer opc_C = new Operadora_cartaoContainer();
+            if (UsuariosController.ValidaPermissao(opc_C.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, opc_C, "Operadoras de cartão");
         }
     }
 }

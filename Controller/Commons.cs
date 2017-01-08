@@ -32,43 +32,12 @@ namespace EM3.Controller
                 return rh.Result.message;
             }
         }
-
-        public static DataTable exceldata(string filePath)
+    
+       public static List<string> GetList_Ufs()
         {
-            string _conectionstring;
-            _conectionstring = @"Provider=Microsoft.Jet.OLEDB.4.0;";
-            _conectionstring += "Data Source=C:\\Temp\\CFOP.xls;";
-            _conectionstring += "Extended Properties='Excel 8.0;HDR=YES;'";
-
-            OleDbConnection cn = new OleDbConnection(_conectionstring);
-            OleDbCommand cmd = new OleDbCommand("Select * from CFOP", cn);
-
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            DataTable dt = new DataTable();
-
-            try
-            {
-
-                da.Fill(dt);
-                cmd.CommandType = CommandType.Text;
-                cn.Open();
-                cmd.ExecuteReader();
-                return dt;
-            }
-            catch (OleDbException ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message.ToString());
-            }
-            finally
-            {
-                cn.Close();
-                cn.Dispose();
-                cmd.Dispose();
-            }
+            RequestHelper rh = new RequestHelper();
+            rh.Send("list-ufs");
+            return EntityLoader<List<string>>.Load(rh.Result);
         }
     }
 }

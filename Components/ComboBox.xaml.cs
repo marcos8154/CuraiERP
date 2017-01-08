@@ -19,6 +19,9 @@ namespace EM3.Components
     /// </summary>
     public partial class ComboBox : UserControl
     {
+        public delegate void ChangeEvent(object sender, SelectionChangedEventArgs e);
+        public event ChangeEvent OnChange;
+
         public int Index
         {
             get
@@ -66,6 +69,23 @@ namespace EM3.Components
         {
             InitializeComponent();
             this.MinHeight = 56;
+            this.GotFocus += ComboBox_GotFocus;
+            this.LostFocus += ComboBox_LostFocus;
+            combobox.SelectionChanged += Combobox_SelectionChanged;
+        }
+
+        private void Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (OnChange != null) OnChange(sender, e) ;
+        }
+
+        private void ComboBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FFACA6A6");
+        }
+        private void ComboBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FF4DA1F5");
         }
 
         public string Items
@@ -116,6 +136,7 @@ namespace EM3.Components
         public void AddItem(object item)
         {
             combobox.Items.Add(item);
+            combobox.SelectedIndex = 0;
         }
 
         public object SelectedItem
@@ -144,6 +165,11 @@ namespace EM3.Components
             {
                 return combobox.SelectedValue;
             }
+            set
+            {
+                combobox.SelectedValue = value;
+            }
         }
+
     }
 }

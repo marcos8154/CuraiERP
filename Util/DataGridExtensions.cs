@@ -21,9 +21,10 @@ namespace EM3.Extensions
             dt.SelectionUnit = DataGridSelectionUnit.FullRow;
             dt.AlternatingRowBackground = Brushes.Lavender;
             dt.FontSize = 18;
+            dt.MinRowHeight = 30;
             dt.Cursor = Cursors.Hand;
             dt.HorizontalGridLinesBrush = Brushes.LightGray;
-            dt.VerticalGridLinesBrush = Brushes.LightGray;
+            dt.VerticalGridLinesBrush = Brushes.Transparent;
         }
     }
 }

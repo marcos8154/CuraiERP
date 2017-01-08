@@ -171,12 +171,14 @@ namespace EM3.Components
 
         private void TxInput_GotFocus(object sender, RoutedEventArgs e)
         {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FF4DA1F5");
             if (InputGainFocus != null) InputGainFocus(sender, e);
             txInput.SelectAll();
         }
 
         private void TxInput_LostFocus(object sender, RoutedEventArgs e)
         {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FFACA6A6");
             if (InputLostFocus != null) InputLostFocus(sender, e);
         }
 

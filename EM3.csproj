@@ -135,12 +135,15 @@
     <Compile Include="Controller\Commons.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
+    <Compile Include="Controller\Formas_pagamentoController.cs" />
     <Compile Include="Controller\FornecedoresController.cs" />
     <Compile Include="Controller\FotoController.cs" />
     <Compile Include="Controller\Grupos_produtosController.cs" />
     <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
     <Compile Include="Controller\Locais_estoqueController.cs" />
+    <Compile Include="Controller\Operacoes_classeImpostoController.cs" />
+    <Compile Include="Controller\Operadoras_cartaoController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\PermissoesController.cs" />
     <Compile Include="Controller\TelasController.cs" />
@@ -289,6 +292,15 @@
     <Compile Include="UserControls\Financeiro\ClasseImposto\VClasses_imp.xaml.cs">
       <DependentUpon>VClasses_imp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\Condicoes_pag\CCondicao_pag.xaml.cs">
+      <DependentUpon>CCondicao_pag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Condicoes_pag\Condicoes_pagContainer.xaml.cs">
+      <DependentUpon>Condicoes_pagContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Condicoes_pag\VCondicoes_pag.xaml.cs">
+      <DependentUpon>VCondicoes_pag.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml.cs">
       <DependentUpon>COp_classeImp.xaml</DependentUpon>
     </Compile>
@@ -297,6 +309,15 @@
     </Compile>
     <Compile Include="UserControls\Financeiro\Operacoes_classeImp\VOp_classeImp.xaml.cs">
       <DependentUpon>VOp_classeImp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Operadora_cartao\COperadora_cartao.xaml.cs">
+      <DependentUpon>COperadora_cartao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Operadora_cartao\Operadora_cartaoContainer.xaml.cs">
+      <DependentUpon>Operadora_cartaoContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Operadora_cartao\VOperadoras_c.xaml.cs">
+      <DependentUpon>VOperadoras_c.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Financeiro\TiposMovimento\CTmv.xaml.cs">
       <DependentUpon>CTmv.xaml</DependentUpon>
@@ -562,6 +583,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\Condicoes_pag\CCondicao_pag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Condicoes_pag\Condicoes_pagContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Condicoes_pag\VCondicoes_pag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -571,6 +604,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Financeiro\Operacoes_classeImp\VOp_classeImp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Operadora_cartao\COperadora_cartao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Operadora_cartao\Operadora_cartaoContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Operadora_cartao\VOperadoras_c.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

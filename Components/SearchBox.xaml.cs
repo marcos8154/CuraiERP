@@ -42,7 +42,10 @@ namespace EM3.Components
             set
             {
                 if (value)
+                {
                     txInput.Background = Brushes.White;
+                    border.Background = Brushes.White;
+                }
                 else
                 {
                     txInput.Background = Brushes.WhiteSmoke;
@@ -151,6 +154,19 @@ namespace EM3.Components
             }
         }
 
+        public int GetInt
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
+                if (!IsNumeric)
+                    return 0;
+
+                return int.Parse(txInput.Text);
+            }
+        }
+
         public delegate void KeyUpEvt(object sender, KeyEventArgs e);
         public delegate void KeyDownEvt(object sender, KeyEventArgs e);
         public delegate void SearchOpenWindow();
@@ -168,6 +184,18 @@ namespace EM3.Components
             txInput.KeyUp += TxInput_KeyUp;
             this.IsNumeric = true;
             CharacterCasing = CharacterCasing.Upper;
+            this.GotFocus += SearchBox_GotFocus;
+            this.LostFocus += SearchBox_LostFocus;
+        }
+
+        private void SearchBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FFACA6A6");
+        }
+        
+        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FF4DA1F5");
         }
 
         public void SetFocused()

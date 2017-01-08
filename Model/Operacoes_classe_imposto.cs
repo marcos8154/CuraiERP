@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace EM3
 {
-    public class Operacoes_classe_imposto 
+    public class Operacoes_classe_imposto
     {
         public int Id { get; set; }
         public string Icms_cst { get; set; }
@@ -31,5 +31,9 @@ namespace EM3
         public int Classe_imposto_id { get; set; }
         public int Tipos_movimento_id { get; set; }
         public string Cfop_id { get; set; }
+        public string Uf { get; set; }
+        public Tipos_movimento Tipos_movimento { get; set; }
+        public Classes_imposto Classes_imposto { get; set; }
+        public Cfop Cfop { get; set; }
     }
 }

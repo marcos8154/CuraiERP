@@ -1,5 +1,6 @@
 ﻿using EM3.Controller;
 using EM3.Extensions;
+using EM3.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,13 @@ namespace EM3.UserControls.Financeiro.Operacoes_classeImp
             cabecalho.Title += $"({classe.Nome})";
             this.classe_imp_id = classe_imposto_id;
             this.container = container;
+            ListAll();
+        }
+
+        private void ListAll()
+        {
+            List<Operacoes_classe_imposto> list = Operacoes_classeImpostoController.ListAll(classe_imp_id);
+            dataGrid.ItemsSource = list;
         }
 
         private void btNovo_OnClick()
@@ -44,7 +52,7 @@ namespace EM3.UserControls.Financeiro.Operacoes_classeImp
             if (!UsuariosController.ValidaPermissao(container.Tela_id, Enums.TipoPermissao.INSERIR))
                 return;
 
-            cadastro = new COp_classeImp();
+            cadastro = new COp_classeImp(classe_imp_id);
             container.GridContainer.Children.Add(cadastro);
             container.GridContainer.Children.Remove(this);
             cadastro.OnComplete += Cadastro_OnComplete;
@@ -54,21 +62,65 @@ namespace EM3.UserControls.Financeiro.Operacoes_classeImp
         {
             container.GridContainer.Children.Add(this);
             container.GridContainer.Children.Remove(cadastro);
+            ListAll();
         }
 
         private void btAlterar_OnClick()
         {
-
+            Alterar();
         }
 
         private void btExcluir_OnClick()
         {
+            Excluir();
+        }
 
+        private void Excluir()
+        {
+            if (!UsuariosController.ValidaPermissao(container.Tela_id, Enums.TipoPermissao.EXCLUIR))
+                return;
+
+            Operacoes_classe_imposto operacao = (Operacoes_classe_imposto)dataGrid.SelectedItem;
+
+            if (operacao == null)
+                return;
+            if (operacao.Id == 0)
+                return;
+
+            if (new MsgSimNao("Confirma exclusão da operação? Esta ação não poderá ser revertida").Result)
+            {
+                if (Operacoes_classeImpostoController.Remove(operacao.Id))
+                    ListAll();
+            }
         }
 
         private void btVoltar_OnClick()
         {
             if (OnBack != null) OnBack();
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Alterar();
+        }
+
+        private void Alterar()
+        {
+            if (!UsuariosController.ValidaPermissao(container.Tela_id, Enums.TipoPermissao.ATUALIZAR))
+                return;
+
+            Operacoes_classe_imposto operacao = (Operacoes_classe_imposto)dataGrid.SelectedItem;
+
+            if (operacao == null)
+                return;
+            if (operacao.Id == 0)
+                return;
+
+            cadastro = new COp_classeImp(classe_imp_id);
+            cadastro.Load(operacao.Id);
+            container.GridContainer.Children.Add(cadastro);
+            container.GridContainer.Children.Remove(this);
+            cadastro.OnComplete += Cadastro_OnComplete;
         }
     }
 }

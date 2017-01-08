@@ -15,15 +15,16 @@
         <Components:NormalButton FontSize="14" x:Name="btAlterar" OnClick="btAlterar_OnClick" Text="Alterar" HorizontalAlignment="Right" Margin="0,40,90,0" VerticalAlignment="Top" Height="32" Width="77"/>
         <Components:NormalButton FontSize="14" OnClick="btExcluir_OnClick" x:Name="btExcluir" Text="Excluir" HorizontalAlignment="Right" Margin="0,40,172,0" VerticalAlignment="Top" Height="32" Width="77"/>
 
-        <DataGrid x:Name="dataGrid" Margin="10,77,10,10">
+        <DataGrid x:Name="dataGrid" MouseDoubleClick="dataGrid_MouseDoubleClick" Margin="10,77,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" Binding="{Binding Id}" MinWidth="80" Width="Auto"/>
+                <DataGridTextColumn Header="UF" Binding="{Binding Uf}" MinWidth="50" Width="Auto"/>
                 <DataGridTextColumn Header="Movimento" Binding="{Binding Tipos_movimento.Descricao}" MinWidth="200" Width="Auto"/>
                 <DataGridTextColumn Header="CFOP" Binding="{Binding Cfop_id}" MinWidth="100" Width="Auto"/>
                 <DataGridTextColumn Header="CST ICMS" Binding="{Binding Icms_cst}" MinWidth="100" Width="Auto"/>
                 <DataGridTextColumn Header="% ICMS" Binding="{Binding Icms_perc}" MinWidth="100" Width="Auto"/>
-                <DataGridTextColumn Header="% ICMS ST" Binding="{Binding Icms_perc}" MinWidth="100" Width="Auto"/>
-                <DataGridTextColumn Header="% Crédito ICMS" Binding="{Binding Per_credito_icms}" MinWidth="90" Width="Auto"/>
+                <DataGridTextColumn Header="% ICMS ST" Binding="{Binding Icms_perc_st}" MinWidth="100" Width="Auto"/>
+               <!-- <DataGridTextColumn Header="% Crédito ICMS" Binding="{Binding Per_credito_icms}" MinWidth="90" Width="Auto"/> -->
                 <DataGridTextColumn Header="% MVA" Binding="{Binding Icms_mva}" MinWidth="100" Width="Auto"/>
                 <DataGridTextColumn Header="PIS/COFINS Tipo" Binding="{Binding Pis_cofins_tipo}" MinWidth="110" Width="Auto"/>
                 <DataGridTextColumn Header="% PIS" Binding="{Binding Pis_perc}" MinWidth="100" Width="Auto"/>

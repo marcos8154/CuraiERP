@@ -92,7 +92,7 @@ namespace EM3.Components
         {
             get
             {
-                if (IsNumeric)
+                if (IsNumeric || isMoney)
                     if (string.IsNullOrEmpty(txInput.Text)) return "0";
 
                 return txInput.Text;
@@ -100,6 +100,8 @@ namespace EM3.Components
             set
             {
                 txInput.Text = value;
+                if (isMoney)
+                    txInput.Text = decimal.Parse(txInput.Text).ToString("N2");
             }
         }
 
@@ -169,6 +171,8 @@ namespace EM3.Components
         {
             get
             {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
                 try
                 {
                     string value = string.Format("{0:0,0.00}", txInput.Text);
@@ -188,10 +192,27 @@ namespace EM3.Components
             }
         }
 
+        public int GetInt
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
+
+                if (!IsNumeric)
+                    return 0;
+
+                return int.Parse(txInput.Text);
+            }
+        }
+
         public double GetDouble
         {
             get
             {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
+
                 try
                 {
                     string value = string.Format("{0:0,0.00}", txInput.Text);
@@ -220,6 +241,8 @@ namespace EM3.Components
         public event OnLostFocusEvent InputLostFocus;
         public event OnGainFocusEvent InputGainFocus;
 
+        public decimal MaxValue { get; set; }
+
         public Input()
         {
             InitializeComponent();
@@ -235,6 +258,7 @@ namespace EM3.Components
 
         private void TxInput_GotFocus(object sender, RoutedEventArgs e)
         {
+            border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FF4DA1F5");
             if (InputGainFocus != null) InputGainFocus(sender, e);
             txInput.SelectAll();
         }
@@ -243,7 +267,7 @@ namespace EM3.Components
         {
             try
             {
-
+                border.BorderBrush = (Brush)new BrushConverter().ConvertFrom("#FFACA6A6");
                 if (InputLostFocus != null) InputLostFocus(sender, e);
 
                 if (isMoney)
@@ -251,6 +275,11 @@ namespace EM3.Components
                     string text = txInput.Text;
                     if (!string.IsNullOrEmpty(text))
                         value = decimal.Parse(text);
+                    else
+                    {
+                        value = 0;
+                        txInput.Text = "0";
+                    }
                 }
             }
             catch (Exception ex)
@@ -312,6 +341,7 @@ namespace EM3.Components
                         txInput.Text += e.Text;
                         txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
                         txInput.SelectionLength = 0;
+
                     }
                 }
             }
@@ -320,6 +350,38 @@ namespace EM3.Components
 
             }
         }
+
+        private void txInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                TrataMaxValue();
+            }
+            catch (Exception ex)
+            {
+                txInput.Text = "0";
+            }
+        }
+
+        private void TrataMaxValue()
+        {
+            if (!isMoney && !isNumeric)
+                return;
+
+            if (MaxValue > 0)
+            {
+                decimal result = 0;
+                if (decimal.TryParse(txInput.Text, out result))
+                {
+                    if (result > MaxValue)
+                    {
+                        while (result > MaxValue)
+                            result -= MaxValue;
+                        txInput.Text = (result).ToString();
+                        txInput.SelectionLength = txInput.Text.Length;
+                    }
+                }
+            }
+        }
     }
 }
-

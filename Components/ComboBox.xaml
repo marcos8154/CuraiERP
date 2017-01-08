@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
             Height="56.068" MaxHeight="56.068" d:DesignWidth="300">
     <Grid>
-        <Border Padding="5" CornerRadius="2.5" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="#FFEAE9E9" Margin="0,27,0,0">
+        <Border x:Name="border" Padding="5" CornerRadius="2.5" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="#FFEAE9E9" Margin="0,27,0,0">
             <ComboBox  Name="combobox" Background="White" FontSize="13" BorderThickness="0" Margin="-4" Padding="7,4,0,0">
               
                 <ComboBox.Resources>
