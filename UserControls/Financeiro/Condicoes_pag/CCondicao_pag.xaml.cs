@@ -1,5 +1,6 @@
 ﻿using EM3.Controller;
 using EM3.Windows;
+using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -186,6 +187,9 @@ namespace EM3.UserControls.Financeiro.Condicoes_pag
                         txParcelas.Enabled = false;
                         txIntervalo.Enabled = false;
                         cbPermite_entrada.SelectedIndex = 0;
+
+                        txCod_conta.Text = "0";
+                        txDesc_conta.Text = string.Empty;
                         break;
 
                     case (int)Formas_pagamento.TIPO_PAGAMENTO.CHEQUE:
@@ -200,6 +204,9 @@ namespace EM3.UserControls.Financeiro.Condicoes_pag
                         txParcelas.Enabled = true;
                         cbPermite_entrada.SelectedIndex = 0;
                         txIntervalo.Enabled = true;
+
+                        txCod_operadora.Text = "0";
+                        txDesc_operadora.Text = string.Empty;
                         break;
 
                     case (int)Formas_pagamento.TIPO_PAGAMENTO.BOLETO:
@@ -214,6 +221,9 @@ namespace EM3.UserControls.Financeiro.Condicoes_pag
                         txParcelas.Enabled = true;
                         txIntervalo.Enabled = true;
                         cbPermite_entrada.SelectedIndex = 0;
+
+                        txCod_operadora.Text = "0";
+                        txDesc_operadora.Text = string.Empty;
                         break;
 
                     case (int)Formas_pagamento.TIPO_PAGAMENTO.CREDITO_CLIENTE:
@@ -241,7 +251,7 @@ namespace EM3.UserControls.Financeiro.Condicoes_pag
                 if (cbTipo_intervalo.SelectedIndex == 0)
                     txIntervalo.Title = "Intervalo (dias)";
                 else
-                    txIntervalo.Title = "Data base";
+                    txIntervalo.Title = "Dia base";
             }
             catch { }
         }
@@ -262,6 +272,31 @@ namespace EM3.UserControls.Financeiro.Condicoes_pag
             txIntervalo.Enabled = false;
             cbPermite_entrada.SelectedIndex = 1;
             txParcelas.Text = "0";
+        }
+
+        private void txCod_operadora_CallSearch()
+        {
+            SelecionarOperadoraCartao soc = new SelecionarOperadoraCartao();
+            soc.ShowDialog();
+
+            if(soc.Selecionado.Id == 0)
+            {
+                txCod_operadora.Text = "0";
+                txDesc_operadora.Text = "Não selecionado";
+                return;
+            }
+
+            txCod_operadora.Text = soc.Selecionado.Id.ToString();
+            txDesc_operadora.Text = soc.Selecionado.Nome;
+        }
+
+        private void txCod_conta_CallSearch()
+        {
+            SelecionarContaBancaria scb = new SelecionarContaBancaria();
+            scb.ShowDialog();
+
+            txCod_conta.Text = scb.Selecionado.Id.ToString();
+            txDesc_conta.Text = (scb.Selecionado.Id == 0 ? "Não selecionado" : scb.Selecionado.Nome);
         }
     }
 }

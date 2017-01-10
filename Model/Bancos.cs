@@ -16,7 +16,7 @@ namespace EM3
     public class Bancos 
     {
         public int Id { get; set; }
-        public int Nome { get; set; }
-        public int Numero { get; set; }
+        public string Nome { get; set; }
+        public string Numero { get; set; }
     }
 }

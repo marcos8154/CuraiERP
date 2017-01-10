@@ -129,10 +129,12 @@
       <DependentUpon>VerticalSeparator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller\ArmazensController.cs" />
+    <Compile Include="Controller\BancosController.cs" />
     <Compile Include="Controller\CaracteristicasController.cs" />
     <Compile Include="Controller\CfopController.cs" />
     <Compile Include="Controller\Classes_impostoController.cs" />
     <Compile Include="Controller\Commons.cs" />
+    <Compile Include="Controller\Contas_bancariasController.cs" />
     <Compile Include="Controller\EmpresasController.cs" />
     <Compile Include="Controller\EntityLoader.cs" />
     <Compile Include="Controller\Formas_pagamentoController.cs" />
@@ -301,6 +303,15 @@
     <Compile Include="UserControls\Financeiro\Condicoes_pag\VCondicoes_pag.xaml.cs">
       <DependentUpon>VCondicoes_pag.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Financeiro\Conta_bancarias\CContas_bancarias.xaml.cs">
+      <DependentUpon>CContas_bancarias.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Conta_bancarias\Contas_bancContainer.xaml.cs">
+      <DependentUpon>Contas_bancContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Financeiro\Conta_bancarias\VContas_banc.xaml.cs">
+      <DependentUpon>VContas_banc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml.cs">
       <DependentUpon>COp_classeImp.xaml</DependentUpon>
     </Compile>
@@ -361,14 +372,23 @@
     <Compile Include="Windows\Selecao\SelecionarArmazem.xaml.cs">
       <DependentUpon>SelecionarArmazem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarBanco.xaml.cs">
+      <DependentUpon>SelecionarBanco.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarCFOP.xaml.cs">
       <DependentUpon>SelecionarCFOP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarContaBancaria.xaml.cs">
+      <DependentUpon>SelecionarContaBancaria.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml.cs">
       <DependentUpon>SelecionarGrupoUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarOperadoraCartao.xaml.cs">
+      <DependentUpon>SelecionarOperadoraCartao.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarTmv.xaml.cs">
       <DependentUpon>SelecionarTmv.xaml</DependentUpon>
@@ -595,6 +615,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Financeiro\Conta_bancarias\CContas_bancarias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Conta_bancarias\Contas_bancContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Financeiro\Conta_bancarias\VContas_banc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Financeiro\Operacoes_classeImp\COp_classeImp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -655,7 +687,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarBanco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarCFOP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarContaBancaria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -664,6 +704,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarOperadoraCartao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

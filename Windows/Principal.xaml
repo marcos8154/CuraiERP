@@ -114,8 +114,7 @@
                     <MenuItem Header="Classes de imposto" x:Name="btClasses_imp" Click="btClasses_imp_Click"/>
                     <MenuItem Header="Condições de pagamento" x:Name="btCondicoesPagamento" Click="btCondicoesPagamento_Click" />
                     <MenuItem Header="Operadoras de cartão" x:Name="btOperadoras_cartao" Click="btOperadoras_cartao_Click"/>
-                    <MenuItem Header="Bancos" />
-                    <MenuItem Header="Contas bancárias" />
+                    <MenuItem Header="Contas bancárias" x:Name="btContas_bancarias" Click="btContas_bancarias_Click" />
                     <MenuItem Header="Caixas" />
                     <MenuItem Header="Planos de conta" />
                     <MenuItem Header="Tabelas de preço" />

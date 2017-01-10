@@ -11,6 +11,7 @@ using EM3.UserControls.Estoque.LocaisEstoque;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.UserControls.Financeiro.ClasseImposto;
 using EM3.UserControls.Financeiro.Condicoes_pag;
+using EM3.UserControls.Financeiro.Conta_bancarias;
 using EM3.UserControls.Financeiro.Operadora_cartao;
 using EM3.UserControls.Financeiro.TiposMovimento;
 using EM3.Util;
@@ -158,6 +159,13 @@ namespace EM3.Windows
             Operadora_cartaoContainer opc_C = new Operadora_cartaoContainer();
             if (UsuariosController.ValidaPermissao(opc_C.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, opc_C, "Operadoras de cartão");
+        }
+
+        private void btContas_bancarias_Click(object sender, RoutedEventArgs e)
+        {
+            Contas_bancContainer cbc = new Contas_bancContainer();
+            if (UsuariosController.ValidaPermissao(cbc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, cbc, "Contas bancárias");
         }
     }
 }

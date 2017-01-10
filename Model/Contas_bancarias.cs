@@ -18,14 +18,15 @@ namespace EM3
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Agencia { get; set; }
+        public string Dv_agencia { get; set; }
         public string Conta { get; set; }
-        public string Numero_banco { get; set; }
-        public string Telefone { get; set; }
+        public string Dv_conta { get; set; }
+        public string Carteira { get; set; }
         public string Correntista { get; set; }
         public decimal Saldo_atual { get; set; }
         public decimal Limite_credito { get; set; }
-        public string Cnpj { get; set; }
-        public int Endereco_id { get; set; }
         public int Banco_id { get; set; }
+        public bool Inativo { get; set; }
+        public Bancos Bancos { get; set; }
     }
 }

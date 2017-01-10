@@ -22,13 +22,13 @@
         <Components:Input Index="3" x:Name="txDescricao" Required="true" Title="Descrição" HorizontalAlignment="Left" Margin="310,83,0,0" VerticalAlignment="Top" Height="56" Width="449"/>
         <Components:ComboBox Index="4" x:Name="cbInativo" Title="Inativo" Items="NÃO; SIM;" HorizontalAlignment="Left" Margin="764,83,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
         <Components:ComboBox Index="5" x:Name="cbPermite_entrada" Title="Entrada" Items="SIM; NÃO;" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
-        <Components:ComboBox Index="6" OnChange="cbTipo_intervalo_OnChange" x:Name="cbTipo_intervalo" Title="Intervalo" Items="Intervalo; Data base;" HorizontalAlignment="Left" Margin="85,144,0,0" VerticalAlignment="Top" Height="56" Width="110"/>
+        <Components:ComboBox Index="6" OnChange="cbTipo_intervalo_OnChange" x:Name="cbTipo_intervalo" Title="Intervalo" Items="Intervalo; Dia base;" HorizontalAlignment="Left" Margin="85,144,0,0" VerticalAlignment="Top" Height="56" Width="110"/>
         <Components:Input Index="8" IsNumeric="True" MaxValue="31" x:Name="txIntervalo" Title="Intervalo (dias)" HorizontalAlignment="Left" Margin="200,144,0,0" VerticalAlignment="Top" Height="56" Width="105"/>
 
-        <Components:SearchBox Index="9" x:Name="txCod_operadora" Title="Op. cartão" HorizontalAlignment="Left" Margin="310,144,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
+        <Components:SearchBox Index="9" CallSearch="txCod_operadora_CallSearch" x:Name="txCod_operadora" Title="Op. cartão" HorizontalAlignment="Left" Margin="310,144,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
         <Components:SimpleInput Index="80" x:Name="txDesc_operadora" Enabled="False" HorizontalAlignment="Left" Margin="395,170,0,0" VerticalAlignment="Top" Width="439" Height="29"/>
 
-        <Components:SearchBox Index="10" x:Name="txCod_conta" Title="Conta" HorizontalAlignment="Left" Margin="310,209,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
+        <Components:SearchBox Index="10" x:Name="txCod_conta" CallSearch="txCod_conta_CallSearch" Title="Conta" HorizontalAlignment="Left" Margin="310,209,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
         <Components:SimpleInput Index="100" x:Name="txDesc_conta" Enabled="False" HorizontalAlignment="Left" Margin="395,235,0,0" VerticalAlignment="Top" Width="439" Height="29"/>
         <Components:Input Index="11" IsNumeric="True" MaxValue="31" x:Name="txTolerancia" Title="Tolerância (dias)" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Height="56" Width="105"/>
         <Components:Input Index="12" IsMoney="True" MaxValue="1000" x:Name="txJuros_atraso" Title="Juros atraso (%)" HorizontalAlignment="Left" Margin="120,209,0,0" VerticalAlignment="Top" Height="56" Width="105"/>
