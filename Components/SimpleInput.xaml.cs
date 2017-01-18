@@ -118,6 +118,45 @@ namespace EM3.Components
             }
         }
 
+        public decimal GetDecimal
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
+                try
+                {
+                    string value = string.Format("{0:0,0.00}", txInput.Text);
+
+                    string[] t = value.Split('.');
+                    if (t.Length <= 2 && !txInput.Text.Contains(","))
+                        value = value.Replace(".", ",");
+
+                    decimal d = decimal.Parse(value);
+                    return d;
+                }
+                catch (Exception ex)
+                {
+                 //   new MsgAlerta("Ocorreu um problema durante a conversão numérica em um dos campos. Verifique os valores numéricos e tente novamente.");
+                }
+                return 0;
+            }
+        }
+
+        public int GetInt
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(txInput.Text))
+                    return 0;
+
+                if (!IsNumeric)
+                    return 0;
+
+                return int.Parse(txInput.Text);
+            }
+        }
+
         private decimal value;
 
         public decimal Value
@@ -132,8 +171,8 @@ namespace EM3.Components
         public delegate void OnGainFocusEvent(object sender, RoutedEventArgs e);
         public delegate void OnLostFocusEvent(object sender, RoutedEventArgs e);
 
-        private event KeyEvent InputKeyDown;
-        private event KeyEvent InputKeyUp;
+        public event KeyEvent InputKeyDown;
+        public event KeyEvent InputKeyUp;
         public event OnLostFocusEvent InputLostFocus;
         public event OnGainFocusEvent InputGainFocus;
 

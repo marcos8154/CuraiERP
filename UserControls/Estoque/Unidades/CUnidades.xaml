@@ -15,8 +15,8 @@
 
 
         <Components:Input x:Name="txCod" IsNumeric="True" Enabled="False" Title="Código" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Height="56" Width="66"/>
-        <Components:Input x:Name="txSigla" MaxLength="6" Title="Sigla" HorizontalAlignment="Left" Margin="81,82,0,0" VerticalAlignment="Top" Height="56" Width="84"/>
-        <Components:Input x:Name="txDescricao" MaxLength="12" Title="Descrição" HorizontalAlignment="Left" Margin="170,82,0,0" VerticalAlignment="Top" Height="56" Width="262"/>
+        <Components:Input Index="1" x:Name="txSigla" MaxLength="6" Title="Sigla" HorizontalAlignment="Left" Margin="81,82,0,0" VerticalAlignment="Top" Height="56" Width="84"/>
+        <Components:Input Index="2" x:Name="txDescricao" MaxLength="12" Title="Descrição" HorizontalAlignment="Left" Margin="170,82,0,0" VerticalAlignment="Top" Height="56" Width="262"/>
 
     </Grid>
 </UserControl>

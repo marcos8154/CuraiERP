@@ -21,7 +21,7 @@ namespace EM3.Windows.Selecao
     /// </summary>
     public partial class SelecionarEmpresa : Window
     {
-        public Empresa Selecionado { get; set; }
+        public Empresa Selecionado = new Empresa();
         public SelecionarEmpresa()
         {
             InitializeComponent();

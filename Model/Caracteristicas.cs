@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace EM3
 {
-    public class Caracteristicas 
+    public class Caracteristicas
     {
         public int Id { get; set; }
         public string Atributo { get; set; }

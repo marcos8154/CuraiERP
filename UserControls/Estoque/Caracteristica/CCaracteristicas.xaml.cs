@@ -29,24 +29,24 @@ namespace EM3.UserControls.Estoque.Caracteristica
         {
             InitializeComponent();
 
-            cbAtributos.AddItem("Cor");
-            cbAtributos.AddItem("Tamanho");
-            cbAtributos.AddItem("Sabor");
-            cbAtributos.AddItem("Comprimento");
-            cbAtributos.AddItem("Largura");
-            cbAtributos.AddItem("Estampa");
-            cbAtributos.AddItem("Polegada");
-            cbAtributos.AddItem("Diâmetro");
-            cbAtributos.AddItem("Altura");
-            cbAtributos.AddItem("Formato");
-            cbAtributos.AddItem("Amperagem");
-            cbAtributos.AddItem("Voltagem");
-            cbAtributos.AddItem("Material");
-            cbAtributos.AddItem("Capacidade");
-            cbAtributos.AddItem("RPM");
-            cbAtributos.AddItem("Peso");
+            cbAtributo.AddItem("Cor");
+            cbAtributo.AddItem("Tamanho");
+            cbAtributo.AddItem("Sabor");
+            cbAtributo.AddItem("Comprimento");
+            cbAtributo.AddItem("Largura");
+            cbAtributo.AddItem("Estampa");
+            cbAtributo.AddItem("Polegada");
+            cbAtributo.AddItem("Diâmetro");
+            cbAtributo.AddItem("Altura");
+            cbAtributo.AddItem("Formato");
+            cbAtributo.AddItem("Amperagem");
+            cbAtributo.AddItem("Voltagem");
+            cbAtributo.AddItem("Material");
+            cbAtributo.AddItem("Capacidade");
+            cbAtributo.AddItem("RPM");
+            cbAtributo.AddItem("Peso");
 
-            cbAtributos.SelectedIndex = 0;
+            cbAtributo.SelectedIndex = 0;
         }
 
         private void btSalvar_OnClick()
@@ -59,7 +59,7 @@ namespace EM3.UserControls.Estoque.Caracteristica
             if (Caracteristica == null) Caracteristica = new Caracteristicas();
 
             Caracteristica.Id = int.Parse(txCodigo.Text);
-            Caracteristica.Atributo = cbAtributos.Text;
+            Caracteristica.Atributo = cbAtributo.Text;
             Caracteristica.Valor = txValor.Text;
 
             if (CaracteristicasController.Save(Caracteristica))
@@ -98,7 +98,7 @@ namespace EM3.UserControls.Estoque.Caracteristica
             Caracteristica = CaracteristicasController.Find(id);
 
             txCodigo.Text = Caracteristica.Id.ToString();
-            cbAtributos.Text = Caracteristica.Atributo;
+            cbAtributo.Text = Caracteristica.Atributo;
             txValor.Text = Caracteristica.Valor;
 
             cabecalho.Title = "Alterar característica (" + Caracteristica.Atributo + ")";

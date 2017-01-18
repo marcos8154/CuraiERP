@@ -27,20 +27,20 @@ namespace EM3
         {
             InitializeComponent();
 
+            btConectar.Focus();
+            cbNavegacao.Items.Add("Abas");
+            cbNavegacao.Items.Add("Janelas");
             this.Closed += MainWindow_Closed;
             if (!Directory.Exists(@"C:\Temp\")) Directory.CreateDirectory(@"C:\Temp\");
             if (Configuration.LoadFromLocalSettings())
             {
-                this.Hide();
-                if (!LicenceController.Connect())
-                {
-                    MessageBox.Show("Não foi possível conectar com o servidor de licenças. \nO sistema será encerrado.", "Licence Server não localizado", MessageBoxButton.OK, MessageBoxImage.Error);
-                    System.Environment.Exit(0);
-                }
-
-                Login login = new Login();
-                login.ShowDialog();
+                txServidor.Text = Configuration.server;
+                txPorta.Text = Configuration.port.ToString();
+                txApp.Text = Configuration.application;
+                cbNavegacao.SelectedIndex = Configuration.nav_mode;
             }
+
+            this.Show();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
@@ -78,9 +78,10 @@ namespace EM3
             Configuration.application = txApp.Text;
             Configuration.server = txServidor.Text;
             Configuration.port = int.Parse(txPorta.Text);
+            Configuration.nav_mode = cbNavegacao.SelectedIndex;
 
             Login login = new Login();
-            login.ShowDialog();
+            login.Show();
         }
     }
 }

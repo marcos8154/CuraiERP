@@ -15,8 +15,8 @@
         <Components:NormalButton  FontSize="13" OnClick="btSalvarEContinuar_OnClick" x:Name="btSalvarEContinuar" Text="Savar e continuar" HorizontalAlignment="Right" Margin="0,40,75,0" VerticalAlignment="Top" Height="38"/>
 
         <Components:Input x:Name="txCodigo" Enabled="False" IsNumeric="True" Title="Código" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
-        <Components:ComboBox Required="True" HorizontalAlignment="Left" x:Name="cbAtributos" Title="Atributos" Margin="95,83,0,0" VerticalAlignment="Top" Height="56" Width="285"/>
-        <Components:Input x:Name="txValor" Required="True" Title="Valor" MaxLength="100" HorizontalAlignment="Left" Margin="385,83,0,0" VerticalAlignment="Top" Height="56" Width="335"/>
+        <Components:ComboBox Required="True" HorizontalAlignment="Left" x:Name="cbAtributo" Title="Atributo" Margin="95,83,0,0" VerticalAlignment="Top" Height="56" Width="285"/>
+        <Components:Input x:Name="txValor" Required="True" Title="Valor" MaxLength="100" Margin="385,83,10,0" VerticalAlignment="Top" Height="56" Width="Auto"/>
 
     </Grid>
 </UserControl>

@@ -67,7 +67,25 @@ namespace EM3.Controller
             }
             catch (Exception ex)
             {
-                MessageBox.Show("O sistema não conseguiu se recuperar de uma falha na comunicação cliente-servidor e precisará ser encerrado. \nVerifique as configurações de rede ou acione o suporte Doware. \nTOP-CLIENT error -467", "Comunicação interrompida", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(@"O NetLauncher não conseguiu se recuperar de uma falha na comunicação cliente-servidor e precisará ser encerrado.
+
+Processos afetados:
+ * Curae Série V
+
+Possíveis Causas:
+ * Falha de rede
+ * O servidor demorou muito tempo para responder devido a sobrecargas no sistema
+ * O banco de dados pode estar indisponível (servico parado)
+ * O Application Server pode estar indisponível (servico parado)
+ * Rede configurada de forma inadequada
+ * Ocorreu uma falha de energia e a estação servidor foi desligada
+
+Solução rápida:
+* Verifique suas configurações de rede e inicie o NetLauncher novamente.
+* Reinicie a estação servidor (em caso de falha geral)
+* Acione o suporte Doware. 
+
+TOP-CLIENT error -467", "Comunicação interrompida", MessageBoxButton.OK, MessageBoxImage.Error);
                 System.Environment.Exit(0);
             }
 

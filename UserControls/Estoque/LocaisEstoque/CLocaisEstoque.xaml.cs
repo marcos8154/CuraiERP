@@ -70,7 +70,6 @@ namespace EM3.UserControls.Estoque.LocaisEstoque
 
         private void btSalvarEContinuar_OnClick()
         {
-            new MsgAlerta(txAltura.GetDouble.ToString());
             Salvar(false);
         }
 
@@ -117,6 +116,11 @@ namespace EM3.UserControls.Estoque.LocaisEstoque
             sa.ShowDialog();
 
             txCod_armazem.Text = sa.Selecionado.Id.ToString();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            txNome.SetFocused();
         }
     }
 }

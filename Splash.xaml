@@ -1,0 +1,27 @@
+﻿<Window x:Class="EM3.Splash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EM3"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" 
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None"
+        Activated="Window_Activated"
+        WindowStartupLocation="CenterScreen"
+        Cursor="Wait"
+        Title="Splash" Height="279" Width="494">
+    <Grid Cursor="Wait">
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/splash.jpg"/>
+        </Grid.Background>
+        <Label x:Name="label" Content="Doware" Margin="10,0,301,10" VerticalAlignment="Bottom" FontSize="29.333" FontFamily="Microsoft JhengHei UI" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="label_Copy" Content="NetLauncher" VerticalAlignment="Top" FontSize="29.333" FontFamily="Microsoft JhengHei UI" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Width="191" HorizontalContentAlignment="Center" Margin="0,0,11,0"/>
+        <Border BorderBrush="White" BorderThickness="3" Height="2" Margin="0,45,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="191"/>
+        <Label x:Name="label_Copy1" Content="Application Connector" VerticalAlignment="Top" FontSize="14.667" FontFamily="Microsoft JhengHei UI" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Width="191" HorizontalContentAlignment="Center" Margin="0,45,10,0"/>
+        <Label x:Name="label_Copy2" Content="1.0.171401" VerticalAlignment="Bottom" FontSize="14.667" FontFamily="Microsoft JhengHei UI" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Width="96" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy3" Content="Powered by" VerticalAlignment="Top" FontSize="9.333" FontFamily="Microsoft JhengHei UI" Foreground="White" FontWeight="Bold" HorizontalAlignment="Right" Width="80" HorizontalContentAlignment="Center" Margin="0,215,411,0"/>
+
+    </Grid>
+</Window>

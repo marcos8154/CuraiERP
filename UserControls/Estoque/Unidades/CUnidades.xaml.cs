@@ -51,6 +51,7 @@ namespace EM3.UserControls.Estoque.UnidadesModulo
             txCod.Text = "0";
             txDescricao.Text = string.Empty;
             txSigla.Text = string.Empty;
+            txSigla.SetFocused();
         }
 
         private void Salvar(bool close)

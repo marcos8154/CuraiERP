@@ -16,6 +16,7 @@ namespace EM3.Controller
         public static int port = 8081;
         public static int standard_company = 0;
         public static int nav_mode = 0; //0 = Tabs; 1 = Windows;
+        public static bool quiet_mode = false;
 
         public static string GetApplication
         {
@@ -43,6 +44,13 @@ namespace EM3.Controller
                     {
                         string value = line.Replace("interface=", "");
                         nav_mode = (value.Equals("windows") ? 1 : 0);
+                        continue;
+                    }
+
+                    if(line.StartsWith("quiet"))
+                    {
+                        string value = line.Replace("quiet=", "");
+                        quiet_mode = value.Equals("enabled");
                         continue;
                     }
 

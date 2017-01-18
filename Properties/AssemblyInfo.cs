@@ -13,7 +13,7 @@ using System.Windows;
 [assembly: AssemblyCompany("Doware")]
 [assembly: AssemblyProduct("Curae ERP")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("DoWare")]
+[assembly: AssemblyTrademark("Doware")]
 [assembly: AssemblyCulture("")]
 
 // Definir ComVisible como false torna invisíveis os tipos neste assembly

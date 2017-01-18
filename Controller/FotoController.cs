@@ -23,7 +23,7 @@ namespace EM3.Controller
             }
             catch (Exception ex)
             {
-                new MsgAlerta(ex.Message);
+                //new MsgAlerta(ex.Message);
             }
             return 0;
         }
@@ -54,6 +54,13 @@ namespace EM3.Controller
             }
 
             return string.Empty;
+        }
+
+        public static void Remove(int foto_id)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("id", foto_id);
+            rh.Send("img-rem");
         }
     }
 }

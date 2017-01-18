@@ -38,8 +38,28 @@ namespace EM3.Windows.Selecao
 
         private void Pesquisar()
         {
-            List<Armazens> list = ArmazensController.Search(UsuariosController.Empresa_atual_id, txPesquisa.Text);
-            dataGrid.ItemsSource = list;
+            List<Armazens> list = ArmazensController.Search(0, txPesquisa.Text);
+            if (list == null)
+                return;
+            List<Armazens> lista_exibir = new List<Armazens>();
+
+            foreach(Armazens armz in list)
+            {
+                if(armz.Empresa_id > 0)
+                {
+                    if (armz.Empresa_id == UsuariosController.Empresa_atual_id)
+                    {
+                        lista_exibir.Add(armz);
+                        continue;
+                    }
+                    else
+                        continue;
+                }
+
+                lista_exibir.Add(armz);
+            }
+
+            dataGrid.ItemsSource = lista_exibir;
         }
 
         private void btNovo_OnClick()

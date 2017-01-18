@@ -9,15 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
-
 namespace EM3
 {
-    public class Precos 
+    public class Tabelas_precos
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Data_inicio { get; set; }
         public string Data_inativacao { get; set; }
+        public int Forma_pagamento_id { get; set; }
         public bool Inativo { get; set; }
+
+        public Formas_pagamento Formas_pagamento { get; set; }
     }
 }

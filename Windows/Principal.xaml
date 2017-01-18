@@ -25,11 +25,10 @@
                                         MinWidth="100"
                                         Height="25"/>
 
-                                        <Image Width="15" Height="15" x:Name="btClose" HorizontalAlignment="Right" Margin="0,0,4,0" MouseUp="btClose_MouseUp" Source="/Curai;component/Images/cancel.png" Stretch="Fill">
+                                        <Image Width="15" Height="15" x:Name="btClose" HorizontalAlignment="Right" Margin="0,0,3,0" MouseUp="btClose_MouseUp" Source="/Doware NetLauncher;component/Images/cancel.png" Stretch="Fill">
                                             <Image.OpacityMask>
-                                                <ImageBrush ImageSource="/Curai;component/Images/cancel.png"/>
+                                                <ImageBrush ImageSource="/Doware NetLauncher;component/Images/cancel.png"/>
                                             </Image.OpacityMask>
-
                                         </Image>
                                     </Grid>
 
@@ -60,10 +59,7 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
 
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
         </TabControl>
         <Menu x:Name="menu"  FontSize="18"  Height="27" VerticalAlignment="Top">
             <Menu.Background>
@@ -79,7 +75,8 @@
                     <MenuItem Header="Armazéns" x:Name="btArmazens" Click="btArmazens_Click" />
                     <MenuItem Header="Locais de estoque" x:Name="btLocaisEstoque" Click="btLocaisEstoque_Click" />
                     <MenuItem Header="Grupos de produtos" x:Name="btGrupos_produtos" Click="btGrupos_produtos_Click" />
-                    <MenuItem Header="Produtos" />
+                    <MenuItem Header="Marcas" x:Name="btMarcas" Click="btMarcas_Click"/>
+                        <MenuItem Header="Produtos" x:Name="btProdutos" Click="btProdutos_Click" />
                     <MenuItem Header="Kit de produtos" />
                     <MenuItem Header="Produtos x Características"/>
                     <MenuItem Header="Produtos x Locais de estoque"/>

@@ -23,7 +23,7 @@ namespace EM3.Windows.Selecao
     public partial class SelecionarUnidade : Window
     {
         CUnidades Cadastro;
-        public Unidades Selecionado { get; set; }
+        public Unidades Selecionado = new Unidades();
         public SelecionarUnidade()
         {
             InitializeComponent();

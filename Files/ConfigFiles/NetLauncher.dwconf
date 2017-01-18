@@ -6,14 +6,17 @@
 * Indica a interface de navegação pelo sistema
 * Para usar abas, informe "tabs"
 * Para usar o padrão convercional de janelas, informe "windows"
-
 interface=tabs
+
+* Determina se pular a Splash Screen
+* "enabled" = SIM; "disabled" = NAO;
+quiet=enabled
 
 <------------   APPLICATION SERVER   ----------->
 
 appserver=localhost
 appserver_port=8081
-default_application=em3
+default_application=curae
 standard_company=1
 
 <------------     LICENCE SERVER     ----------->

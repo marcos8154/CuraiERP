@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EM3</RootNamespace>
-    <AssemblyName>Curai</AssemblyName>
+    <AssemblyName>Doware NetLauncher</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -18,7 +18,7 @@
     </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -113,8 +113,17 @@
     <Compile Include="Components\Cabecalho.xaml.cs">
       <DependentUpon>Cabecalho.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ImageSelector.xaml.cs">
+      <DependentUpon>ImageSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\MaskedInput.xaml.cs">
       <DependentUpon>MaskedInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Paginator.xaml.cs">
+      <DependentUpon>Paginator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\PasswordBox.xaml.cs">
       <DependentUpon>PasswordBox.xaml</DependentUpon>
@@ -144,10 +153,13 @@
     <Compile Include="Controller\Grupos_usuariosController.cs" />
     <Compile Include="Controller\LicenceController.cs" />
     <Compile Include="Controller\Locais_estoqueController.cs" />
+    <Compile Include="Controller\MarcasController.cs" />
+    <Compile Include="Controller\NcmController.cs" />
     <Compile Include="Controller\Operacoes_classeImpostoController.cs" />
     <Compile Include="Controller\Operadoras_cartaoController.cs" />
     <Compile Include="Controller\OperationResult.cs" />
     <Compile Include="Controller\PermissoesController.cs" />
+    <Compile Include="Controller\ProdutosController.cs" />
     <Compile Include="Controller\TelasController.cs" />
     <Compile Include="Controller\Tipos_movimentoController.cs" />
     <Compile Include="Controller\UnidadesController.cs" />
@@ -186,15 +198,17 @@
     <Compile Include="Model\Locais_estoque.cs" />
     <Compile Include="Model\Lotes.cs" />
     <Compile Include="Model\Lotes_produtos.cs" />
+    <Compile Include="Model\Marcas.cs" />
     <Compile Include="Model\Movimentacoes_caixas.cs" />
     <Compile Include="Model\Movimentos.cs" />
     <Compile Include="Model\Movimento_nfs.cs" />
+    <Compile Include="Model\Ncm.cs" />
     <Compile Include="Model\Operacoes_classe_imposto.cs" />
     <Compile Include="Model\Operadoras_cartao.cs" />
     <Compile Include="Model\Parcelas.cs" />
     <Compile Include="Model\Permissoes.cs" />
     <Compile Include="Model\Plano_contas.cs" />
-    <Compile Include="Model\Precos.cs" />
+    <Compile Include="Model\Tabelas_precos.cs" />
     <Compile Include="Model\Produtos.cs" />
     <Compile Include="Model\Produtos_caractetisticas.cs" />
     <Compile Include="Model\Produtos_clientes.cs" />
@@ -210,6 +224,9 @@
     <Compile Include="Model\Unidades.cs" />
     <Compile Include="Model\Usuarios.cs" />
     <Compile Include="Model\Usuarios_grupos.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Configuracoes\GruposUsrXPermissoes\GruposUsuariosXPermissoes.xaml.cs">
       <DependentUpon>GruposUsuariosXPermissoes.xaml</DependentUpon>
     </Compile>
@@ -275,6 +292,24 @@
     </Compile>
     <Compile Include="UserControls\Estoque\LocaisEstoque\VLocaisEstoque.xaml.cs">
       <DependentUpon>VLocaisEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Marca\CMarcas.xaml.cs">
+      <DependentUpon>CMarcas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Marca\MarcasContainer.xaml.cs">
+      <DependentUpon>MarcasContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Marca\VMarcas.xaml.cs">
+      <DependentUpon>VMarcas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Produto\CProdutos.xaml.cs">
+      <DependentUpon>CProdutos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Produto\ProdutosContainer.xaml.cs">
+      <DependentUpon>ProdutosContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Estoque\Produto\VProdutos.xaml.cs">
+      <DependentUpon>VProdutos.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Estoque\Unidades\CUnidades.xaml.cs">
       <DependentUpon>CUnidades.xaml</DependentUpon>
@@ -375,8 +410,14 @@
     <Compile Include="Windows\Selecao\SelecionarBanco.xaml.cs">
       <DependentUpon>SelecionarBanco.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarCaracteristica.xaml.cs">
+      <DependentUpon>SelecionarCaracteristica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarCFOP.xaml.cs">
       <DependentUpon>SelecionarCFOP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarClasseImposto.xaml.cs">
+      <DependentUpon>SelecionarClasseImposto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarContaBancaria.xaml.cs">
       <DependentUpon>SelecionarContaBancaria.xaml</DependentUpon>
@@ -384,11 +425,23 @@
     <Compile Include="Windows\Selecao\SelecionarEmpresa.xaml.cs">
       <DependentUpon>SelecionarEmpresa.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarGrupoProdutos.xaml.cs">
+      <DependentUpon>SelecionarGrupoProdutos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml.cs">
       <DependentUpon>SelecionarGrupoUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Selecao\SelecionarLocalEstoque.xaml.cs">
+      <DependentUpon>SelecionarLocalEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarNcm.xaml.cs">
+      <DependentUpon>SelecionarNcm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Selecao\SelecionarOperadoraCartao.xaml.cs">
       <DependentUpon>SelecionarOperadoraCartao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Selecao\SelecionarOrigemProduto.xaml.cs">
+      <DependentUpon>SelecionarOrigemProduto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Selecao\SelecionarTmv.xaml.cs">
       <DependentUpon>SelecionarTmv.xaml</DependentUpon>
@@ -415,6 +468,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Components\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\ImageSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\Input.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,6 +487,10 @@
     <Page Include="Components\NormalButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Paginator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\PasswordBox.xaml">
       <SubType>Designer</SubType>
@@ -479,6 +544,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Configuracoes\Empresas\CEmpresas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -576,6 +645,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Estoque\LocaisEstoque\VLocaisEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Marca\CMarcas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Marca\MarcasContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Marca\VMarcas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Produto\CProdutos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Produto\ProdutosContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Estoque\Produto\VProdutos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -691,7 +784,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarCaracteristica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarCFOP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarClasseImposto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -703,11 +804,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarGrupoProdutos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarGrupoUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Selecao\SelecionarLocalEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarNcm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Selecao\SelecionarOperadoraCartao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Selecao\SelecionarOrigemProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -779,6 +896,7 @@
     <Content Include="Files\Tables\SQLServer.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\splash.jpg" />
     <Resource Include="1480379753_vector_66_09.ico" />
     <Content Include="Files\Commands\TelasInsert.sql" />
   </ItemGroup>

@@ -26,10 +26,21 @@ namespace EM3.Windows
             this.Topmost = true;
             this.ShowDialog();
         }
+
+        public static void Show(string msg)
+        {
+            new MsgAlerta(msg);
+        }
         
         private void btOK_OnClick()
         {
             Close();
+        }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Close();
         }
     }
 }

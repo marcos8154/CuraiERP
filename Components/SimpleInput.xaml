@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EM3.Components"
-             mc:Ignorable="d" 
-             d:DesignHeight="29" MaxHeight="30"  d:DesignWidth="131.5">
+             mc:Ignorable="d"  d:DesignWidth="131.5" Height="27">
     <Grid>
-        <Border Padding="5" x:Name="border" CornerRadius="3" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White" Margin="0,0,0,-1">
+        <Border Padding="5" x:Name="border" CornerRadius="3" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White">
             <TextBox PreviewTextInput="NumberValidationTextBox" FontSize="15" Name="txInput" Background="Transparent" BorderThickness="0" Margin="-3,-4" Padding="0,4,0,0" Text=""/>
         </Border>
 

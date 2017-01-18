@@ -10,6 +10,7 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
         ShowInTaskbar="False"
+        PreviewKeyDown="Window_PreviewKeyDown"
         Title="MsgAlerta" Height="387.947" Width="567.105" ResizeMode="NoResize">
     <Grid Background="#FFAA9F9F">
         <Grid Background="White" Margin="4">

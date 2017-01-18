@@ -8,6 +8,8 @@ using EM3.UserControls.Estoque.Armazem;
 using EM3.UserControls.Estoque.Caracteristica;
 using EM3.UserControls.Estoque.GruposProdutos;
 using EM3.UserControls.Estoque.LocaisEstoque;
+using EM3.UserControls.Estoque.Marca;
+using EM3.UserControls.Estoque.Produto;
 using EM3.UserControls.Estoque.UnidadesModulo;
 using EM3.UserControls.Financeiro.ClasseImposto;
 using EM3.UserControls.Financeiro.Condicoes_pag;
@@ -166,6 +168,25 @@ namespace EM3.Windows
             Contas_bancContainer cbc = new Contas_bancContainer();
             if (UsuariosController.ValidaPermissao(cbc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, cbc, "Contas bancárias");
+        }
+
+        private void Paginador_OnPageChange(int page)
+        {
+         //   new MsgAlerta(page.ToString());
+        }
+
+        private void btProdutos_Click(object sender, RoutedEventArgs e)
+        {
+            ProdutosContainer pc = new ProdutosContainer();
+            if (UsuariosController.ValidaPermissao(pc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, pc, "Produtos");
+        }
+
+        private void btMarcas_Click(object sender, RoutedEventArgs e)
+        {
+            MarcasContainer mc = new MarcasContainer();
+            if (UsuariosController.ValidaPermissao(mc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, mc, "Marcas");
         }
     }
 }

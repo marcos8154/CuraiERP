@@ -20,6 +20,7 @@ namespace EM3.Components
     /// 
     public partial class NormalButton : UserControl
     {
+        private bool isFontBold = false;
         public bool Enabled
         {
             get
@@ -29,6 +30,18 @@ namespace EM3.Components
             set
             {
                 this.IsEnabled = value;
+            }
+        }
+
+        public bool IsFontBold
+        {
+            set
+            {
+                isFontBold = value;
+            }
+            get
+            {
+                return isFontBold;
             }
         }
 
@@ -79,6 +92,17 @@ namespace EM3.Components
             InitializeComponent();
             pressed.Visibility = Visibility.Visible;
             normal.Visibility = Visibility.Hidden;
+
+            this.Loaded += NormalButton_Loaded;
+        }
+
+        private void NormalButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (isFontBold)
+            {
+                lbTextNormal.FontWeight = FontWeights.Bold;
+                lbTextPressed.FontWeight = FontWeights.Bold;
+            }
         }
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)

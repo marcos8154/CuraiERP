@@ -144,6 +144,7 @@ namespace EM3.Components
             set
             {
                 isNumeric = value;
+                txInput.Text = "0";
             }
             get
             {
@@ -158,6 +159,7 @@ namespace EM3.Components
                 if (value)
                     txInput.HorizontalContentAlignment = HorizontalAlignment.Right;
                 isMoney = value;
+                txInput.Text = "0,00";
             }
             get
             {
@@ -243,6 +245,9 @@ namespace EM3.Components
 
         public decimal MaxValue { get; set; }
 
+        /// <summary>
+        /// *** Constructor ***
+        /// </summary>
         public Input()
         {
             InitializeComponent();
@@ -290,6 +295,7 @@ namespace EM3.Components
 
         public void SetFocused()
         {
+            this.Focus();
             txInput.Focus();
         }
 

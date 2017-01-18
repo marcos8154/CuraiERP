@@ -62,7 +62,7 @@ namespace EM3.UserControls.Estoque.GruposProdutos
             {
                 Container.GridContainer.Children.Remove(cadastro);
                 Container.GridContainer.Children.Add(this);
-                dataGrid.Items.Refresh();
+                Pesquisar();
             }
             catch { }
         }
