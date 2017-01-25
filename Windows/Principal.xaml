@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EM3.Windows"
-        xmlns:Components="clr-namespace:EM3.Components" xmlns:Menus="clr-namespace:EM3.UserControls.Modulos" x:Class="EM3.Windows.Principal"
+        xmlns:Components="clr-namespace:EM3.Components;assembly=Base" x:Class="EM3.Windows.Principal"
         mc:Ignorable="d"
         Title="Curae ERP" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
     <Grid>

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EM3.Windows"
-        xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.Windows.Login"
+        xmlns:Components="clr-namespace:EM3.Components;assembly=Base" x:Class="EM3.Windows.Login"
         mc:Ignorable="d"
         Title="Autenticação" Height="600" Width="1023" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="White" HorizontalAlignment="Right" Width="1015">
