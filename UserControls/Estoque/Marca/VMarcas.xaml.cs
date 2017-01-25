@@ -1,4 +1,5 @@
-﻿using EM3.Controller;
+﻿using EM3.Components;
+using EM3.Controller;
 using EM3.Extensions;
 using EM3.Model;
 using EM3.Windows;
@@ -16,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.Marca
+namespace EM3.UserControls.Estoquev.Marca
 {
     /// <summary>
     /// Interação lógica para VMarcas.xam

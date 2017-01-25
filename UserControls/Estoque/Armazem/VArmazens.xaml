@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EM3.UserControls.Estoque.Armazem"
+             xmlns:local="clr-namespace:EM3.UserControls.Estoquev.Armazem"
              xmlns:TipoArmazem="clr-namespace:EM3.Util"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoque.Armazem.VArmazens"
+             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoquev.Armazem.VArmazens"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024" Background="White" Loaded="UserControl_Loaded">
     <UserControl.Resources>

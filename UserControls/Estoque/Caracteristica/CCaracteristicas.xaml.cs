@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.Caracteristica
+namespace EM3.UserControls.Estoquev.Caracteristica
 {
     /// <summary>
     /// Interação lógica para CCaracteristicas.xam

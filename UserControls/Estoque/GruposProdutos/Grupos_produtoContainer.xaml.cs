@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.GruposProdutos
+namespace EM3.UserControls.Estoquev.GruposProdutos
 {
     /// <summary>
     /// Interação lógica para Grupos_produtoContainer.xam

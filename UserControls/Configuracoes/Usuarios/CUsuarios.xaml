@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:EM3.UserControls.Configuracoes.CadastroUsuarios"
              xmlns:Components="clr-namespace:EM3.Components" xmlns:Configuracoes="clr-namespace:EM3.UserControls.Configuracoes" x:Class="EM3.UserControls.Configuracoes.CadastroUsuarios.CUsuarios"
              mc:Ignorable="d" 
+            Initialized="UserControl_Initialized"
              d:DesignHeight="600" d:DesignWidth="1024" Background="White">
     <Grid>
 

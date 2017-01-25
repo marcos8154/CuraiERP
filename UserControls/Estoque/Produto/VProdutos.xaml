@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EM3.UserControls.Estoque.Produto"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoque.Produto.VProdutos"
+             xmlns:local="clr-namespace:EM3.UserControls.Estoquev.Produto"
+             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoquev.Produto.VProdutos"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded"
              d:DesignHeight="600" d:DesignWidth="1024" Background="White">
@@ -18,7 +18,7 @@
         <Components:Paginator x:Name="paginador" HorizontalAlignment="Right" Margin="0,64,253,0" VerticalAlignment="Top"/>
         <Components:SearchBox Title="Pesquisar" x:Name="txPesquisa" CallSearch="txPesquisa_CallSearch" HorizontalAlignment="Left" IsNumeric="False" Margin="10,40,0,0" VerticalAlignment="Top" Height="56" Width="277"/>
 
-        <DataGrid x:Name="dataGrid" Margin="10,101,10,10">
+        <DataGrid x:Name="dataGrid" MouseDoubleClick="dataGrid_MouseDoubleClick" Margin="10,101,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Código" MinWidth="80" Width="Auto" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Descrição" MinWidth="370" Width="Auto" Binding="{Binding Descricao}"/>

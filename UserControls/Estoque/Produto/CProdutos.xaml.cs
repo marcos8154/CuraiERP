@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,7 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.Produto
+namespace EM3.UserControls.Estoquev.Produto
 {
     /// <summary>
     /// Interação lógica para CProdutos.xam
@@ -31,6 +32,9 @@ namespace EM3.UserControls.Estoque.Produto
 
         List<Caracteristicas> caracteristicas = new List<Caracteristicas>();
         Produtos produto;
+
+        private bool IsEditMode = false;
+
         public CProdutos()
         {
             InitializeComponent();
@@ -39,6 +43,82 @@ namespace EM3.UserControls.Estoque.Produto
             dataGrid_caract.ItemsSource = caracteristicas;
             txOrigem.Text = "0";
             txDesc_origem.Text = "Nacional";
+        }
+
+        public void Load(int id)
+        {
+            produto = ProdutosController.Find(id);
+
+            txCod.Text = produto.Id.ToString();
+            txDescricao.Text = produto.Descricao;
+            txReferencia.Text = produto.Referencia;
+            txEAN.Text = produto.Ean;
+            txNcm.Text = produto.Ncm;
+            txOrigem.Text = produto.Origem.ToString();
+            txDesc_origem.Text = SelecionarOrigemProduto.GetDescricao(produto.Origem);
+            txANP.Text = produto.Anp.ToString();
+            txCod_classe_imposto.Text = produto.Classe_imposto_id.ToString();
+            txDesc_classeImp.Text = Classes_impostoController.Find(produto.Classe_imposto_id).Nome;
+
+            if (produto.Grupo_produtos_id > 0)
+            {
+                txGrupo.Text = produto.Grupo_produtos_id.ToString();
+                txDesc_grupo.Text = Grupos_produtosController.Find(produto.Grupo_produtos_id).Descricao;
+            }
+
+            txUnidade.Text = produto.Unidade1.ToString();
+            txDesc_unidade.Text = UnidadesController.Find(produto.Unidade1).Descricao;
+
+            if (produto.Unidade2 > 0)
+            {
+                txUnidade2.Text = produto.Unidade2.ToString();
+                txDesc_unidade2.Text = UnidadesController.Find(produto.Unidade2).Descricao;
+            }
+
+            txFator_conv.Text = produto.Fator_conversao.ToString();
+            txPonto_ped.Text = produto.Ponto_pedido.ToString();
+            txPreco_venda.Text = produto.Preco_venda.ToString();
+            txUlt_preco.Text = produto.Ult_preco.ToString();
+
+            if (produto.Marca_id > 0)
+            {
+                txMarca.Text = produto.Marca_id.ToString();
+                txDesc_marca.Text = MarcasController.Find(produto.Marca_id).Nome;
+            }
+
+            txCusto_standard.Text = produto.Custo_standard.ToString();
+            txComissao.Text = produto.Comissao.ToString();
+            txPeso_liquido.Text = produto.Peso_liquido.ToString();
+            txFabricante.Text = produto.Fabricante;
+            txCod_fabricante.Text = produto.Cod_fabricante;
+            txProd_equiv.Text = produto.Prod_equivalente.ToString();
+
+            try
+            {
+                txUlt_compra.Value = Convert.ToDateTime(produto.Ultima_compra);
+            }
+            catch { }
+
+            txGarant_loja.Text = produto.Garantia_loja.ToString();
+            txGarant_forn.Text = produto.Garantia_forn.ToString();
+            txForn_padrao.Text = produto.Fornecedor_padrao.ToString();
+            txEmpresa_padrao.Text = produto.Empresa_padrao.ToString();
+            cbInativo.SelectedIndex = (produto.Inativo ? 1 : 0);
+            cbFracionavel.SelectedIndex = (produto.Fracionado ? 1 : 0);
+            cbBalanca.SelectedIndex = (produto.Para_balanca ? 1 : 0);
+            cbInsumo.SelectedIndex = (produto.Insumo ? 1 : 0);
+            cbFabricado.SelectedIndex = (produto.Fabricado ? 1 : 0);
+            txLocal_padrao.Text = EstoqueController.GetEstoquePadrao(produto.Id).Id.ToString();
+            IsEditMode = true;
+
+            List<Produtos_caractetisticas> list = ProdutosController.ListCaracts(produto.Id);
+
+            if (list != null)
+                list.ForEach(e => caracteristicas.Add(e.Caracteristicas));
+            dataGrid_caract.ItemsSource = caracteristicas;
+
+            foto.LoadImage(FotoController.GetFile("produto", produto.Foto_id));
+            cabecalho.Title = $"Alterar produto ({produto.Descricao})";
         }
 
         private void btSalvar_OnClick()
@@ -58,12 +138,14 @@ namespace EM3.UserControls.Estoque.Produto
 
         private void Salvar(bool close)
         {
-            if(txLocal_padrao.GetInt == 0)
+            if (txLocal_padrao.GetInt == 0)
             {
                 MsgAlerta.Show("Informe o local de estoque padrão");
                 return;
             }
-            produto = new Produtos();
+
+            if (produto == null)
+                produto = new Produtos();
 
             produto.Id = txCod.GetInt;
             produto.Descricao = txDescricao.Text;
@@ -89,7 +171,7 @@ namespace EM3.UserControls.Estoque.Produto
             produto.Prod_equivalente = txProd_equiv.GetInt;
             produto.Ultima_compra = txUlt_compra.Value.ToShortDateString();
             produto.Garantia_loja = txGarant_loja.GetInt;
-            produto.Garantia_fornecedor = txGarant_forn.GetInt;
+            produto.Garantia_forn = txGarant_forn.GetInt;
             produto.Fornecedor_padrao = txForn_padrao.GetInt;
             produto.Empresa_padrao = txEmpresa_padrao.GetInt;
             produto.Inativo = (cbInativo.SelectedIndex == 1);
@@ -97,17 +179,40 @@ namespace EM3.UserControls.Estoque.Produto
             produto.Para_balanca = (cbBalanca.SelectedIndex == 1);
             produto.Insumo = (cbInsumo.SelectedIndex == 1);
             produto.Fabricado = (cbFabricado.SelectedIndex == 1);
+            produto.Foto_id = FotoController.Save(foto.FileName, produto.Foto_id);
 
-            int result = ProdutosController.Save(produto);
+            int id_produto = ProdutosController.Save(produto);
 
-            if (result > 0)
+            if (id_produto > 0)
             {
-                /*
-                        TODO:
-                        * salvar local do estoque padrão
-                        * salvar caracteristocas (excluir tudo e inserir denovo)
-                        * salvar tabela de preco (caso informado)
-                */
+                if (IsEditMode)
+                {
+                    ProdutosController.LimparCaracteristicas(id_produto);
+
+                    Estoque estoqueAtual = EstoqueController.GetEstoquePadrao(id_produto);
+                    estoqueAtual.Local_estoque_id = txLocal_padrao.GetInt;
+                    EstoqueController.Save(estoqueAtual);
+                }
+                else
+                {
+                    Estoque e = new Estoque();
+                    e.Local_estoque_id = txLocal_padrao.GetInt;
+                    e.Produto_id = id_produto;
+                    e.Local_padrao = true;
+                    e.Quant = 0;
+
+                    EstoqueController.Save(e);
+                }
+
+                foreach (Caracteristicas c in caracteristicas)
+                {
+                    Produtos_caractetisticas pc = new Produtos_caractetisticas();
+                    pc.Produto_id = id_produto;
+                    pc.Caracteristica_id = c.Id;
+
+                    ProdutosController.AdicionarCaracteristica(pc);
+                }
+
                 if (close)
                     Fechar();
                 else
@@ -204,7 +309,7 @@ namespace EM3.UserControls.Estoque.Produto
             so.ShowDialog();
 
             txOrigem.Text = so.Selecionado.Id.ToString();
-            txDesc_origem.Text =  so.Selecionado.Descricao;
+            txDesc_origem.Text = so.Selecionado.Descricao;
         }
 
         private void txUnidade_CallSearch()
@@ -215,7 +320,7 @@ namespace EM3.UserControls.Estoque.Produto
             txUnidade.Text = su.Selecionado.Id.ToString();
             txDesc_unidade.Text = (su.Selecionado.Id == 0
                 ? "Não selecionado"
-                : su.Selecionado.Descricao); 
+                : su.Selecionado.Descricao);
         }
 
         private void txUnidade2_CallSearch()
@@ -265,6 +370,17 @@ namespace EM3.UserControls.Estoque.Produto
             se.ShowDialog();
 
             txEmpresa_padrao.Text = se.Selecionado.Id.ToString();
+        }
+
+        private void txMarca_CallSearch()
+        {
+            SelecionarMarca sm = new SelecionarMarca();
+            sm.ShowDialog();
+
+            txMarca.Text = sm.Selecionado.Id.ToString();
+            txDesc_marca.Text = (sm.Selecionado.Id == 0
+                ? "Não selecionado"
+                : sm.Selecionado.Nome);
         }
     }
 }

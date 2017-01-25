@@ -101,7 +101,6 @@ namespace EM3.Controller
                 if(rh.Result.message.Equals("no_tables"))
                 {
                     Configuration.Setup();
-                    Find(id);
                 }
                 return EntityLoader<Empresa>.Load(rh.Result);
             }

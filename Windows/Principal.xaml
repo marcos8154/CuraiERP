@@ -112,9 +112,9 @@
                     <MenuItem Header="Condições de pagamento" x:Name="btCondicoesPagamento" Click="btCondicoesPagamento_Click" />
                     <MenuItem Header="Operadoras de cartão" x:Name="btOperadoras_cartao" Click="btOperadoras_cartao_Click"/>
                     <MenuItem Header="Contas bancárias" x:Name="btContas_bancarias" Click="btContas_bancarias_Click" />
+                    <MenuItem Header="Tabelas de preço" x:Name="btTabelas_preco" Click="btTabelas_preco_Click" />
                     <MenuItem Header="Caixas" />
                     <MenuItem Header="Planos de conta" />
-                    <MenuItem Header="Tabelas de preço" />
                     <MenuItem Header="Regras de desconto" />
                     <MenuItem Header="Regras de acréscimo" />
                 </MenuItem>

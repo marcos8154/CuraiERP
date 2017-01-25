@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EM3.UserControls.Estoque.Produto"
-             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoque.Produto.CProdutos"
+             xmlns:local="clr-namespace:EM3.UserControls.Estoquev.Produto"
+             xmlns:Components="clr-namespace:EM3.Components" x:Class="EM3.UserControls.Estoquev.Produto.CProdutos"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1024" Background="White">
     <Grid>
@@ -46,7 +46,7 @@
                 <Components:Input Index="13" x:Name="txPreco_venda" Title="Preço venda (R$)" IsMoney="True" MaxValue="100000000000000000000" HorizontalAlignment="Left" Margin="107,238,0,0" VerticalAlignment="Top" Height="56" Width="108"/>
                 <Components:Input Index="14" x:Name="txUlt_preco" Title="Últ. preço (R$)" IsMoney="True" MaxValue="100000000000000000000" HorizontalAlignment="Left" Margin="220,238,0,0" VerticalAlignment="Top" Height="56" Width="96"/>
 
-                <Components:SearchBox Index="15" x:Name="txMarca" Title="Marca" HorizontalAlignment="Left" Margin="321,238,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
+                <Components:SearchBox Index="15" x:Name="txMarca" Title="Marca" CallSearch="txMarca_CallSearch" HorizontalAlignment="Left" Margin="321,238,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
                 <Components:SimpleInput x:Name="txDesc_marca" Enabled="False" Margin="396,267,374,0" VerticalAlignment="Top"/>
 
                 <Components:Input Index="16" x:Name="txCusto_standard" Title="Custo padrão (R$)" IsMoney="True" MaxValue="100000000000000000000" HorizontalAlignment="Left" Margin="12,300,0,0" VerticalAlignment="Top" Height="56" Width="119"/>
@@ -59,7 +59,7 @@
 
                 <Components:SearchBox Index="23" x:Name="txForn_padrao" Title="Forn. padrão" Margin="12,425,0,0" VerticalAlignment="Top" Height="56" Width="85" HorizontalAlignment="Left"/>
                 <Components:SearchBox Index="24" x:Name="txEmpresa_padrao" Title="Loja padrão" CallSearch="txEmpresa_padrao_CallSearch" Margin="102,425,0,0" VerticalAlignment="Top" Height="56" Width="80" HorizontalAlignment="Left"/>
-                <Components:SearchBox Index="25" x:Name="txLocal_padrao" Title="Local padrão" CallSearch="txLocal_padrao_CallSearch" Required="True" Margin="187,425,0,0" VerticalAlignment="Top" Height="56" Width="103" HorizontalAlignment="Left"/>
+                <Components:SearchBox Index="25" x:Name="txLocal_padrao" Title="Local padrão" HelpName="local_est_padrao" CallSearch="txLocal_padrao_CallSearch" Required="True" Margin="187,425,0,0" VerticalAlignment="Top" Height="56" Width="103" HorizontalAlignment="Left"/>
                 <Components:Input Index="26" x:Name="txGarant_loja" Title="Garantia Loja" MaxValue="10000000" IsNumeric="True" Margin="295,360,0,0" VerticalAlignment="Top" Height="56" Width="96" HorizontalAlignment="Left"/>
                 <Components:Input Index="27" x:Name="txGarant_forn" Title="Garantia Forn." MaxValue="10000000" IsNumeric="True" Margin="295,425,0,0" VerticalAlignment="Top" Height="56" Width="96" HorizontalAlignment="Left"/>
 
@@ -71,7 +71,7 @@
 
                 <Components:SearchBox Index="33" x:Name="txCod_caracteristica" Title="Característica" CallSearch="SearchBox_CallSearch" HorizontalAlignment="Right" Margin="0,0,279,169" VerticalAlignment="Bottom" Height="56" Width="90"/>
 
-                <DataGrid x:Name="dataGrid_caract" PreviewKeyUp="dataGrid_caract_PreviewKeyUp" HorizontalAlignment="Right" Margin="0,0,10,3" Width="359" Height="161" VerticalAlignment="Bottom">
+                <DataGrid x:Name="dataGrid_caract" PreviewKeyUp="dataGrid_caract_PreviewKeyUp" HorizontalAlignment="Right" Margin="0,0,10,10" Width="359" Height="154" VerticalAlignment="Bottom">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Código" MinWidth="80" Width="Auto" Binding="{Binding Id, Mode=TwoWay}"/>
                         <DataGridTextColumn Header="Atributo" MinWidth="120" Width="Auto" Binding="{Binding Atributo, Mode=TwoWay}"/>
@@ -79,7 +79,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <Components:ImageButton ImageSource="cancel.png" OnClick="ImageButton_OnClick" HorizontalAlignment="Right" Margin="0,0,10,169" VerticalAlignment="Bottom" Height="32" Width="35"/>
-                <Components:ImageSelector HorizontalAlignment="Right" Margin="0,0,10,230" Width="359"/>
+                <Components:ImageSelector x:Name="foto" HorizontalAlignment="Right" Margin="0,0,10,230" Width="359"  MaxWidth="359" MaxHeight="274"/>
             </Grid>
         </ScrollViewer>
 

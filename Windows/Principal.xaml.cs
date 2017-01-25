@@ -4,17 +4,18 @@ using EM3.UserControls.Configuracoes;
 using EM3.UserControls.Configuracoes.CadastroUsuarios;
 using EM3.UserControls.Configuracoes.GruposUsrXPermissoes;
 using EM3.UserControls.Configuracoes.GruposUsuarios;
-using EM3.UserControls.Estoque.Armazem;
-using EM3.UserControls.Estoque.Caracteristica;
-using EM3.UserControls.Estoque.GruposProdutos;
-using EM3.UserControls.Estoque.LocaisEstoque;
-using EM3.UserControls.Estoque.Marca;
-using EM3.UserControls.Estoque.Produto;
-using EM3.UserControls.Estoque.UnidadesModulo;
+using EM3.UserControls.Estoquev.Armazem;
+using EM3.UserControls.Estoquev.Caracteristica;
+using EM3.UserControls.Estoquev.GruposProdutos;
+using EM3.UserControls.Estoquev.LocaisEstoque;
+using EM3.UserControls.Estoquev.Marca;
+using EM3.UserControls.Estoquev.Produto;
+using EM3.UserControls.Estoquev.UnidadesModulo;
 using EM3.UserControls.Financeiro.ClasseImposto;
 using EM3.UserControls.Financeiro.Condicoes_pag;
 using EM3.UserControls.Financeiro.Conta_bancarias;
 using EM3.UserControls.Financeiro.Operadora_cartao;
+using EM3.UserControls.Financeiro.Tabela_preco;
 using EM3.UserControls.Financeiro.TiposMovimento;
 using EM3.Util;
 using EM3.Windows.Selecao;
@@ -55,6 +56,7 @@ namespace EM3.Windows
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            UsuariosController.DisconnectUser(UsuariosController.UsuarioAtual.Id);
             System.Environment.Exit(0);
         }
 
@@ -187,6 +189,13 @@ namespace EM3.Windows
             MarcasContainer mc = new MarcasContainer();
             if (UsuariosController.ValidaPermissao(mc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, mc, "Marcas");
+        }
+
+        private void btTabelas_preco_Click(object sender, RoutedEventArgs e)
+        {
+            Tabela_precoContainer tpc = new Tabela_precoContainer();
+            if (UsuariosController.ValidaPermissao(tpc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, tpc, "Tabelas de preços");
         }
     }
 }

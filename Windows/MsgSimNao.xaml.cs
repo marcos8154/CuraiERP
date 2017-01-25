@@ -28,6 +28,11 @@ namespace EM3.Windows
             ShowDialog();
         }
 
+        public static MsgSimNao Show(string msg)
+        {
+            return new MsgSimNao(msg);
+        }
+
         private void btSIM_OnClick()
         {
             Result = true;

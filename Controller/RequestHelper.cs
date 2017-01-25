@@ -23,6 +23,11 @@ namespace EM3.Controller
             {
                 if (Result.status == 600)
                     return true;
+                else if(Result.status == 680)
+                {
+                    MsgAlerta.Show(Result.message);
+                    Environment.Exit(0);
+                }
                 else
                 {
                     if (isHandled)
@@ -36,6 +41,9 @@ namespace EM3.Controller
 
         public string Send(string controller)
         {
+            if (UsuariosController.Token != null)
+                AddParameter("token", UsuariosController.Token);
+
             if (isHandled)
                 return string.Empty;
             try

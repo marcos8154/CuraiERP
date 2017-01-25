@@ -1,5 +1,6 @@
 ﻿using EM3.Controller;
 using EM3.Extensions;
+using EM3.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.Produto
+namespace EM3.UserControls.Estoquev.Produto
 {
     /// <summary>
     /// Interação lógica para VProdutos.xam
@@ -32,12 +33,26 @@ namespace EM3.UserControls.Estoque.Produto
 
         private void btExcluir_OnClick()
         {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.EXCLUIR))
+                return;
 
+            Produtos produto = (Produtos)dataGrid.SelectedItem;
+            if (produto == null)
+                return;
+            if (produto.Id == 0)
+                return;
+
+            if (MsgSimNao.Show($@"Confirmar exclusão do produto {produto.Descricao}?
+Esta ação não poderá ser revertida!").Result)
+            {
+                if (ProdutosController.Remove(produto.Id))
+                    Pesquisar();
+            }
         }
 
         private void btAlterar_OnClick()
         {
-
+            Alterar();
         }
 
         private void btNovo_OnClick()
@@ -60,7 +75,7 @@ namespace EM3.UserControls.Estoque.Produto
 
         private void txPesquisa_CallSearch()
         {
-
+            Pesquisar();
         }
 
         private void Pesquisar()
@@ -77,6 +92,29 @@ namespace EM3.UserControls.Estoque.Produto
             paginador.MaxPages = maxPages;
             paginador.IntervalChangeNumber = 300;
             Pesquisar();
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Alterar();
+        }
+
+        private void Alterar()
+        {
+            if (!UsuariosController.ValidaPermissao(Container.Tela_id, Enums.TipoPermissao.ATUALIZAR))
+                return;
+
+            Produtos produto = (Produtos)dataGrid.SelectedItem;
+            if (produto == null)
+                return;
+            if (produto.Id == 0)
+                return;
+
+            cadastro = new CProdutos();
+            cadastro.Load(produto.Id);
+            Container.GridContainer.Children.Add(cadastro);
+            Container.GridContainer.Children.Remove(this);
+            cadastro.OnComplete += Cadastro_OnComplete;
         }
     }
 }

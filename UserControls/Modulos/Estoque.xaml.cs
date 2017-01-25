@@ -1,6 +1,6 @@
 ﻿using EM3.Interfaces;
-using EM3.UserControls.Estoque.FornecedoresModulo;
-using EM3.UserControls.Estoque.UnidadesModulo;
+using EM3.UserControls.Estoquev.FornecedoresModulo;
+using EM3.UserControls.Estoquev.UnidadesModulo;
 using EM3.Util;
 using EM3.Windows;
 using System;

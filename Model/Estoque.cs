@@ -15,6 +15,15 @@ namespace EM3
 {
     public class Estoque 
     {
+        public Estoque()
+        {
+            Id = 0;
+            Produto_id = 0;
+            Local_estoque_id = 0;
+            Quant = 0;
+            Local_padrao = false;
+        }
+
         public int Id { get; set; }
         public int Produto_id { get; set; }
         public int Local_estoque_id { get; set; }

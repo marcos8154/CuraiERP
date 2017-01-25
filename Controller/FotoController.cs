@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace EM3.Controller
 {
@@ -38,6 +39,9 @@ namespace EM3.Controller
                     rh.AddParameter("id", id);
                     rh.AddParameter("nome", name);
                     rh.Send("img-get");
+
+                    Thread.Sleep(2000);
+
                     if (rh.HasSuccess)
                     {
                         if (File.Exists(@"c:\temp\" + name + id + ".jpg")) File.Delete(@"c:\temp\" + name + id + ".jpg");

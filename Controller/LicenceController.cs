@@ -18,6 +18,9 @@ namespace EM3.Controller
 
         public static bool Connect()
         {
+            if (Configuration.licence_mode == 0)
+                return true;
+
             DBXConnection conn = new DBXConnection();
             conn.Configure(server, port, string.Empty, "LICENCEDB");
 
@@ -26,6 +29,9 @@ namespace EM3.Controller
 
         public static bool RegisterUser(Usuarios usuario)
         {
+            if (Configuration.licence_mode == 0)
+                return false;
+
             LicenceUser user = new LicenceUser() { ID = usuario.Id, NAME = usuario.Nome, ACTIVE = usuario.Ativo };
             string json = JsonConvert.SerializeObject(user);
 
@@ -43,6 +49,9 @@ namespace EM3.Controller
         {
             try
             {
+                if (Configuration.licence_mode == 0)
+                    return false;
+
                 DBXCommand cmd = new DBXCommand();
                 cmd.Execute("AN " + UsuariosController.GetCount(1));
                 ResponseObject ro = ClientService.ReceiveResponse();
@@ -59,6 +68,9 @@ namespace EM3.Controller
 
         public static bool UpdateUser(Usuarios usuario)
         {
+            if (Configuration.licence_mode == 0)
+                return false;
+
             LicenceUser user = new LicenceUser() { ID = usuario.Id, NAME = usuario.Nome, ACTIVE = usuario.Ativo };
             string json = JsonConvert.SerializeObject(user);
 
@@ -73,6 +85,9 @@ namespace EM3.Controller
         {
             try
             {
+                if (Configuration.licence_mode == 0)
+                    return true;
+
                 DBXCommand cmd = new DBXCommand();
                 cmd.Execute("VR " + id);
                 ResponseObject ro = ClientService.ReceiveResponse();
@@ -93,6 +108,9 @@ namespace EM3.Controller
 
         internal static bool RemoveUser(int id)
         {
+            if (Configuration.licence_mode == 0)
+                return false;
+
             DBXCommand cmd = new DBXCommand();
             cmd.Execute("DU " + id);
             ResponseObject ro = ClientService.ReceiveResponse();

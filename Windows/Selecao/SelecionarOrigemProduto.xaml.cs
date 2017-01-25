@@ -44,6 +44,23 @@ namespace EM3.Windows.Selecao
             return result;
         }
 
+        public static string GetDescricao(int cod_origem)
+        {
+            switch(cod_origem)
+            {
+                case 0: return "Nacional";
+                case 1: return "Estr. (Importação Direta)";
+                case 2: return "Estr. (Adquirida Merc. Interno";
+                case 3: return "Nacional-Merc/bem com Cont de Import superior a 40%";
+                case 4: return "Nacional, prod em conf com os proc produtivos básicos";
+                case 5: return "Nacional-Merc/bem com Cont de Import inf ou igual a 40%";
+                case 6: return "Estr-Import dir, sem similar nac, consta na lista CAMEX";
+                case 7: return "Estr-Adq intern, sem similar nac, consta na lista CAMEX";
+            }
+
+            return "Nacional";
+        }
+
         private void btSelecionar_OnClick()
         {
             Selecionar();

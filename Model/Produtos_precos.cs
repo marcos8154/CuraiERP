@@ -18,9 +18,12 @@ namespace EM3
         public int Id { get; set; }
         public int Produto_id { get; set; }
         public int Tabela_id { get; set; }
+        public int Preco_base { get; set; } // tabela de preço base
+        public decimal Margem { get; set; } //margem percentual em cima do preço base
         public decimal Valor { get; set; }
         public bool Preco_padrao { get; set; }
         public string Uf { get; set; }
+        public decimal Faixa { get; set; }
 
         public Produtos Produtos { get; set; }
         public Tabelas_precos Tabelas_precos { get; set; }

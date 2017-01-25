@@ -7,6 +7,36 @@ namespace EM3.Controller
 {
     public class ProdutosController
     {
+
+        public static bool AdicionarCaracteristica(Produtos_caractetisticas pc)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("id", pc.Id);
+            rh.AddParameter("caracteristica_id", pc.Caracteristica_id);
+            rh.AddParameter("produto_id", pc.Produto_id);
+            rh.Send("prd-addcaract");
+
+            return rh.HasSuccess;
+        }
+
+        public static List<Produtos_caractetisticas> ListCaracts(int produto_id)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("produto_id", produto_id);
+            rh.Send("prd-listacaract");
+
+            return EntityLoader<List<Produtos_caractetisticas>>.Load(rh.Result);
+        }
+
+        public static bool LimparCaracteristicas(int produto_id)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("produto_id", produto_id);
+            rh.Send("prd-limpacaract");
+
+            return rh.HasSuccess;
+        }
+
         public static List<Produtos> Search(string searchTerm, int tipo, int page)
         {
             RequestHelper rh = new RequestHelper();
@@ -38,12 +68,18 @@ namespace EM3.Controller
 
         public static int Save(Produtos produto)
         {
+            if (produto.Ultima_compra.EndsWith("0001"))
+                produto.Ultima_compra = string.Empty;
+
             RequestHelper rh = new RequestHelper();
             rh.AddParameter("id", produto.Id);
             rh.AddParameter("ean", produto.Ean);
             rh.AddParameter("referencia", produto.Referencia);
             rh.AddParameter("descricao", produto.Descricao);
             rh.AddParameter("ncm", produto.Ncm);
+            rh.AddParameter("origem", produto.Origem);
+            rh.AddParameter("data_cadastro", produto.Data_cadastro);
+            rh.AddParameter("anp", produto.Anp);
             rh.AddParameter("fabricado", produto.Fabricado);
             rh.AddParameter("insumo", produto.Insumo);
             rh.AddParameter("fracionado", produto.Fracionado);
@@ -56,7 +92,7 @@ namespace EM3.Controller
             rh.AddParameter("unidade2", produto.Unidade2);
             rh.AddParameter("classe_imposto_id", produto.Classe_imposto_id);
             rh.AddParameter("cest_id", 0);
-            rh.AddParameter("grupo_produtos_id", produto.Classe_imposto_id);
+            rh.AddParameter("grupo_produtos_id", produto.Grupo_produtos_id);
             rh.AddParameter("marca_id", produto.Marca_id);
             rh.AddParameter("validade", produto.Validade);
             rh.AddParameter("peso_liquido", produto.Peso_liquido);
@@ -66,11 +102,11 @@ namespace EM3.Controller
             rh.AddParameter("preco_venda", produto.Preco_venda);
             rh.AddParameter("ult_preco", produto.Ult_preco);
             rh.AddParameter("comissao", produto.Comissao);
-            rh.AddParameter("ultima_compra", produto.Ultima_alteracao);
+            rh.AddParameter("ultima_compra", produto.Ultima_compra);
             rh.AddParameter("prod_equivalente", produto.Prod_equivalente);
             rh.AddParameter("empresa_padrao", produto.Empresa_padrao);
             rh.AddParameter("garantia_loja", produto.Garantia_loja);
-            rh.AddParameter("garantia_forn", produto.Garantia_fornecedor);
+            rh.AddParameter("garantia_forn", produto.Garantia_forn);
             rh.AddParameter("foto_id", produto.Foto_id);
 
             rh.Send("prd-save");

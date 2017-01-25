@@ -71,7 +71,10 @@ namespace EM3.Components
             }
             set
             {
-                txInput.Text = value;
+                if (isMoney)
+                    txInput.Text = decimal.Parse(value).ToString("N2");
+                else
+                    txInput.Text = value;
             }
         }
 

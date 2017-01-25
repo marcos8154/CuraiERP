@@ -7,7 +7,7 @@
              mc:Ignorable="d"  d:DesignWidth="131.5" Height="27">
     <Grid>
         <Border Padding="5" x:Name="border" CornerRadius="3" BorderThickness="1" BorderBrush="#FFACA6A6" SnapsToDevicePixels="True" Background="White">
-            <TextBox PreviewTextInput="NumberValidationTextBox" FontSize="15" Name="txInput" Background="Transparent" BorderThickness="0" Margin="-3,-4" Padding="0,4,0,0" Text=""/>
+            <TextBox PreviewTextInput="NumberValidationTextBox" FontSize="15" Name="txInput" Background="Transparent" BorderThickness="0" Margin="-3,-4" Padding="0,2,0,0"/>
         </Border>
 
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using EM3.Enums;
+using EM3.Model;
 using EM3.Windows;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace EM3.Controller
         public static DateTime DataBase { get; set; }
 
         public static int Empresa_atual_id { get; set; }
+        public static string Token { get; set; }
 
         public static bool EfetuaLogin(string nome, string senha, DateTime data, int empresa)
         {
@@ -30,19 +32,36 @@ namespace EM3.Controller
 
             if (rh.Result.status == (int)StatusRetorno.OPERACAO_OK)
             {
-                UsuarioAtual = EntityLoader<Usuarios>.Load(rh.Result) ?? new Usuarios();
+                UserToken ut = EntityLoader<UserToken>.Load(rh.Result) ?? new UserToken();
+                UsuarioAtual = ut.Usuario;
+                Token = ut.Token;
                 DataBase = data;
                 Empresa_atual_id = empresa;
 
                 return LicenceController.Authorize(UsuarioAtual.Id);
             }
-            else
+            else if (rh.Result.status == 100)
+                 MsgAlerta.Show(rh.Result.message);
+            else if(rh.Result.status == 650)
             {
-                if (rh.Result.status == 100)
-                    return false;
-                new MsgAlerta(rh.Result.message);
+                if (MsgSimNao.Show(@"Este usuário já está conectado em outra instância do NetLauncher. 
+Para efetuar o login, será necessário desconectar o usuário de outras instâncias. 
+Desconectar?").Result)
+                {
+                    DisconnectUser(EntityLoader<UserToken>.Load(rh.Result).Usuario.Id);
+                    return EfetuaLogin(nome, senha, data, empresa);
+                }
+                else
+                    Environment.Exit(0);
             }
             return false;
+        }
+
+        public static void DisconnectUser(int id)
+        {
+            RequestHelper rh = new RequestHelper();
+            rh.AddParameter("id", id);
+            rh.Send("usr-disconnect");
         }
 
         public static Usuarios Find(int id)

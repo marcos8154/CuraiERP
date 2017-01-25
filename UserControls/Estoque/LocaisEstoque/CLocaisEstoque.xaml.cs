@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.LocaisEstoque
+namespace EM3.UserControls.Estoquev.LocaisEstoque
 {
     /// <summary>
     /// Interação lógica para CLocaisEstoque.xam

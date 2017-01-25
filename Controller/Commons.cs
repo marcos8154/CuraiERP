@@ -37,7 +37,7 @@ namespace EM3.Controller
         {
             RequestHelper rh = new RequestHelper();
             rh.Send("list-ufs");
-            return EntityLoader<List<string>>.Load(rh.Result);
+            return EntityLoader<List<string>>.Load(rh.Result) ?? new List<string>();
         }
     }
 }

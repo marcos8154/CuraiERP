@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EM3.Controller;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,5 +13,9 @@ namespace EM3
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            UsuariosController.DisconnectUser(UsuariosController.UsuarioAtual.Id);
+        }
     }
 }

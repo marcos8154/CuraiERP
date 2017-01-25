@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.FornecedoresModulo
+namespace EM3.UserControls.Estoquev.FornecedoresModulo
 {
     /// <summary>
     /// Interação lógica para FornecedoresContainer.xam

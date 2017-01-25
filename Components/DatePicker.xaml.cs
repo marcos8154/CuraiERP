@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EM3.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,6 +92,21 @@ namespace EM3.Components
             InitializeComponent();
 
             this.MinHeight = 56;
+            if (currentDate)
+                Value = Commons.ServerDate;
+        }
+
+        private bool currentDate = false;
+        public bool CurrentDate
+        {
+            get
+            {
+                return currentDate;
+            }
+            set
+            {
+                currentDate = value;
+            }
         }
 
         public DateTime Value

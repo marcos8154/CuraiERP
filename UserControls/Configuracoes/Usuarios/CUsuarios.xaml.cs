@@ -1,4 +1,5 @@
 ﻿using EM3.Controller;
+using EM3.Windows;
 using EM3.Windows.Selecao;
 using System;
 using System.Collections.Generic;
@@ -106,6 +107,12 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
             txCod_grupo.Value = Usuario.Grupo_usuarios_id;
 
             isUpdateMode = true;
+
+        }
+
+        private void UserControl_Initialized(object sender, EventArgs e)
+        {
+  
         }
     }
 }

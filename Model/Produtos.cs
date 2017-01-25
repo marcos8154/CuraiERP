@@ -49,7 +49,7 @@ namespace EM3
         public int Prod_equivalente { get; set; }
         public int Empresa_padrao { get; set; }
         public int Garantia_loja { get; set; }
-        public int Garantia_fornecedor { get; set; }
+        public int Garantia_forn { get; set; }
         public int Foto_id { get; set; }
         public int Origem { get; set; }
         public string Ultima_compra { get; set; }

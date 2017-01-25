@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EM3", "EM3.csproj", "{4CBF6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doware LicenceServer", "..\Doware LicenceServer\Doware LicenceServer.csproj", "{92547185-1993-48C1-88D3-86B10C056486}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBConfig", "..\DBConfig\DBConfig.csproj", "{98A694C8-6FAF-429E-9FC4-8471821BC855}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{4CBF6B33-8D06-442A-9CD3-BA6760801AD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92547185-1993-48C1-88D3-86B10C056486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92547185-1993-48C1-88D3-86B10C056486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A694C8-6FAF-429E-9FC4-8471821BC855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A694C8-6FAF-429E-9FC4-8471821BC855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A694C8-6FAF-429E-9FC4-8471821BC855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A694C8-6FAF-429E-9FC4-8471821BC855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

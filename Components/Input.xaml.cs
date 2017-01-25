@@ -167,6 +167,8 @@ namespace EM3.Components
             }
         }
 
+        public string HelpName { get; set; }
+
         private decimal value;
 
         public decimal GetDecimal
@@ -306,6 +308,9 @@ namespace EM3.Components
 
         private void TxInput_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.F1)
+                new Help(HelpName);
+
             if (InputKeyDown != null) InputKeyDown(sender, e);
         }
 
@@ -348,6 +353,15 @@ namespace EM3.Components
                         txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
                         txInput.SelectionLength = 0;
 
+                    }
+                    if(e.Text.Equals("-"))
+                    {
+                        if (txInput.Text.Contains("-"))
+                            return;
+
+                        txInput.Text = "-";
+                        txInput.SelectionStart = txInput.Text.Length; // add some logic if length is 0
+                        txInput.SelectionLength = 0;
                     }
                 }
             }

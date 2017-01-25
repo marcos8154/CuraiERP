@@ -1,0 +1,34 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EM3.Windows.Adicao_item"
+             xmlns:Components="clr-namespace:EM3.Components"
+             x:Class="EM3.Windows.Adicao_item.AddProdutoTabPreco"
+             WindowStartupLocation="CenterScreen"
+            Title="Incluir produto na tabela de preço"
+    ResizeMode="NoResize"
+    Initialized="Window_Initialized"
+             mc:Ignorable="d" Background="White" Width="515" Height="326">
+    <Grid Background="White">
+        <Components:Input x:Name="txCod" Title="Cód. Item" Enabled="False" IsNumeric="True" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
+        <Components:SearchBox x:Name="txTab_preco" Enabled="False" Title="Tab. preço" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
+        <Components:SearchBox x:Name="txProduto" CallSearch="txProduto_CallSearch" Required="True" Title="Produto" HorizontalAlignment="Left" Margin="85,58,0,0" VerticalAlignment="Top" Height="56" Width="70"/>
+        <Components:SimpleInput x:Name="txDesc_prod" Enabled="False" Margin="160,87,10,0" VerticalAlignment="Top"/>
+        <Components:SearchBox x:Name="txPreco_base" Title="Preço base" CallSearch="txPreco_base_CallSearch" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Height="56" Width="80"/>
+        <Components:SimpleInput x:Name="txValor_precoBase" IsMoney="True" Enabled="False" Margin="95,148,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="95"/>
+        <Components:Input  x:Name="txMargem" IsMoney="True" Title="Margem (%)" InputLostFocus="txMargem_InputLostFocus" HorizontalAlignment="Left" Margin="195,119,0,0" VerticalAlignment="Top" Height="56" Width="85"/>
+        <Components:Input  x:Name="txValor" IsMoney="True" Title="Valor final" Required="True" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Height="56" Width="85"/>
+        <Components:Input x:Name="txFaixa" IsMoney="True" Text="9999" Title="Faixa" HorizontalAlignment="Left" Margin="100,180,0,0" VerticalAlignment="Top" Height="56" Width="90"/>
+        <Components:ComboBox x:Name="cbUF" Title="UF" HorizontalAlignment="Left" Margin="195,180,0,0" VerticalAlignment="Top" Height="56" Width="85"/>
+
+        <Grid Height="43" VerticalAlignment="Bottom" Background="#FFDAD9D9">
+            <Components:ConfirmButton x:Name="btSalvar" Text="Salvar" OnClick="btSalvar_OnClick" HorizontalAlignment="Right" Margin="0,5,6,6" Width="79"/>
+            <Components:NormalButton x:Name="btSalvarEContinuar" Text="Salvar e continuar" OnClick="btSalvarEContinuar_OnClick" HorizontalAlignment="Right" Margin="0,5,90,6" Width="124"/>
+            <Components:NormalButton x:Name="btCancelar" Text="Cancelar" OnClick="btCancelar_OnClick" HorizontalAlignment="Right" Margin="0,5,219,6" Width="80"/>
+        </Grid>
+        <Components:ComboBox x:Name="cbPreco_padrao" Items="Não; Sim;" Title="Preço padrão" HorizontalAlignment="Left" Margin="285,180,0,0" VerticalAlignment="Top" Height="56" Width="90"/>
+
+    </Grid>
+</Window>

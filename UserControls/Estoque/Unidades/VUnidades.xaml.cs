@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EM3.UserControls.Estoque.UnidadesModulo
+namespace EM3.UserControls.Estoquev.UnidadesModulo
 {
     /// <summary>
     /// Interação lógica para VUnidades.xam

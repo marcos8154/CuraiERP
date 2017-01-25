@@ -1,0 +1,8 @@
+﻿Determina o local de estoque padrão
+do produto.
+O sistema irá se basear nesse local
+e o terá como preferencial para
+realizar entradas/saidas.
+
+É possível posteriormente relacionar
+o produto em mais locais de estoque.

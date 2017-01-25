@@ -15,7 +15,10 @@ namespace EM3
 {
     public class Produtos_caractetisticas 
     {
+        public int Id { get; set; }
         public int Caracteristica_id { get; set; }
         public int Produto_id { get; set; }
+        public Caracteristicas Caracteristicas { get; set; }
+        public Produtos Produtos { get; set; }
     }
 }

@@ -55,6 +55,8 @@ namespace EM3.Components
             }
         }
 
+        public string HelpName { get; set; }
+
         public Visibility Visible
         {
             get
@@ -210,6 +212,8 @@ namespace EM3.Components
 
         private void TxInput_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.F1)
+                new Help(HelpName);
             if (InputKeyDown != null) InputKeyDown(sender, e);
 
             if (IsNumeric)

@@ -52,6 +52,12 @@ namespace EM3.UserControls.Configuracoes.CadastroUsuarios
 
         private void btNovo_OnClick()
         {
+            if (Configuration.licence_mode == 0)
+            {
+                MsgAlerta.Show("Rotina desabilitada se o ambiente de licenças for 0 (homologação)");
+                return;
+            }
+
             if (!LicenceController.AuthorizeAdd())
             {
                 new MsgAlerta(@"O limite de usuários ativos foi excedido no plano atualmente contratado. 

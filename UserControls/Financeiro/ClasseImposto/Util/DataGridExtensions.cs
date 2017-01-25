@@ -14,8 +14,8 @@ namespace EM3.Extensions
         {
             dt.AutoGenerateColumns = false;
             dt.IsReadOnly = isRead;
-            dt.CanUserAddRows = !isRead;
             dt.CanUserDeleteRows = !isRead;
+            dt.CanUserAddRows = !isRead;
             dt.CanUserResizeRows = false;
             dt.SelectionMode = DataGridSelectionMode.Single;
             dt.SelectionUnit = DataGridSelectionUnit.FullRow;

@@ -17,6 +17,7 @@ namespace EM3.Controller
         public static int standard_company = 0;
         public static int nav_mode = 0; //0 = Tabs; 1 = Windows;
         public static bool quiet_mode = false;
+        public static int licence_mode = 1; //1 - producao; 0 - homologacao;
 
         public static string GetApplication
         {
@@ -40,14 +41,21 @@ namespace EM3.Controller
 
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if(line.StartsWith("interface"))
+                    if (line.StartsWith("licence_mode"))
+                    {
+                        string value = line.Replace("licence_mode=", "");
+                        licence_mode = int.Parse(value);
+                        continue;
+                    }
+
+                    if (line.StartsWith("interface"))
                     {
                         string value = line.Replace("interface=", "");
                         nav_mode = (value.Equals("windows") ? 1 : 0);
                         continue;
                     }
 
-                    if(line.StartsWith("quiet"))
+                    if (line.StartsWith("quiet"))
                     {
                         string value = line.Replace("quiet=", "");
                         quiet_mode = value.Equals("enabled");
@@ -151,6 +159,8 @@ namespace EM3.Controller
                 }
                 ww.Dispatcher.Invoke(new Action<WaitWindow>(w => ww.Close()), ww);
                 EmpresasController.CriarEmpresaTeste();
+                MessageBox.Show("A criação das tabelas foi concluida. \nO sistema deve será encerrado para concluir outras alterações. \nAguarde alguns segundos e inicie novamente.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                Environment.Exit(0);
             }).Start();
         }
 
@@ -162,7 +172,14 @@ namespace EM3.Controller
             RequestHelper rh = new RequestHelper();
             rh.AddParameter("query", query);
             rh.Send("ps_execute");
-            return rh.HasSuccess;
+
+            if(rh.Result.status != 600)
+            {
+                MessageBox.Show("Erro durante a execução do escript\n\n " + query, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            return true;
         }
     }
 }
