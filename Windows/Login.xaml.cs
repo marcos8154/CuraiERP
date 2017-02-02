@@ -1,5 +1,5 @@
-﻿using EM3.Controller;
-using EM3.Windows.Selecao;
+﻿using Base.Controller;
+using Base.Windows.Selecao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EM3.Windows
+namespace Base.Windows
 {
     /// <summary>
     /// Lógica interna para Login.xaml

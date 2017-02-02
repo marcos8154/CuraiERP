@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EM3"
-        x:Class="EM3.MainWindow"
+        xmlns:local="clr-namespace:Base"
+        x:Class="Base.MainWindow"
         mc:Ignorable="d"
-        Title="Conectar com aplicativo" Height="296" Width="308" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="1480379753_vector_66_09.ico">
+        Title="Conectar com aplicativo" Height="296" Width="308" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="netlauncher.ico">
 
     <Grid >
         <Label x:Name="label" TabIndex="99" Content="Servidor&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="28"/>

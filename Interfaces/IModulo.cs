@@ -1,11 +1,11 @@
-﻿using EM3.Windows;
+﻿using Base.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Controls;
 
-namespace EM3.Interfaces
+namespace Base.Interfaces
 {
     interface IModulo
     {

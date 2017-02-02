@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EM3.Windows"
-        xmlns:Components="clr-namespace:EM3.Components;assembly=Base" x:Class="EM3.Windows.Login"
+        xmlns:local="clr-namespace:Base.Windows"
+        xmlns:Components="clr-namespace:Base.Components;assembly=Base" x:Class="Base.Windows.Login"
         mc:Ignorable="d"
-        Title="Autenticação" Height="600" Width="1023" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Autenticação" Height="600" Width="1023" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/Doware NetLauncher;component/netlauncher.ico">
     <Grid Background="White" HorizontalAlignment="Right" Width="1015">
         <Border BorderBrush="Gray" Background="White" BorderThickness="3" Margin="330,74,330,0" Height="424" VerticalAlignment="Top">
             <Grid Margin="17,22,16,16" Background="White">

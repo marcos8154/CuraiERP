@@ -1,4 +1,4 @@
-﻿using EM3.Controller;
+﻿using Base.Controller;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace EM3
+namespace Base
 {
     /// <summary>
     /// Interação lógica para App.xaml

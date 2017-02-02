@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EM3.Properties {
+namespace Base.Properties {
     using System;
     
     

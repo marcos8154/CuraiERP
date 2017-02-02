@@ -1,24 +1,26 @@
-﻿using EM3.Controller;
-using EM3.Interfaces;
-using EM3.UserControls.Configuracoes;
-using EM3.UserControls.Configuracoes.CadastroUsuarios;
-using EM3.UserControls.Configuracoes.GruposUsrXPermissoes;
-using EM3.UserControls.Configuracoes.GruposUsuarios;
-using EM3.UserControls.Estoquev.Armazem;
-using EM3.UserControls.Estoquev.Caracteristica;
-using EM3.UserControls.Estoquev.GruposProdutos;
-using EM3.UserControls.Estoquev.LocaisEstoque;
-using EM3.UserControls.Estoquev.Marca;
-using EM3.UserControls.Estoquev.Produto;
-using EM3.UserControls.Estoquev.UnidadesModulo;
-using EM3.UserControls.Financeiro.ClasseImposto;
-using EM3.UserControls.Financeiro.Condicoes_pag;
-using EM3.UserControls.Financeiro.Conta_bancarias;
-using EM3.UserControls.Financeiro.Operadora_cartao;
-using EM3.UserControls.Financeiro.Tabela_preco;
-using EM3.UserControls.Financeiro.TiposMovimento;
-using EM3.Util;
-using EM3.Windows.Selecao;
+﻿using Base.Controller;
+using Base.Interfaces;
+using Base.UserControls.Configuracoes;
+using Base.UserControls.Configuracoes.CadastroUsuarios;
+using Base.UserControls.Configuracoes.GruposUsrXPermissoes;
+using Base.UserControls.Configuracoes.GruposUsuarios;
+using Base.UserControls.CRM.Cliente;
+using Base.UserControls.Estoquev.Armazem;
+using Base.UserControls.Estoquev.Caracteristica;
+using Base.UserControls.Estoquev.GruposProdutos;
+using Base.UserControls.Estoquev.LocaisEstoque;
+using Base.UserControls.Estoquev.Marca;
+using Base.UserControls.Estoquev.Produto;
+using Base.UserControls.Estoquev.UnidadesModulo;
+using Base.UserControls.Faturamento.Pedido_venda;
+using Base.UserControls.Financeiro.ClasseImposto;
+using Base.UserControls.Financeiro.Condicoes_pag;
+using Base.UserControls.Financeiro.Conta_bancarias;
+using Base.UserControls.Financeiro.Operadora_cartao;
+using Base.UserControls.Financeiro.Tabela_preco;
+using Base.UserControls.Financeiro.TiposMovimento;
+using Base.Util;
+using Base.Windows.Selecao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EM3.Windows
+namespace Base.Windows
 {
     /// <summary>
     /// Lógica interna para Principal.xaml
@@ -42,8 +44,8 @@ namespace EM3.Windows
         public Principal()
         {
             InitializeComponent();
-            progresso.Maximum = 10;
 
+            tabControl.IsSynchronizedWithCurrentItem = true;
             lbData.Content = UsuariosController.DataBase.ToShortDateString();
             lbDB_type.Content = "Curae / " + Commons.GetDB_Type;
             lbNome_usuario.Content = UsuariosController.UsuarioAtual.Nome;
@@ -196,6 +198,20 @@ namespace EM3.Windows
             Tabela_precoContainer tpc = new Tabela_precoContainer();
             if (UsuariosController.ValidaPermissao(tpc.Tela_id, Enums.TipoPermissao.ACESSO))
                 Navigation.AddTabItem(tabControl, tpc, "Tabelas de preços");
+        }
+
+        private void btPedidos_venda_Click(object sender, RoutedEventArgs e)
+        {
+            Pedidos_vendaContainer pvc = new Pedidos_vendaContainer();
+            if (UsuariosController.ValidaPermissao(pvc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, pvc, "Pedidos de venda");
+        }
+
+        private void btClientes_Click(object sender, RoutedEventArgs e)
+        {
+            ClientesContainer cc = new ClientesContainer();
+            if (UsuariosController.ValidaPermissao(cc.Tela_id, Enums.TipoPermissao.ACESSO))
+                Navigation.AddTabItem(tabControl, cc, "Clientes");
         }
     }
 }

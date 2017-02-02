@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EM3.Windows"
-        xmlns:Components="clr-namespace:EM3.Components;assembly=Base" x:Class="EM3.Windows.Principal"
+        xmlns:local="clr-namespace:Base.Windows"
+        xmlns:Components="clr-namespace:Base.Components;assembly=Base" x:Class="Base.Windows.Principal"
         mc:Ignorable="d"
-        Title="Curae ERP" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
+        Title="Curae ERP" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed" Icon="/Doware NetLauncher;component/netlauncher.ico">
     <Grid>
-        <TabControl x:Name="tabControl" Margin="0,27,0,19">
+        <TabControl x:Name="tabControl" Margin="0,27,0,19" >
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -51,11 +51,50 @@
             </TabControl.Resources>
 
             <TabItem Header="Início">
-                <Grid Background="White" Margin="0,-1,0,5">
-                    <Components:ConfirmButton x:Name="btn" OnClick="btn_OnClick" HorizontalAlignment="Left" Margin="485,192,0,0" VerticalAlignment="Top"/>
-                    <Grid x:Name="GridModulos" HorizontalAlignment="Left" Margin="10,10,0,10" Width="364"/>
-                    <Components:NormalButton OnClick="NormalButton_OnClick" HorizontalAlignment="Left" Margin="602,156,0,0" VerticalAlignment="Top"/>
-                    <Components:ProgressBar x:Name="progresso" HorizontalAlignment="Left" Height="15" Margin="432,326,0,0" VerticalAlignment="Top" Width="495"/>
+                <Grid Background="#FFF7F7F7" Margin="0,-1,0,0">
+                    <Grid HorizontalAlignment="Left" Width="337" Background="#FFE6EEF1">
+                        <Label x:Name="label2" Content="Curae ERP - Varejo" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18.667" FontFamily="Segoe WP" Foreground="#FF196C6C" FontWeight="Bold" Margin="2,2,0,0"/>
+                        <ListView x:Name="listView" BorderBrush="Transparent" Margin="0,42,0,217" Background="#FFEBF4F7">
+
+                            <ListViewItem Width="333">
+                                <StackPanel Orientation="Horizontal" Width="335">
+                                    <Image Source="/Images/painel-financeiro.png" Height="39"/>
+                                    <Label Content="Painel financeiro" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI Semilight" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Width="333">
+                                <StackPanel Orientation="Horizontal" Width="335">
+                                    <Image Source="/Images/compras.png" Height="39"/>
+                                    <Label Content="Processo de compras" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI Semilight" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Width="333">
+                                <StackPanel Orientation="Horizontal" Width="335">
+                                    <Image Source="/Images/venda.png" Height="39"/>
+                                    <Label Content="Processo comercial" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI Semilight" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Width="333">
+                                <StackPanel Orientation="Horizontal" Width="335">
+                                    <Image Source="/Images/cr-cp.png" Height="39"/>
+                                    <Label Content="Processo CR/CP" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI Semilight" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Width="333">
+                                <StackPanel Orientation="Horizontal" Width="335">
+                                    <Image Source="/Images/crm.png" Height="39"/>
+                                    <Label Content="CRM" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" FontWeight="Bold" FontFamily="Segoe UI Semilight" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                        <Grid Margin="2,0,0,0"  Background="#FFEBF4F7" Height="217" VerticalAlignment="Bottom">
+                            <Image x:Name="logoEmpresa" Margin="10,0,10,10" Source="/Doware NetLauncher;component/Images/logo.png" Stretch="Fill" Height="197" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Grid>
 
                 </Grid>
             </TabItem>
@@ -76,7 +115,7 @@
                     <MenuItem Header="Locais de estoque" x:Name="btLocaisEstoque" Click="btLocaisEstoque_Click" />
                     <MenuItem Header="Grupos de produtos" x:Name="btGrupos_produtos" Click="btGrupos_produtos_Click" />
                     <MenuItem Header="Marcas" x:Name="btMarcas" Click="btMarcas_Click"/>
-                        <MenuItem Header="Produtos" x:Name="btProdutos" Click="btProdutos_Click" />
+                    <MenuItem Header="Produtos" x:Name="btProdutos" Click="btProdutos_Click" />
                     <MenuItem Header="Kit de produtos" />
                     <MenuItem Header="Produtos x Características"/>
                     <MenuItem Header="Produtos x Locais de estoque"/>
@@ -113,10 +152,10 @@
                     <MenuItem Header="Operadoras de cartão" x:Name="btOperadoras_cartao" Click="btOperadoras_cartao_Click"/>
                     <MenuItem Header="Contas bancárias" x:Name="btContas_bancarias" Click="btContas_bancarias_Click" />
                     <MenuItem Header="Tabelas de preço" x:Name="btTabelas_preco" Click="btTabelas_preco_Click" />
-                    <MenuItem Header="Caixas" />
                     <MenuItem Header="Planos de conta" />
+                    <MenuItem Header="Contas a pagar" />
+                    <MenuItem Header="Contas a receber" />
                     <MenuItem Header="Regras de desconto" />
-                    <MenuItem Header="Regras de acréscimo" />
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
@@ -136,37 +175,54 @@
                     <MenuItem Header="Entrada" />
                 </MenuItem>
                 <MenuItem Header="Lançamento de movimentos (Genérico)"/>
-                <MenuItem Header="Pedidos de venda" />
+                <MenuItem Header="Pedidos de venda" x:Name="btPedidos_venda" Click="btPedidos_venda_Click" />
+                <MenuItem Header="Documento de saída"/>
                 <MenuItem Header="Venda direta" />
-                <MenuItem Header="Contas a pagar" />
-                <MenuItem Header="Contas a receber" />
-
-                <MenuItem Header="Documento de saída">
-                    <MenuItem Header="Boleto"/>
-                    <MenuItem Header="NF-e"/>
-                    <MenuItem Header="NFC-e"/>
-                </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="RH">
+            <MenuItem Header="Funcionários">
                 <MenuItem Header="Atualizações">
                     <MenuItem Header="Funcionários"/>
                     <MenuItem Header="Cargos"/>
-                    <MenuItem Header="Turnos"/>
-                    <MenuItem Header="Benefícios"/>
-                    <MenuItem Header="Funcionários x Cargos"/>
-                    <MenuItem Header="Funcionários x Turnos"/>
-                    <MenuItem Header="Funcionários x Benefícios"/>
+                </MenuItem>
+                <MenuItem Header="Consultas">
+                    <MenuItem Header="Comissões de vendedores"/>
+                    <MenuItem Header="Vendas por vendedor"/>
+                </MenuItem>
+                <MenuItem Header="Movimentos">
+                    <MenuItem Header="Pagamento"/>
+                    <MenuItem Header="Lançamento de despesas"/>
+                    <MenuItem Header="Liberação de vale"/>
+                    <MenuItem Header="Saída/Retorno de produtos para demonstração"/>
                 </MenuItem>
             </MenuItem>
 
-            <MenuItem Header="Miscelânea">
+            <MenuItem Header="CRM">
                 <MenuItem Header="Atualizações">
-                    <MenuItem Header="Empresa" x:Name="btEmpresa" Click="btEmpresa_Click"/>
-                    <MenuItem Header="Usuários" x:Name="btUsuarios" Click="btUsuarios_Click"/>
-                    <MenuItem Header="Grupos de usuários" x:Name="btGrupos_usuairos" Click="btGrupos_usuairos_Click"/>
-                    <MenuItem Header="Grupos x Permissões" x:Name="btGruposXPermissoes" Click="btGruposXPermissoes_Click" />
+                    <MenuItem Header="Clientes" x:Name="btClientes" Click="btClientes_Click"/>
+                    <MenuItem Header="Atividades"/>
+                    <MenuItem Header="Metas de venda"/>
+                    <MenuItem Header="Oportunidades de venda"/>
                 </MenuItem>
+
+                <MenuItem Header="Consultas">
+                    <MenuItem Header="Clientes por vendedor"/>
+                    <MenuItem Header="Vendas por cliente"/>
+                    <MenuItem Header="Acompanhamento das metas"/>
+                    <MenuItem Header="Clientes por produto"/>
+                </MenuItem>
+
+                <MenuItem Header="Movimentos">
+                    <MenuItem Header="Saída/Retorno de produtos para demonstração"/>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Outros">
+                <MenuItem Header="Empresa" x:Name="btEmpresa" Click="btEmpresa_Click"/>
+                <MenuItem Header="Usuários" x:Name="btUsuarios" Click="btUsuarios_Click"/>
+                <MenuItem Header="Caixas" />
+                <MenuItem Header="Grupos de usuários" x:Name="btGrupos_usuairos" Click="btGrupos_usuairos_Click"/>
+                <MenuItem Header="Grupos x Permissões" x:Name="btGruposXPermissoes" Click="btGruposXPermissoes_Click" />
             </MenuItem>
         </Menu>
 

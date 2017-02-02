@@ -1,10 +1,13 @@
-﻿using EM3.Controller;
-using EM3.Windows;
+﻿using Base.Controller;
+using Base.Windows;
+using CrystalDecisions.CrystalReports.Engine;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,8 +18,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
-namespace EM3
+namespace Base
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam
