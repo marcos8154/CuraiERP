@@ -1,2 +1,3 @@
-﻿G_CLIUF=Clientes por Estado
-G_CLIVEND=Clientes por vendedor
+﻿G_CLIBAIRRO=Clientes por Bairro
+G_CLICID=Clientes por Cidade
+G_CLIUF=Clientes por Estado

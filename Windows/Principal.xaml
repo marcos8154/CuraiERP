@@ -120,9 +120,7 @@
                     <MenuItem Header="Produtos x Características"/>
                     <MenuItem Header="Produtos x Locais de estoque"/>
                 </MenuItem>
-
-                <MenuItem Header="Consultas"/>
-
+                <MenuItem Header="Relatórios"/>
                 <MenuItem Header="Movimentos">
                     <MenuItem Header="Devolução para fornecedor"/>
                     <MenuItem Header="Transferência de endereço" />
@@ -138,7 +136,7 @@
                     <MenuItem Header="Produtos x Fornecedor" />
                     <MenuItem Header="Grupos de produtos x Fornecedor" />
                 </MenuItem>
-
+                <MenuItem Header="Relatórios"/>
                 <MenuItem Header="Movimentos">
                     <MenuItem Header="Documento de entrada"/>
                 </MenuItem>
@@ -157,14 +155,7 @@
                     <MenuItem Header="Contas a receber" />
                     <MenuItem Header="Regras de desconto" />
                 </MenuItem>
-
-                <MenuItem Header="Consultas">
-
-                </MenuItem>
-
-                <MenuItem Header="Relatórios">
-
-                </MenuItem>
+                <MenuItem Header="Relatórios"/>
             </MenuItem>
 
             <MenuItem Header="Faturamento">
@@ -205,7 +196,8 @@
                     <MenuItem Header="Oportunidades de venda"/>
                 </MenuItem>
 
-                <MenuItem Header="Consultas">
+                <MenuItem Header="Relatórios">
+                    <MenuItem Header="Listagem"/>
                     <MenuItem Header="Clientes por vendedor"/>
                     <MenuItem Header="Vendas por cliente"/>
                     <MenuItem Header="Acompanhamento das metas"/>

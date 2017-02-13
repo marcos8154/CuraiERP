@@ -16,14 +16,14 @@ namespace Base.Relatorios {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class G_CLIUF : ReportClass {
+    public class G_CLIBAIRRO : ReportClass {
         
-        public G_CLIUF() {
+        public G_CLIBAIRRO() {
         }
         
         public override string ResourceName {
             get {
-                return "G_CLIUF.rpt";
+                return "G_CLIBAIRRO.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Base.Relatorios {
         
         public override string FullResourceName {
             get {
-                return "Base.Relatorios.G_CLIUF.rpt";
+                return "Base.Relatorios.G_CLIBAIRRO.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Base.Relatorios {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedG_CLIUF : Component, ICachedReport {
+    public class CachedG_CLIBAIRRO : Component, ICachedReport {
         
-        public CachedG_CLIUF() {
+        public CachedG_CLIBAIRRO() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Base.Relatorios {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            G_CLIUF rpt = new G_CLIUF();
+            G_CLIBAIRRO rpt = new G_CLIBAIRRO();
             rpt.Site = this.Site;
             return rpt;
         }
