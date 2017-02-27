@@ -9,7 +9,7 @@
         Title="Curae ERP" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed" Icon="/Doware NetLauncher;component/netlauncher.ico">
     <Grid>
         <TabControl x:Name="tabControl" Margin="0,27,0,19" >
-            <TabControl.Resources>
+            <TabControl.ItemContainerStyle>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
                         <Setter.Value>
@@ -48,7 +48,7 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-            </TabControl.Resources>
+            </TabControl.ItemContainerStyle>
 
             <TabItem Header="Início">
                 <Grid Background="#FFF7F7F7" Margin="0,-1,0,0">

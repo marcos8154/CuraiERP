@@ -7,21 +7,30 @@
         xmlns:Components="clr-namespace:Base.Components;assembly=Base" x:Class="Base.Windows.Login"
         mc:Ignorable="d"
         Title="Autenticação" Height="600" Width="1023" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/Doware NetLauncher;component/netlauncher.ico">
-    <Grid Background="White" HorizontalAlignment="Right" Width="1015">
-        <Border BorderBrush="Gray" Background="White" BorderThickness="3" Margin="330,74,330,0" Height="424" VerticalAlignment="Top">
-            <Grid Margin="17,22,16,16" Background="White">
-                <Label Content="Seja bem-vindo" Foreground="#FF726C6C" Margin="0,0,0,340" FontSize="20"/>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Doware NetLauncher;component/Images/fundo-login.jpg"/>
+        </Grid.Background>
+        <Viewbox StretchDirection="UpOnly" Stretch="None">
+            <Border  BorderBrush="#FFE4E4E4" Background="White" BorderThickness="3" Margin="330,0,330,0" Height="413" VerticalAlignment="Top" Width="342" CornerRadius="5">
+                <Grid>
+                    <Grid Margin="15,15,15,53" Background="White">
+                        <Label Content="Seja bem-vindo" Foreground="#FF554B4B" FontSize="20" Height="37" VerticalAlignment="Top" Margin="0,-4,0,0"/>
 
-                <Components:Input CharacterCasing="Normal" x:Name="txUsuario" KeyDown="txUsuario_KeyDown" Title="Usuário" Margin="0,124,0,0" VerticalAlignment="Top" Height="52" Width="Auto"/>
-                <Components:PasswordBox x:Name="txSenha" KeyDown="txSenha_KeyDown" Title="Senha" Margin="0,189,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
-                <Components:SearchBox  CallSearch="buscarEmpresa" x:Name="txCod_empresa" Title="Empresa" HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="60" Width="94"/>
-                <Components:SimpleInput x:Name="txNomeEmpresa" Enabled="False" Margin="0,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.484,0.393" Height="28" HorizontalAlignment="Right" Width="217"/>
-                <Components:ConfirmButton SizeFont="14" x:Name="btLogin" Text="Login" OnClick="btLogin_click" HorizontalAlignment="Right" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="96" Height="34"/>
-                <Components:DatePicker x:Name="txData" Title="Data base" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Height="60" Width="174"/>
-                <Label x:Name="label" Content="Esqueceu a senha?" HorizontalAlignment="Right" Margin="0,249,0,0" VerticalAlignment="Top" Width="120" Foreground="#FF086DFF" Cursor="Hand" FontSize="13.333"/>
+                        <Components:Input CharacterCasing="Normal" x:Name="txUsuario" KeyDown="txUsuario_KeyDown" Title="Usuário" Margin="0,147,0,0" VerticalAlignment="Top" Height="52" Width="Auto"/>
+                        <Components:PasswordBox x:Name="txSenha" KeyDown="txSenha_KeyDown" Title="Senha" Margin="0,212,0,0" VerticalAlignment="Top" Height="60" Width="Auto"/>
+                        <Components:SearchBox  CallSearch="buscarEmpresa" x:Name="txCod_empresa" Title="Empresa" HorizontalAlignment="Left" Margin="0,279,0,0" VerticalAlignment="Top" Height="60" Width="64"/>
+                        <Components:SimpleInput x:Name="txNomeEmpresa" Enabled="False" Margin="0,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.484,0.393" Height="30" HorizontalAlignment="Right" Width="237"/>
+                        <Components:DatePicker x:Name="txData" Title="Data base" HorizontalAlignment="Left" Margin="0,84,0,0" VerticalAlignment="Top" Height="60" Width="174"/>
+                        <Label x:Name="label" Content="Esqueceu a senha?" HorizontalAlignment="Right" Margin="0,272,0,0" VerticalAlignment="Top" Width="120" Foreground="#FF086DFF" Cursor="Hand" FontSize="13.333"/>
+                        <Label Content="Identifique-se abaixo para utilizar a linha de&#xD;&#xA;produtos Doware Curae - Atacado &amp; Varejo" Foreground="#FF726C6C" FontSize="13.333" Height="45" VerticalAlignment="Top" Margin="0,27,0,0"/>
 
-            </Grid>
-        </Border>
-
+                    </Grid>
+                    <Grid Height="43" VerticalAlignment="Bottom" Background="#FFE4E4E4" Margin="-2,0">
+                        <Components:ConfirmButton SizeFont="13.5" x:Name="btLogin" Text="Login" OnClick="btLogin_click" HorizontalAlignment="Right" Margin="0,0,17,5" Width="88" Height="31" VerticalAlignment="Bottom"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Viewbox>
     </Grid>
 </Window>
